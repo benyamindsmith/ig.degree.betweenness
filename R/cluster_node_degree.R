@@ -100,7 +100,7 @@ cluster_node_degree <- function(
   res$names <- V(graph)$name
   res$vcount <- vcount(graph)
   res$algorithm <- "node closeness"
-  res$membership <- communities_list[[1]]
+  res$membership <- communities_list[[iter_num]]
   res$bridges <- bridges(graph) + 1
   class(res) <- "communities"
 

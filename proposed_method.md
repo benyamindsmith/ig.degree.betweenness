@@ -10,6 +10,6 @@ In the case of an overlap of nodes, the node with higher closeness centrality ge
 
 This algorithm:
 
-1. Works only with indirected networks.
+1. Works only with undirected networks.
 2. Works only with named nodes.
 3. Datasets like `igraphdata`'s "karate" and "yeast" datasets work
