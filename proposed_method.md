@@ -1,4 +1,4 @@
-__THE ALGORITHM__
+## THE ALGORITHM
 
 This algorithm detects communities by calculating the closeness centrality measures of nodes and assigns communities based on the subsequent subgraphs.
 
@@ -6,7 +6,7 @@ The algorithm first calculates closeness centrality for all nodes in the graph a
 
 In the case of an overlap of nodes, the node with higher closeness centrality gets it. As a result, there are is no overlap in nodes between clusters. For choice of number of communities, the number which maximizes modularity is chosen.
 
-__LIMITATIONS__
+## LIMITATIONS
 
 This algorithm:
 
