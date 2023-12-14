@@ -34,7 +34,7 @@ cluster_node_degree <- function(
   communities <- list()
   community_list <- list()
   community_list <- append(communities, clusters(graph_)$membership)
-  degree_nodes <- names(sort(-degree(graph_)))
+  degree_nodes <- names(sort(degree(graph_),decreasing = TRUE))
   communities_list <- list()
   subgraphs <- list()
   n <-length(degree_nodes)
@@ -100,6 +100,7 @@ cluster_node_degree <- function(
   res$names <- V(graph)$name
   res$vcount <- vcount(graph)
   res$algorithm <- "node closeness"
+  res$modularity <- modularities
   res$membership <- communities_list[[iter_num]]
   res$bridges <- bridges(graph) + 1
   class(res) <- "communities"
