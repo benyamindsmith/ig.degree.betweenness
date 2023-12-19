@@ -12,6 +12,6 @@ test_that(
   {
     library(igraphdata)
     data("yeast")
-    expectdegree(cluster_node_closeness(yeast))
+    expect_no_error(cluster_node_degree(yeast))
   }
 )

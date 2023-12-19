@@ -12,5 +12,6 @@ This algorithm:
 
 1. Works only with undirected networks.
 2. Works only with named nodes.
+3. Works best with Bipartite Graphs
 4. If edge_density is greater than or equal to 1 then these algorithms will not work. 
-3. Datasets like `igraphdata`'s "karate" and "yeast" datasets work
+5. Datasets like `igraphdata`'s "karate" and "yeast" datasets work
