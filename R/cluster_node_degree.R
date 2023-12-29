@@ -29,7 +29,8 @@
 cluster_node_degree <- function(
     graph
 ) {
-
+  warning("The following is a artifact of the research process.
+          For the novel algorithm, please see cluster_degree_betweenness()")
   graph_ <- graph
   communities <- list()
   community_list <- list()
@@ -104,7 +105,6 @@ cluster_node_degree <- function(
   res$membership <- communities_list[[iter_num]]
   res$bridges <- bridges(graph) + 1
   class(res) <- "communities"
-
   return(res)
 
 }

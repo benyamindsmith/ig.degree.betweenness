@@ -15,3 +15,7 @@ This algorithm:
 3. Works best with Bipartite Graphs
 4. If edge_density is greater than or equal to 1 then these algorithms will not work. 
 5. Datasets like `igraphdata`'s "karate" and "yeast" datasets work
+
+## TODO
+
+- Proposed Method Maximizes Modularity. Consider CPM like how louvain and Lieden do. 

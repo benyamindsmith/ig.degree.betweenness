@@ -34,7 +34,8 @@
 cluster_node_closeness <- function(
     graph
 ) {
-
+  warning("The following is a artifact of the research process.
+          For the novel algorithm, please see cluster_degree_betweenness()")
   graph_ <- graph
   communities <- list()
   community_list <- list()
