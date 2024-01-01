@@ -3,6 +3,7 @@
 export(cluster_degree_betweenness)
 export(cluster_node_closeness)
 export(cluster_node_degree)
+export(plot_simplified_edgeplot)
 import(igraphdata)
 importFrom(igraph,E)
 importFrom(igraph,V)
