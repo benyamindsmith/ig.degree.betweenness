@@ -1,1 +1,1 @@
-# ig.cluster.closeness
+# ig.degree.betweeness
