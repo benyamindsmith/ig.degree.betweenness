@@ -1,0 +1,41 @@
+---
+title: "Considering Degree Centrality for More Descriptive Communities in Social Network Analysis"
+format: 
+  revealjs:
+    incremental: true
+css: style.css
+editor: visual
+author: 
+  name: Benjamin Smith
+  degree: Dalla Lana School of Public Health
+---
+
+## Introduction
+
+::: {.nonincremental}
+- __Social network analysis (SNA)__ is a process used for analysis of social structure by the use of networks and graph-theory. 
+
+
+- A primary area of study in (SNA) is the analysis of community structure through use of algorithms appropriately referred to as "__community detection algorithms__".
+
+- Rostami et al (2023) note that community detection in social networks is a challenging field of study as there is no clear cut model which describes what exactly a "community" is.
+:::
+
+## Overview
+
+When you click the **Render** button a document will be generated that includes:
+
+::: {.nonincremental}
+-   Content authored with markdown
+-   Output from executable code
+:::
+
+## Methods
+
+
+## Edge Betweeness (Girvan-Newman)
+
+
+## Louvain
+
+## Degree Betweeness (Smith-Pittman)

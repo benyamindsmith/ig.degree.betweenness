@@ -9,3 +9,20 @@ prep_unlabeled_graph(graph)
 \description{
 Prepared Unlabeled Graph to work with Degree Betweeness Algorithm
 }
+\examples{
+library(igraphdata)
+data("UKfaculty")
+# Making graph undirected so it looks nicer when its plotted
+uk_faculty <- prep_unlabeled_graph(UKfaculty) |>
+  as.undirected()
+
+ndb <- cluster_degree_betweenness(uk_faculty)
+
+plot(
+ndb,
+uk_faculty,
+main= "Node Degree Clustering"
+)
+
+ndb
+}

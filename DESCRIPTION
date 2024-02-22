@@ -1,9 +1,9 @@
-Package: ig.cluster.closeness
+Package: ig.degree.betweeness
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Implementation of the degree-betweeness community detection algortihm developed by Benjamin Smith and Tyler Pittman. 
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: Benjamin Smith, Tyler Pittman
+Maintainer: Benjamin Smith <benyamindsmith@gmail.com>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: file LICENSE
