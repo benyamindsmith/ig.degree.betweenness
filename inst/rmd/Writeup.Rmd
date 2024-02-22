@@ -1,8 +1,7 @@
 ---
 title: "Considering Degree Centrality for More Interpretive Communities in Social Network Analysis"
 author: 
-  - "Benjamin Smith^[University of Toronto, Dalla Lana School of Public Health, 
-  benyamin.smith@mail.utoronto.ca, ORCID: https://orcid.org/0009-0007-2206-0177]"
+  - "Benjamin Smith^[University of Toronto, Dalla Lana School of Public Health, 155 College St 6th Floor, Toronto, ON M5T 3M6 benyamin.smith@mail.utoronto.ca, ORCID: https://orcid.org/0009-0007-2206-0177]"
 date: "`r Sys.Date()`"
 abstract: 'Community detection is a field of study in social network analysis (SNA) which focuses on grouping nodes into communities based on properties of a given network. In unsupervised settings, popular algorithms such as Girvan-Newman and Louvain select communities based on modularity - a measure commonly used to indicate how well identified communities group nodes in a network. An outstanding challenge is the subsequent interpretation of the identified communities in the context of the social network which algorithms. This paper presents a modularity maximization algorithm that considers degree centrality and edge betweeness and compares its qualitative performance to Girvan-Newman and Louvain for interpretation. Using example datasets and a small-world simulation, the method demonstrates potential for identifying communities which can be visually interpreted by practicioners. 
 \hfill\break
