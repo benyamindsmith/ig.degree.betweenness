@@ -3,39 +3,91 @@ title: "Considering Degree Centrality for More Descriptive Communities in Social
 format: 
   revealjs:
     incremental: true
+    slide-number: true
+    logo: https://canpath.ca/wp-content/uploads/2020/03/dalla-lana-logo@2x.png
+    footer: "Benjamin Smith, University of Toronto, Dalla Lana School of Public Health"
+    
 css: style.css
-editor: visual
+editor: source
 author: 
   name: Benjamin Smith
   degree: Dalla Lana School of Public Health
+  orcid: 0009-0007-2206-0177
+  email: benyamin.smith@mail.utoronto.ca
+
 ---
 
-## Introduction
+## Social Networks
 
-::: {.nonincremental}
-- __Social network analysis (SNA)__ is a process used for analysis of social structure by the use of networks and graph-theory. 
+<!--
+Add some picture of social networks
+-->
 
+## Social Network Analysis
 
-- A primary area of study in (SNA) is the analysis of community structure through use of algorithms appropriately referred to as "__community detection algorithms__".
+::: nonincremental
+-   **Social network analysis (SNA)** is a process used for analysis of social structure by the use of networks and graph-theory.
 
-- Rostami et al (2023) note that community detection in social networks is a challenging field of study as there is no clear cut model which describes what exactly a "community" is.
+-   A primary area of study in (SNA) is the analysis of community structure through use of algorithms appropriately referred to as "**community detection algorithms**".
+
+-   Rostami et al (2023) note that community detection in social networks is a challenging field of study as there is no clear cut model which describes what exactly a "community" is.
 :::
 
-## Overview
+## Modularity
 
-When you click the **Render** button a document will be generated that includes:
-
-::: {.nonincremental}
--   Content authored with markdown
--   Output from executable code
-:::
-
-## Methods
-
+## Community Detection
 
 ## Edge Betweeness (Girvan-Newman)
-
 
 ## Louvain
 
 ## Degree Betweeness (Smith-Pittman)
+
+# Results
+
+## Zachary's Karate Club Network
+
+## Friendship network of UK university faculty
+
+## Watts-Strogatz small-world model
+
+# Discussion
+
+## Discussion
+
+## Limitations and Further Work
+
+## Acknowledgements
+
+## References
+
+1. M. Rostami, M. Oussalah, K. Berahmand & V. Farrahi, "Community Detection Algorithms in Healthcare Applications: A Systematic Review," in IEEE Access,11, pp. 30247-30272, 2023, doi: 10.1109/ACCESS.2023.3260652.
+
+2. A. Clauset, M. E. J. Newman, & C. Moore, (2004). Finding community structure in very large networks. Phys. Rev. E, 70(6), 066111. doi: 10.1103/PhysRevE.70.066111
+
+3. G. Csárdi,T. Nepusz, V. Traag, Sz. Horvát, F. Zanini & D. Noom,K. Müller (2024). igraph: Network Analysis and Visualization in R. doi:10.5281/zenodo.7682609, R package version 1.5.1,https://CRAN.R-project.org/package=igraph.
+
+4.  M. Girvan, & M. E. J. Newman (2002). Community structure in social and biological networks. Proceedings of the National Academy of Sciences of the United States of America, 99(12), 7821–7826. https://doi.org/10.1073/pnas.122653799
+
+5. M. E. J. Newman, & M. Girvan, (2004). Finding and evaluating community structure in networks. Phys. Rev. E, 69(2), 026113. doi: 10.1103/PhysRevE.69.026113
+
+6. V. D. Blondel, J. Guillaume, R. Lambiotte, & E. Lefebvre, (2008). Fast unfolding of communities in large networks. Journal of Statistical Mechanics: Theory and Experiment, 2008(10), P10008. https://doi.org/10.1088/1742-5468/2008/10/p10008
+
+7. N. Smith, P. N. Zivich, L. Frerichs, J. Moody, & A. E. Aiello, (2020). A guide for choosing community detection Algorithms in social network Studies: The question Alignment Approach. American Journal of Preventive Medicine, 59(4), 597–605. https://doi.org/10.1016/j.amepre.2020.04.015
+
+8. W. Zachary, (1977). An information flow model for conflict and fission in small groups. Journal of Anthropological Research, 33(4), 452–473. https://doi.org/10.1086/jar.33.4.3629752
+
+9. T. Nepusz, A. Petróczi, L. Négyessy, & F. Bazsó, (2008). Fuzzy communities and the concept of bridgeness in complex networks. Physical Review E, 77(1). https://doi.org/10.1103/physreve.77.016107
+
+10.  D. J. Watts, & S. H. Strogatz, (1998). Collective dynamics of ‘small-world’ networks. Nature, 393(6684), 440–442. https://doi.org/10.1038/30918
+
+11. G Csardi, (2015). igraphdata: A Collection of Network Data Sets for the 'igraph' Package. R
+  package version 1.0.1, https://CRAN.R-project.org/package=igraphdata.
+
+12. M. A. Porter, (2012). Small-world network. Scholarpedia, 7(2), 1739. https://doi.org/10.4249/scholarpedia.1739
+
+13. A. P. Christensen, (2023). Comparing community detection Algorithms in psychometric networks: A Monte Carlo simulation. OSF. https://doi.org/10.17605/OSF.IO/JFXAD
+
+# Thank You!
+
+
