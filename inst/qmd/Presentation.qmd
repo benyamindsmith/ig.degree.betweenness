@@ -5,7 +5,7 @@ format:
     incremental: true
     slide-number: true
     logo: https://canpath.ca/wp-content/uploads/2020/03/dalla-lana-logo@2x.png
-    footer: "Benjamin Smith, University of Toronto, Dalla Lana School of Public Health"
+    footer: "Smith, Benjamin: Considering Degree Centrality for More Descriptive Communities in Social Network Analysis"
     
 css: style.css
 editor: source
@@ -18,6 +18,19 @@ author:
 ---
 
 ## Social Networks
+
+```{r}
+library(igraph)
+library(igraphdata)
+library(ig.degree.betweeness)
+
+data("karate")
+
+par(mar=c(0,0,0,0)+.1)
+
+plot(karate,
+     edge.arrow.size = 0.3)
+```
 
 <!--
 Add some picture of social networks
@@ -61,6 +74,8 @@ Add some picture of social networks
 
 ## References
 
+::: {style="font-size:15px"}
+::: nonincremental
 1. M. Rostami, M. Oussalah, K. Berahmand & V. Farrahi, "Community Detection Algorithms in Healthcare Applications: A Systematic Review," in IEEE Access,11, pp. 30247-30272, 2023, doi: 10.1109/ACCESS.2023.3260652.
 
 2. A. Clauset, M. E. J. Newman, & C. Moore, (2004). Finding community structure in very large networks. Phys. Rev. E, 70(6), 066111. doi: 10.1103/PhysRevE.70.066111
@@ -87,6 +102,8 @@ Add some picture of social networks
 12. M. A. Porter, (2012). Small-world network. Scholarpedia, 7(2), 1739. https://doi.org/10.4249/scholarpedia.1739
 
 13. A. P. Christensen, (2023). Comparing community detection Algorithms in psychometric networks: A Monte Carlo simulation. OSF. https://doi.org/10.17605/OSF.IO/JFXAD
+::: 
+:::
 
 # Thank You!
 

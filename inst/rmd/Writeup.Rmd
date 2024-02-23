@@ -137,7 +137,7 @@ louvain_karate <- karate |>
   igraph::cluster_louvain()
 
 sp_karate <- karate |>
-  ig.cluster.closeness::cluster_degree_betweenness()
+  ig.degree.betweeness::cluster_degree_betweenness()
 
 par(mfrow= c(1,3),mar=c(0,0,0,0)+1)
 
@@ -169,7 +169,7 @@ While Louvain offers an aesthetically "clean" solution with compact communities,
 ```{r,echo=FALSE, message=FALSE,fig.height=4,fig.cap="Friendship Netowork of UK university faculty. From Nepusz et al (2008). Colored according to school affiliation."}
 data("UKfaculty")
 
-uk_faculty <- ig.cluster.closeness::prep_unlabeled_graph(UKfaculty)
+uk_faculty <- ig.degree.betweeness::prep_unlabeled_graph(UKfaculty)
 
 par(mar=c(0,0,0,0)+.1)
 
@@ -181,7 +181,7 @@ plot(uk_faculty,
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE,fig.height = 4,fig.cap="Unsupervised Community Detection by (a) Girvan-Newman, (b) Louvain and (c) Smith-Pittman"}
 
-uk_faculty <- ig.cluster.closeness::prep_unlabeled_graph(UKfaculty)
+uk_faculty <- ig.degree.betweeness::prep_unlabeled_graph(UKfaculty)
 
 gn_faculty <- uk_faculty |>
   igraph::cluster_edge_betweenness()
@@ -191,7 +191,7 @@ louvain_faculty <- uk_faculty |>
   igraph::cluster_louvain()
 
 sp_faculty <- uk_faculty |>
-  ig.cluster.closeness::cluster_degree_betweenness()
+  ig.degree.betweeness::cluster_degree_betweenness()
 
 par(mfrow= c(1,3),mar=c(0,0,0,0)+1)
 
@@ -229,10 +229,10 @@ To simulate data similar to the previous real-world examples, a one dimensional 
 
 ```{r echo=FALSE}
 sim <- igraph::sample_smallworld(1, 100, 5, 0.1)|>
-  ig.cluster.closeness::prep_unlabeled_graph()
+  ig.degree.betweeness::prep_unlabeled_graph()
 
 gn_sim <- igraph::cluster_edge_betweenness(sim)
-sp_sim <- ig.cluster.closeness::cluster_degree_betweenness(sim)
+sp_sim <- ig.degree.betweeness::cluster_degree_betweenness(sim)
 louvain_sim <- igraph::cluster_louvain(sim)
 ```
 
