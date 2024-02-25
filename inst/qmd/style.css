@@ -10,3 +10,15 @@ h3.title{
   font-size: 0.5em;
 }
 
+
+ul li{
+  /* Set the bullet size */
+  font-size: 0.6em; /* Adjust this value as needed */
+}
+
+.math.inline {
+  font-size: 100%;
+}
+.math.display {
+  font-size: 50%;
+}
