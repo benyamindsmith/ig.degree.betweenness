@@ -1,5 +1,5 @@
 ---
-title: "Considering Degree Centrality for More Descriptive Communities in Social Network Analysis"
+title: "Considering Degree Centrality for More Interpretive Communities in Social Network Analysis"
 format: 
   revealjs:
     incremental: false
@@ -21,6 +21,7 @@ author:
 ## Social Networks
 
 ```{r}
+library(tidyverse)
 library(igraph)
 library(igraphdata)
 library(ig.degree.betweeness)
@@ -35,13 +36,14 @@ sim <- igraph::sample_smallworld(1, 100, 5, 0.1)|>
 
 
 par(mfrow = c(1,3), mar=c(0,0,0,0)+.1)
-
+set.seed(5250)
 plot(karate,
      edge.arrow.size = 0.3)
-
+set.seed(5250)
 plot(uk_faculty,
      vertex.color = V(UKfaculty)$Group,
      edge.arrow.size = 0.3)
+set.seed(5250)
 
 plot(sim)
 ```
@@ -56,10 +58,6 @@ plot(sim)
 -  Social networks are made up of two building blocks:
 :::
 
-<!--
-Get pictures of nodes and edges
---->
-
 ::: {.fragment fragment-index=2}
 :::: {.columns}
 
@@ -68,14 +66,25 @@ Get pictures of nodes and edges
 __Nodes__
 
 ```{r}
-g <- graph(c(1, 2, 2, 3, 3, 1), directed = TRUE)
-par(mar=c(0,0,0,0)+.1)
-V(g)$color <- "red"
+g_directed <- graph(c(1, 2, 2, 3, 3, 1), directed = TRUE)
+g_undirected <- as.undirected(g_directed)
 
-plot(g,
+V(g_directed)$color <- "red"
+V(g_undirected)$color <- "red"
+
+set.seed(5250)
+par(mfrow= c(1,2),mar=c(0,0,0,0)+.1)
+plot(g_undirected,
      vertex.label = "",
      edge.arrow.size = 1,
      vertex.size = 20)
+
+plot(g_directed,
+     vertex.label = "",
+     edge.arrow.size = 1,
+     vertex.size = 20)
+
+
 ```
 
 
@@ -86,11 +95,24 @@ plot(g,
 __Edges__
 
 ```{r}
-V(g)$color <- "grey"
-E(g)$color <- "red"
+set.seed(5250)
+
+V(g_directed)$color <- "grey"
+V(g_undirected)$color <- "grey"
+E(g_directed)$color <- "red"
+E(g_undirected)$color <- "red"
+
 par(mar=c(0,0,0,0)+.1)
 
-plot(g,
+par(mfrow= c(1,2),mar=c(0,0,0,0)+.1)
+
+
+plot(g_undirected,
+     vertex.label = "",
+     edge.arrow.size = 1,
+     vertex.size = 20)
+
+plot(g_directed,
      vertex.label = "",
      edge.arrow.size = 1,
      vertex.size = 20)
@@ -103,19 +125,20 @@ plot(g,
 
 ## Community Detection
 
+
+- A primary area of study in SNA is the analysis of community structure and the identification of communities through use of algorithms appropriately referred to as __"community detection algorithms".__
+
+:::{.incremental}
+- __There is no specific model which describes what exactly a "community" is (Rostami et al 2023).__
+
+- Generally speaking, __community detection often involves the use of a specified optimization strategy for transforming a large-scale complex network into a set of disjoint and compact subgroups, often (but not always) without prior knowledge about the number of subgroups and their sizes.__
+
+- A popular metric which is optimized in community detection algorithms is __modularity__: A function calculates the strength of the division of a graph into subgraphs.
+:::
+
 ## Modularity
 
 
-- A popular metric which is optimized in community detection algorithms is __modularity__.
-
-
-
-::: {.fragment fragment-index=3}
-- function calculates the strength of the division of a graph into subgraphs.
-:::
-
-
-::: {.fragment fragment-index=4}
 :::: {.columns}
 
 ::: {.column width="50%"}
@@ -142,37 +165,446 @@ Q = \frac{1}{m} \sum_{i,j} (A_{ij}-\gamma\frac{k_i^\text{out} k_j^\text{in}}{m})
 $$
 :::
 :::: 
-:::
+
 
 :::{.incremental}
-- $m=$ no. of edges; $A_{ij}=$ the $(i,j)^{th}$ element in the adjacency matrix
+- $m=$ no. of edges; $A_{ij}=$ the $(i,j)^{th}$ element in the adjacency matrix (a square matrix identifing all connections between nodes in a network).
+
 - $k_i$ and $k_j$: the degree (no. of connections) in nodes $i$ and $j$
 - $\delta(c_i, c_j)$ indicator function of existence of a path between two nodes. 
-- $\gamma=$ resolution paramter (default $\gamma= 1$)
+- $\gamma=$ resolution parameter (default $\gamma= 1$)
+
+- This project focuses on optimizing modularity with its default configuration and leaves exploration of optimal resolution $\gamma$ for later work.   
 :::
 
+# Community Detection Algorithms
+
+
+While many community detection algorithms are popularly configured to detect communities based on optimized modularity, their respective approaches to identifying communities differ. 
+
+:::{.fragment}
+Lets consider two popular community detection algorithms: __Girvan-Newman__ and __Louvain__
+
+:::
+<!--
+Consider adding an image here
+--->
 
 ## Edge Betweeness (Girvan-Newman)
 
-## Louvain
+- The Girvan-Newman algorithm iteratively removes edges from a network with the highest calculated betweenness in an iterative fashion.
+
+::: {.fragment fragment-index=3}
+
+- Edge betweenness is defined as: 
+
+$$\sum_{i \neq j} g_{iej}/g_{ij}$$
+
+- Where: 
+  +  $g_{ij} =$ the total number of shortest paths between the nodes (or vertices) $i$ and $j$
+  + $g_{iej}=$ the number of shortest paths which pass through edge $e$.
+
+:::
+
+## Girvan-Newman Algorithm
+
+
+:::: {.columns}
+::: {.column width="50%"}
+:::{.incremental}
+- The Girvan-Newman algorithm's steps are: 
+   1.  Calculate betweenness scores for all edges in the network.
+
+   2. Find the edge with the highest score and remove it from the network.
+
+   3. Recalculate betweenness for all remaining edges.
+
+   4.  Repeat from step 2.
+
+- The algorithm generates a dendrogram which illustrates the hierarchy of clusters produced by the iterative process.
+:::
+::: 
+::: {.column width="50%"}
+:::{.fragment}
+![_Newman & Girvan (2004)_](./media/dendrogram.png)
+:::
+:::
+:::{.fragment}
+- In unsupervised settings, the division of communities which maximizes modularity is selected.
+:::
+::::
+
+## Louvain Algorithm
+
+- The Louvain Algorithm is divided into two phases:
+
+:::: {.columns}
+
+
+::: {.column width="50%"}
+:::{.fragment}
+- __First Phase__
+  + initially assign a different community to each node in the network so that the initial parition has as many communities as there are nodes.
+  
+  + Evaluate the potential gain in modularity for each node $i$ that would occur if it were to leave its community and move to the community of $j$.
+
+  + The community $j$ where there is the greatest increase in modularity is chosen as node $i$'s new community. 
+
+  + This process is applied repeatedly and sequentially for all nodes until no further improvement can be achieved. This first phase stops when a local maxima of modularity is attained
+
+:::
+:::
+::: {.column width="50%"}
+:::{.fragment}
+- __Second Phase__
+  
+  + Consists of building a new network whose nodes are now the communites found in the first phase. 
+  
+  + If a network is weighted, the weights of the links between the new nodes are given the sum of the weight of links between nodes in the corresponding two communities. 
+  
+  + Links between nodes of the same community are viewed as "self-loops" for the commmunity in the new network. 
+  
+  + Once this second phase is complete, it is then possible to reapply the first phase of the algorithm.
+
+:::
+:::
+::::
+
+
+## Louvain Algorithm (Visualized)
+
+![_Blondel et al. (2008)_](./media/louvain-illustration.png)
+
+- The algorithm terminates when there is no other local maxima to be attained in a given pass.
+
+## Issue with Girvan-Newman and Louvain
+
+- Algorithms such as Girvan-Newman (in unsupervised settings) and Louvain choose the division of nodes based on modularity maximization.
+
+::: {.incremental}
+- __Once communities are divided, how do we interpret them?__
+
+- While there may be approaches for choosing the right algorithm for a given setting (see Smith et al. (2020)), interpretation of such communities is still to be desired.
+:::
 
 ## Degree Betweeness (Smith-Pittman)
 
+- The "Smith-Pittman" algorithm is a variation of the Girvan-Newman algorithm which also considers degree centrality- i.e. the number of connections for a given node. 
+
+::: {.incremental}
+- The steps for the algorithm are: 
+  
+  1. Calculate the degree centrality (the number of connections) possessed by each individual node and the betweenness of all edges in the network. 
+
+  2. Select the subgraph of the node with the highest degree centrality.
+
+  3. Remove the edge possessing the highest calculated betweenness.
+
+  4. Recalculate the degree centrality for all nodes in the network and the betweenness for the remaining edge in the network,
+
+  5. Repeat from step 2. 
+
+- This algorithm was developed in collaboration with Tyler Pittman at UHN's Princess Margaret Cancer Center, aimed at analyzing physician referral networks using SNA methods (project pending), with compelling initial findings driving further investigation. 
+:::
+
 # Results
+
+## Results
+
+- The Smith-Pittman algorithm is tested against Girvan-Newman and Louvain in settings where clusters are not assumed to be known. The datasets considered are: 
+
+  1. Zachary's karate club network (Zachary (1997))
+  2. A friendship network of a UK university faculty (Nepusz et al (2008))
+  3. The Watts-Strogatz small-world model (Watts and Strogatz (1998))
+
+- The data for Zachary's karate club network and the friendship network can be obtained via the `igraphdata` R package. For the Watts-Strogatz small-world model, it is possible to simulate it with a function available in the `igraph` R package. 
+
+## Zachary's Karate Club Network
+:::: {.columns}
+::: {.column width="35%"}
+- "Zachary's karate club network" by Zachary (1997) is a social network between members of a university club led by president John A. and karate instructor Mr. Hi (pseudonyms).
+
+- At the beginning of the study there was an initial conflict between the club president, John A., and Mr. Hi over the price of karate lessons.
+
+- This conflict led to Mr. Hi being fired by John A. and the club officers. The supporters of Mr. Hi retaliated by resigning and forming a new organization headed by Mr. Hi.
+:::
+
+::: {.column width="65%"}
+```{r, fig.cap="_Karate Network (Zachary 1997)_"}
+set.seed(5250)
+par(mar=c(0,0,0,0))
+plot(
+  karate
+  )
+```
+:::
+::::
+
 
 ## Zachary's Karate Club Network
 
-## Friendship network of UK university faculty
+```{r}
+
+
+gn_karate <- karate |>
+  igraph::cluster_edge_betweenness()
+
+louvain_karate <- karate |>
+  igraph::cluster_louvain()
+
+sp_karate <- karate |>
+  ig.degree.betweeness::cluster_degree_betweenness()
+
+par(mfrow= c(1,3),mar=c(0,0,0,0)+1)
+
+set.seed(5250)
+plot(
+  gn_karate,
+  karate,
+  main = "Girvan-Newman"
+  )
+
+set.seed(5250)
+plot(
+  louvain_karate,
+  karate,
+  main = "Louvain"
+)
+
+set.seed(5250)
+plot(
+  sp_karate,
+  karate,
+  main = "Smith-Pittman"
+)
+```
+
+- Smith-Pittman offers a naturally interpretive division in groups as opposed to Girvan-Newman and Louvain!
+
+## Friendship Network of UK University Faculty
+
+:::: {.columns}
+::: {.column width="35%"}
+- The friendship network was presented by Nepusz et al (2008) is an anonymous social network of academic staff at a UK university consisting of three separate schools (With the exception of 2 individuals whose school affiliation is not known.)
+
+- This differs from the karate club network as the friendship network consists of connections that are not necessarily school determinant.
+
+:::
+
+::: {.column width="65%"}
+```{r, fig.cap="_Faculty Friendship Network (Nepusz et al (2008))_"}
+set.seed(5250)
+par(mfrow= c(1,1),mar=c(0,0,0,0))
+plot(uk_faculty,
+     vertex.color = V(UKfaculty)$Group,
+     edge.arrow.size = 0.3)
+```
+:::
+::::
+
+## Friendship Network of UK University Faculty
+
+```{r}
+uk_faculty <- ig.degree.betweeness::prep_unlabeled_graph(UKfaculty)
+
+gn_faculty <- uk_faculty |>
+  igraph::cluster_edge_betweenness()
+
+louvain_faculty <- uk_faculty |>
+  igraph::as.undirected()|>
+  igraph::cluster_louvain()
+
+sp_faculty <- uk_faculty |>
+  ig.degree.betweeness::cluster_degree_betweenness()
+
+par(mfrow= c(1,3),mar=c(0,0,0,0)+1)
+set.seed(5250)
+plot(
+  gn_faculty,
+  uk_faculty,
+  edge.arrow.size = 0.3,
+  vertex.color = V(UKfaculty)$Group,
+  main = "Girvan-Newman"
+  )
+set.seed(5250)
+plot(
+  louvain_faculty,
+  uk_faculty,
+  edge.arrow.size = 0.3,
+  vertex.color = V(UKfaculty)$Group,
+  main = "Louvain"
+)
+set.seed(5250)
+plot(
+  sp_faculty,
+  uk_faculty,
+  edge.arrow.size = 0.3,
+   vertex.color = V(UKfaculty)$Group,
+  main = "Smith-Pittman"
+)
+```
+
+- None of the algorithms group in the manner that matches the university network structure!
+
+## Friendship Network of UK University Faculty
+
+```{r}
+gn_faculty_communities <- table(gn_faculty$membership) %>% 
+  t()%>% 
+  as.data.frame() %>% 
+  dplyr::select(Var2, Freq) %>% 
+  dplyr::rename(`Community Grouping` = Var2,
+                Membership = Freq) %>% 
+  dplyr::mutate(Algorithm = "Girvan-Newman")
+
+louvain_faculty_communities <- table(louvain_faculty$membership) %>% 
+  t()%>% 
+  as.data.frame() %>% 
+  dplyr::select(Var2, Freq) %>% 
+  dplyr::rename(`Community Grouping` = Var2,
+                Membership = Freq) %>% 
+  mutate(Algorithm = "Louvain")
+
+sp_faculty_communities <- table(sp_faculty$membership) %>% 
+  t()%>% 
+  as.data.frame() %>% 
+  dplyr::select(Var2, Freq) %>% 
+  dplyr::rename(`Community Grouping` = Var2,
+                Membership = Freq) %>% 
+  dplyr::mutate(Algorithm = "Smith-Pittman")
+
+faculty_communities <- rbind(
+  gn_faculty_communities,
+  louvain_faculty_communities,
+  sp_faculty_communities
+)
+
+ggplot(data= faculty_communities)+
+  theme_minimal()+
+  geom_bar(mapping = aes(x = `Community Grouping`, y= Membership), stat="identity")+
+  facet_wrap(~Algorithm, scales = "free_x")
+```
+
 
 ## Watts-Strogatz small-world model
+
+
+:::: {.columns}
+::: {.column width="35%"}
+- To explore the general behavior of how Smith-Pittman performs relative to Girvan-Newman and Louvain, a simulated network is created via the Watts-Strogatz small-world model (1998). 
+
+- The small-world model is particularly valuable for studying phenomena such as information dissemination, epidemic spread, and social network dynamics, as it captures the balance between local structure and global connectivity found in various networks. 
+
+:::
+::: {.column width="65%"}
+```{r, fig.cap="_Example Watts-Strogatz (1998) small-world model_"}
+set.seed(5250)
+par(mar=c(0,0,0,0))
+plot(sim)
+```
+
+
+- Generating a network using the Watts-Strogatz model aims to provide a basis for comparing the performance of different community detection algorithms under conditions that mimic real-world network characteristics.
+:::
+::::
+
+
+## Watts-Strogatz small-world model
+
+```{r}
+
+gn_sim <- igraph::cluster_edge_betweenness(sim)
+sp_sim <- ig.degree.betweeness::cluster_degree_betweenness(sim)
+louvain_sim <- igraph::cluster_louvain(sim)
+
+par(mfrow=c(1,3),mar=c(0,0,0,0)+1)
+set.seed(5250)
+plot(
+  gn_sim,
+  sim,
+  main = "Girvan-Newman"
+  )
+set.seed(5250)
+plot(
+  louvain_sim,
+  sim,
+  main = "Louvain"
+)
+set.seed(5250)
+plot(
+  sp_sim,
+  sim,
+  main = "Smith-Pittman"
+)
+```
+
+
+
+## Watts-Strogatz small-world model
+
+```{r}
+gn_sim_communities <- table(gn_sim$membership) %>% 
+  t()%>% 
+  as.data.frame() %>% 
+  dplyr::select(Var2, Freq) %>% 
+  dplyr::rename(`Community Grouping` = Var2,
+                Membership = Freq) %>% 
+  mutate(Algorithm = "Girvan-Newman")
+
+louvain_sim_communities <- table(louvain_sim$membership) %>% 
+  t()%>% 
+  as.data.frame() %>% 
+  dplyr::select(Var2, Freq) %>% 
+  dplyr::rename(`Community Grouping` = Var2,
+                Membership = Freq) %>% 
+  dplyr::mutate(Algorithm = "Louvain")
+
+sp_sim_communities <- table(sp_sim$membership) %>% 
+  t()%>% 
+  as.data.frame() %>% 
+  dplyr::select(Var2, Freq) %>% 
+  dplyr::rename(`Community Grouping` = Var2,
+                Membership = Freq) %>% 
+  dplyr::mutate(Algorithm = "Smith-Pittman")
+
+
+
+sim_communities <- rbind(
+  gn_sim_communities,
+  louvain_sim_communities,
+  sp_sim_communities
+)
+
+ggplot(data= sim_communities)+
+  theme_minimal()+
+  geom_bar(mapping = aes(x = `Community Grouping`, y= Membership), stat="identity")+
+  facet_wrap(~Algorithm, scales = "free_x")
+```
 
 # Discussion
 
 ## Discussion
 
-## Limitations and Further Work
+- Compared to Girvan-Newman and Louvain, Smith-Pittman appears to identify uncertain and/or solitary/outlier nodes in a network which can motivate further investigation into the group/individuals identified.
+
+::: {.incremental}
+- Present limitations which exist in this analysis are further investigation into the communities identified:
+  + For the karate network, the provided data and context was sufficient to understand the advantage of using Smith-Pittman over Girvan-Newman and Louvian.
+  + For the UK university faculty network, the communities identified by Girvan-Newman, Louvain and Smith-Pittman are harder to understand due to insufficient of understanding of the individuals involved in the network.
+  + The Watts-Strogatz model only shows how the algorithms behave under a specified parameterization.
+  
+- Understanding the descriptive performance community detection algorithms can be further elucidated with further application in datasets where contextual and/or institutional knowledge is present and communities detected can be confirmed as interpretive.
+
+- Ultimately, further application of the Smith-Pittman algorithm in descriptive contexts will determine its usefulness. 
+:::
 
 ## Acknowledgements
+
+- Thank you Tyler Pittman and Dr. Wei Xu for their invaluable feedback for developing this methodology in this paper. 
+
+- Thank you Professor Tony Panzarella for facilitating the collaboration between myself, Tyler and Dr. Xu.
+
+- A special thank you to Dr. Wendy Lou for her guidance and leadership in the Biostatistics department at DLPSH.
 
 ## References
 

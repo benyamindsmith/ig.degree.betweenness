@@ -16,6 +16,10 @@ ul li{
   font-size: 0.6em; /* Adjust this value as needed */
 }
 
+li li{
+  font-size: 90%;
+}
+
 .math.inline {
   font-size: 100%;
 }
