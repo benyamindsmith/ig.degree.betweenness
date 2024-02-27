@@ -1,6 +1,6 @@
-Package: ig.degree.betweeness
+Package: ig.degree.betweenness
 Type: Package
-Title: Implementation of the degree-betweeness community detection algortihm developed by Benjamin Smith and Tyler Pittman. 
+Title: Implementation of the degree-betweenness community detection algortihm developed by Benjamin Smith and Tyler Pittman. 
 Version: 0.1.0
 Author: Benjamin Smith, Tyler Pittman
 Maintainer: Benjamin Smith <benyamindsmith@gmail.com>

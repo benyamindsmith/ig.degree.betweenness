@@ -21,6 +21,7 @@ This algorithm:
 
 - Proposed Method Maximizes Modularity. Consider CPM like how louvain and Lieden do. 
 - Consider looking at using glms to inform network complexity
+
 ## Datasets this preforms better than Girvan Newman
 
 - karate
