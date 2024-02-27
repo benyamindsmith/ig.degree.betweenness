@@ -236,43 +236,6 @@ $$\sum_{i \neq j} g_{iej}/g_{ij}$$
 
 ## Louvain Algorithm
 
-- The Louvain Algorithm is divided into two phases:
-
-:::: {.columns}
-
-
-::: {.column width="50%"}
-:::{.fragment}
-- __First Phase__
-  + initially assign a different community to each node in the network so that the initial parition has as many communities as there are nodes.
-  
-  + Evaluate the potential gain in modularity for each node $i$ that would occur if it were to leave its community and move to the community of $j$.
-
-  + The community $j$ where there is the greatest increase in modularity is chosen as node $i$'s new community. 
-
-  + This process is applied repeatedly and sequentially for all nodes until no further improvement can be achieved. This first phase stops when a local maxima of modularity is attained
-
-:::
-:::
-::: {.column width="50%"}
-:::{.fragment}
-- __Second Phase__
-  
-  + Consists of building a new network whose nodes are now the communites found in the first phase. 
-  
-  + If a network is weighted, the weights of the links between the new nodes are given the sum of the weight of links between nodes in the corresponding two communities. 
-  
-  + Links between nodes of the same community are viewed as "self-loops" for the commmunity in the new network. 
-  
-  + Once this second phase is complete, it is then possible to reapply the first phase of the algorithm.
-
-:::
-:::
-::::
-
-
-## Louvain Algorithm (Visualized)
-
 ![_Blondel et al. (2008)_](./media/louvain-illustration.png)
 
 - The algorithm terminates when there is no other local maxima to be attained in a given pass.
