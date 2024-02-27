@@ -1,4 +1,5 @@
-# ig.degree.betweenness <a href='https://github.com/benyamindsmith/ig.degree.betweeness'><img src='https://github.com/benyamindsmith/ig.degree.betweenness/blob/main/inst/png/hex_sticker.png' align="right" height="200" /></a>
+# ig.degree.betweenness <a href='https://github.com/benyamindsmith/ig.degree.betweeness'><img src='https://github.com/benyamindsmith/ig.degree.betweenness/blob/main/inst/png/hex_sticker.png' align="right" height="250" /></a>
+
 
 ## Installing this package
 
