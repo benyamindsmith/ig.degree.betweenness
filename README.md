@@ -1,3 +1,1 @@
-# ig.degree.betweeness
-
-[]('./inst/png/hex_sticker.png')
+# ig.degree.betweeness <a href='https://github.com/benyamindsmith/ig.degree.betweeness'><img src='https://github.com/benyamindsmith/ig.degree.betweeness/blob/main/inst/png/hex_sticker.png' align="right" height="300" /></a>
