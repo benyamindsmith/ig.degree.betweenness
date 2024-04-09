@@ -1,4 +1,4 @@
-#' Prepared Unlabeled Graph to work with Degree Betweeness Algorithm
+#' Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm
 #'
 #'
 #' @export

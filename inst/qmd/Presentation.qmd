@@ -7,6 +7,8 @@ format:
     logo: https://canpath.ca/wp-content/uploads/2020/03/dalla-lana-logo@2x.png
     footer: "Smith, Benjamin (2024): Considering Degree Centrality for More Descriptive Communities in Social Network Analysis"
     html-math-method: katex
+    embed-resources: true
+    self-contained-math: true
     
 css: style.css
 editor: source
@@ -29,6 +31,7 @@ library(ig.degree.betweeness)
 data("karate")
 data("UKfaculty")
 
+set.seed(5250)
 uk_faculty <- ig.degree.betweeness::prep_unlabeled_graph(UKfaculty)
 
 sim <- igraph::sample_smallworld(1, 100, 5, 0.1)|>
@@ -44,7 +47,6 @@ plot(uk_faculty,
      vertex.color = V(UKfaculty)$Group,
      edge.arrow.size = 0.3)
 set.seed(5250)
-
 plot(sim)
 ```
 

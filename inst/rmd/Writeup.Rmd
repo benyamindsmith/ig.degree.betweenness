@@ -26,7 +26,7 @@ $$
 Q=\frac{1}{2m} \sum_{i,j}(A_{ij}-\gamma\frac{k_i k_j}{2m})\delta(c_i,c_j)
 $$
 
-For directed graphs, the `igraph` R package (2024) documentation defines modularity as:
+For directed graphs, the `igraph` R package (2016) documentation defines modularity as:
 
 $$
 Q = \frac{1}{m} \sum_{i,j} (A_{ij}-\gamma\frac{k_i^\text{out} k_j^\text{in}}{m})\delta(c_i,c_j)
@@ -283,7 +283,9 @@ The author expresses gratitude towards Tyler Pittman and Dr. Wei Xu for their in
 
 2. A. Clauset, M. E. J. Newman, & C. Moore, (2004). Finding community structure in very large networks. Phys. Rev. E, 70(6), 066111. doi: 10.1103/PhysRevE.70.066111
 
-3. G. Csárdi,T. Nepusz, V. Traag, Sz. Horvát, F. Zanini & D. Noom,K. Müller (2024). igraph: Network Analysis and Visualization in R. doi:10.5281/zenodo.7682609, R package version 1.5.1,https://CRAN.R-project.org/package=igraph.
+3.  G. Csardi, & T. Nepusz, (2006). The igraph software package for complex network research. InterJournal, Complex Systems, 1695.
+
+
 
 4.  M. Girvan, & M. E. J. Newman (2002). Community structure in social and biological networks. Proceedings of the National Academy of Sciences of the United States of America, 99(12), 7821–7826. https://doi.org/10.1073/pnas.122653799
 
