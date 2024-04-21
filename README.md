@@ -17,4 +17,22 @@ devtools::install_github("benyamindsmith/ig.degree.betweenness")
 
 Applying the Smith-Pittman algorithm can be done by making use of the `cluster_degree_betweenness()`. 
 
-[TO DO]
+An example of using the code is: 
+
+```r
+library(igraphdata)
+library(ig.degree.betweenness)
+
+data("karate")
+
+sp <- cluster_degree_betweenness(karate)
+plot(
+sp,
+karate,
+main= "Smith-Pittman Clustering"
+)
+```
+
+<a> 
+<img src='https://github.com/benyamindsmith/ig.degree.betweenness/assets/46410142/3ad89bb8-5082-4c58-ab9f-277d562ddb12'  height = "400" />
+</a>
