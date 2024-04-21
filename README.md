@@ -3,7 +3,7 @@
 An R package for the implementation of the "Smith-Pittman" community detection algortihm. 
 
 <a> 
-<img src='https://github.com/benyamindsmith/ig.degree.betweenness/assets/46410142/37f82c83-1600-4e9f-913e-5e43bbe90427', height = "335"/>
+<img src='https://github.com/benyamindsmith/ig.degree.betweenness/assets/46410142/37f82c83-1600-4e9f-913e-5e43bbe90427', height = "300"/>
 </a>
 
 ## Installing this package
