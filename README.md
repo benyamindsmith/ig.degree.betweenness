@@ -1,5 +1,8 @@
 # ig.degree.betweenness <a href='https://github.com/benyamindsmith/ig.degree.betweeness'><img src='https://github.com/benyamindsmith/ig.degree.betweenness/blob/main/inst/png/hex_sticker.png' align="right" height="200" /></a>
 
+
+[![](https://www.r-pkg.org/badges/version/ig.degree.betweeness?color=red)](https://cran.r-project.org/package=ig.degree.betweeness) 
+
 An R package for the implementation of the "Smith-Pittman" community detection algortihm. Compatable with the igraph ecosystem.
 
 <a> 
