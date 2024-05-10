@@ -31,7 +31,7 @@
 #' plot(
 #' ndb,
 #' karate,
-#' main= "Node Degree Clustering"
+#' main= "Degree-Betweenness Clustering"
 #' )
 #'
 #' ndb
