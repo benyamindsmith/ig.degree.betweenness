@@ -13,7 +13,7 @@
 #' @importFrom igraph modularity
 #' @importFrom igraph vcount
 #' @import igraphdata
-#' @export
+#' @noRd
 #' @examples
 #' library(igraphdata)
 #' data("karate")

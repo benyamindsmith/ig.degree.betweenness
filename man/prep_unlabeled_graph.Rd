@@ -2,12 +2,12 @@
 % Please edit documentation in R/prep_unlabeled_graph.R
 \name{prep_unlabeled_graph}
 \alias{prep_unlabeled_graph}
-\title{Prepared Unlabeled Graph to work with Degree Betweeness Algorithm}
+\title{Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm}
 \usage{
 prep_unlabeled_graph(graph)
 }
 \description{
-Prepared Unlabeled Graph to work with Degree Betweeness Algorithm
+Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm
 }
 \examples{
 library(igraphdata)

@@ -15,9 +15,7 @@ This algorithm detects communities by calculating the degree centrality measures
 \details{
 This can be thought of as an alternative version of `igraph::cluster_edge_betweeness()`.
 
-The function iteratively removes edges based on their betweenness centrality and the degree of their adjacent nodes. At each iteration, it identifies the edge with the highest betweenness centrality among those connected to nodes with the highest degree.It then removes that edge and recalculates the modularity of the resulting graph. The process continues until all edges have been assessed or until no further subgraph can be created.
-
-The optimal number of communites are chosen based on maximization of modularity
+The function iteratively removes edges based on their betweenness centrality and the degree of their adjacent nodes. At each iteration, it identifies the edge with the highest betweenness centrality among those connected to nodes with the highest degree.It then removes that edge and recalculates the modularity of the resulting graph. The process continues until all edges have been assessed or until no further subgraph can be created with the optimal number of communites being chosen based on maximization of modularity.
 }
 \examples{
 library(igraphdata)
@@ -26,7 +24,7 @@ ndb <- cluster_degree_betweenness(karate)
 plot(
 ndb,
 karate,
-main= "Node Degree Clustering"
+main= "Degree-Betweenness Clustering"
 )
 
 ndb
