@@ -11,6 +11,8 @@ plot_simplified_edgeplot(graph, communities = NULL, ...)
 \item{graph}{igraph object}
 
 \item{communities}{optional; A communities object}
+
+\item{...}{other arguments to be passed to the `plot()` function}
 }
 \description{
 Plot Simplified Edgeplot
