@@ -39,3 +39,7 @@ main= "Smith-Pittman Clustering"
 <a> 
 <img src='https://github.com/benyamindsmith/ig.degree.betweenness/assets/46410142/3ad89bb8-5082-4c58-ab9f-277d562ddb12'  height = "400" />
 </a>
+
+# Limitations
+
+The present limitations of using this algorithm is that graphs are required to be labeled for the operations to work. For unlabled graphs, graphs can be prepared with the `prep_unlabled_graph()` function. 
