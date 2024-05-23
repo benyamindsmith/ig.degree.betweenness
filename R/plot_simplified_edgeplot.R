@@ -3,6 +3,7 @@
 #'
 #' @param graph igraph object
 #' @param communities optional; A communities object
+#' @param ... other arguments to be passed to the `plot()` function
 #' @examples
 #' \dontrun{
 #' # Create an igraph object
