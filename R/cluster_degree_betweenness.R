@@ -38,15 +38,14 @@
 
 
 
-cluster_degree_betweenness<- function(graph){
 
+cluster_degree_betweenness <- function(graph) {
   graph_ <- graph
-  n_edges<- length(E(graph_))
-  cmpnts<-list()
+  n_edges <- length(E(graph_))
+  cmpnts <- list()
 
-  for(i in 1:n_edges){
-
-    degree_nodes <- names(sort(degree(graph_),decreasing = TRUE))
+  for (i in 1:n_edges) {
+    degree_nodes <- names(sort(degree(graph_), decreasing = TRUE))
 
     edgelist <- get.edgelist(graph_, names = TRUE) |>
       apply(1, function(x)
@@ -63,30 +62,34 @@ cluster_degree_betweenness<- function(graph){
         delete.vertices = TRUE
       )
 
-    if(length(E(subgraph))==0){
-      cmpnts<-list.append(cmpnts,components(graph_))
+    if (length(E(subgraph)) == 0) {
+      cmpnts <- list.append(cmpnts, components(graph_))
 
       next
     }
 
-    subgraph_edgelist <- get.edgelist(subgraph, names=TRUE)|>
+    subgraph_edgelist <- get.edgelist(subgraph, names = TRUE) |>
       apply(1, function(x)
         paste0(x, collapse = "|"))
 
-    subgraph_edge_betweeness<- edge_btwn[names(edge_btwn) %in% subgraph_edgelist]|>
-      sort(decreasing=TRUE)|>
+    subgraph_edge_betweeness <-
+      edge_btwn[names(edge_btwn) %in% subgraph_edgelist] |>
+      sort(decreasing = TRUE) |>
       names()
 
-    graph_<-graph_ |>
+    graph_ <- graph_ |>
       delete_edges(subgraph_edge_betweeness[1])
 
-    cmpnts <- list.append(cmpnts,components(graph_))
+    cmpnts <- list.append(cmpnts, components(graph_))
   }
 
 
   graph_ <- graph
-  communities <- lapply(cmpnts, function(x) x[["membership"]])
-  modularities <- lapply(communities, function(x) modularity(graph_,x))|>
+  communities <- lapply(cmpnts, function(x)
+    x[["membership"]])
+  modularities <-
+    lapply(communities, function(x)
+      modularity(graph_, x)) |>
     unlist()
 
   iter_num <- which.max(modularities)

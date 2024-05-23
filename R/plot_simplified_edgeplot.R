@@ -37,7 +37,7 @@ plot_simplified_edgeplot <- function(graph,
       repulse.rad = (vcount(graph) ^ 2.1)
     )
 
-  E(graph)$weight <- 1
+  igraph::E(graph)$weight <- 1
 
   graph <-
     igraph::simplify(
@@ -47,9 +47,9 @@ plot_simplified_edgeplot <- function(graph,
       edge.attr.comb = c(weight = "sum", type = "ignore")
     )
 
-  E(graph)$label <- E(graph)$weight
+  igraph::E(graph)$label <- E(graph)$weight
 
-  E(graph)$weight <-
+  igraph::E(graph)$weight <-
     BBmisc::normalize(
       E(graph)$weight,
       method = "range",

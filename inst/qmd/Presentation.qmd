@@ -34,11 +34,11 @@ data("UKfaculty")
 set.seed(5250)
 uk_faculty <- ig.degree.betweeness::prep_unlabeled_graph(UKfaculty)
 
-sim <- igraph::sample_smallworld(1, 100, 5, 0.1)|>
+sim <- igraph::sample_smallworld(1, 100, 5, 0.1) |>
   ig.degree.betweeness::prep_unlabeled_graph()
 
 
-par(mfrow = c(1,3), mar=c(0,0,0,0)+.1)
+par(mfrow = c(1, 3), mar = c(0, 0, 0, 0) + .1)
 set.seed(5250)
 plot(karate,
      edge.arrow.size = 0.3)
@@ -75,18 +75,20 @@ V(g_directed)$color <- "red"
 V(g_undirected)$color <- "red"
 
 set.seed(5250)
-par(mfrow= c(1,2),mar=c(0,0,0,0)+.1)
-plot(g_undirected,
-     vertex.label = "",
-     edge.arrow.size = 1,
-     vertex.size = 20)
+par(mfrow = c(1, 2), mar = c(0, 0, 0, 0) + .1)
+plot(
+  g_undirected,
+  vertex.label = "",
+  edge.arrow.size = 1,
+  vertex.size = 20
+)
 
-plot(g_directed,
-     vertex.label = "",
-     edge.arrow.size = 1,
-     vertex.size = 20)
-
-
+plot(
+  g_directed,
+  vertex.label = "",
+  edge.arrow.size = 1,
+  vertex.size = 20
+)
 ```
 
 
@@ -104,20 +106,24 @@ V(g_undirected)$color <- "grey"
 E(g_directed)$color <- "red"
 E(g_undirected)$color <- "red"
 
-par(mar=c(0,0,0,0)+.1)
+par(mar = c(0, 0, 0, 0) + .1)
 
-par(mfrow= c(1,2),mar=c(0,0,0,0)+.1)
+par(mfrow = c(1, 2), mar = c(0, 0, 0, 0) + .1)
 
 
-plot(g_undirected,
-     vertex.label = "",
-     edge.arrow.size = 1,
-     vertex.size = 20)
+plot(
+  g_undirected,
+  vertex.label = "",
+  edge.arrow.size = 1,
+  vertex.size = 20
+)
 
-plot(g_directed,
-     vertex.label = "",
-     edge.arrow.size = 1,
-     vertex.size = 20)
+plot(
+  g_directed,
+  vertex.label = "",
+  edge.arrow.size = 1,
+  vertex.size = 20
+)
 ```
 
 :::
