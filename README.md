@@ -2,6 +2,7 @@
 
 
 [![](https://www.r-pkg.org/badges/version/ig.degree.betweeness?color=red)](https://cran.r-project.org/package=ig.degree.betweeness) 
+[![R-CMD-check](https://github.com/benyamindsmith/ig.cluster.closeness/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/benyamindsmith/ig.cluster.closeness/actions/workflows/R-CMD-check.yaml)
 
 An R package for the implementation of the "Smith-Pittman" community detection algortihm. Compatable with the igraph ecosystem.
 
