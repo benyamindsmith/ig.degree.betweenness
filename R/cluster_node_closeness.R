@@ -20,6 +20,7 @@
 #' @import igraphdata
 #' @noRd
 #' @examples
+#' \dontrun{
 #' library(igraphdata)
 #' data("karate")
 #' nc <- cluster_node_closeness(karate)
@@ -30,6 +31,7 @@
 #' )
 #'
 #' nc
+#' }
 
 cluster_node_closeness <- function(
     graph

@@ -13,8 +13,9 @@
 #' @importFrom igraph modularity
 #' @importFrom igraph vcount
 #' @import igraphdata
-#'
+#' @noRd
 #' @examples
+#' \dontrun{
 #' library(igraphdata)
 #' data("karate")
 #' nd <- cluster_node_degree(karate)
@@ -25,6 +26,7 @@
 #' )
 #'
 #' nd
+#' }
 
 cluster_node_degree <- function(
     graph

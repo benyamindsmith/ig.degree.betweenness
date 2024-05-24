@@ -3,7 +3,9 @@
 #'
 #' @export
 #' @examples
+#' library(igraph)
 #' library(igraphdata)
+#' library(ig.degree.betweenness)
 #' data("UKfaculty")
 #' # Making graph undirected so it looks nicer when its plotted
 #' uk_faculty <- prep_unlabeled_graph(UKfaculty) |>

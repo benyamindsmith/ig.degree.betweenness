@@ -10,7 +10,9 @@ prep_unlabeled_graph(graph)
 Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm
 }
 \examples{
+library(igraph)
 library(igraphdata)
+library(ig.degree.betweenness)
 data("UKfaculty")
 # Making graph undirected so it looks nicer when its plotted
 uk_faculty <- prep_unlabeled_graph(UKfaculty) |>
