@@ -1,6 +1,6 @@
 #' Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm
 #'
-#'
+#' @param graph an unlabeled graph.
 #' @export
 #' @examples
 #' library(igraph)
@@ -22,13 +22,12 @@
 #' ndb
 
 
-prep_unlabeled_graph <- function(graph){
-
-
-  degree_nodes <- names(sort(degree(graph),decreasing = TRUE))
+prep_unlabeled_graph <- function(graph) {
+  degree_nodes <- names(sort(degree(graph), decreasing = TRUE))
 
   if (is.null(degree_nodes)) {
-    prepared_graph <- set_vertex_attr(graph, "name", value = 1:vcount(graph))
+    prepared_graph <-
+      igraph::set_vertex_attr(graph, "name", value = 1:vcount(graph))
 
   } else{
     prepared_graph <- graph

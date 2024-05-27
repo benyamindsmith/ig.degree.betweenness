@@ -6,6 +6,9 @@
 \usage{
 prep_unlabeled_graph(graph)
 }
+\arguments{
+\item{graph}{an unlabeled graph.}
+}
 \description{
 Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm
 }
