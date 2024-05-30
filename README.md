@@ -64,3 +64,8 @@ uk_faculty,
 main= "Smith-Pittman Clustering"
 )
 ```
+
+<a> 
+<img src=
+'https://github.com/benyamindsmith/ig.degree.betweenness/assets/46410142/91bcc1f4-7dfc-42ea-8d48-dcd4b3fb947e' height = "500" />
+</a>
