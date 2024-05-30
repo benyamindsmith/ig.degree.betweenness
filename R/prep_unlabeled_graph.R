@@ -29,7 +29,7 @@ prep_unlabeled_graph <- function(graph) {
     prepared_graph <-
       igraph::set_vertex_attr(graph, "name", value = 1:vcount(graph))
 
-  } else{
+  } else {
     prepared_graph <- graph
   }
   return(prepared_graph)

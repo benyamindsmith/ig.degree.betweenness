@@ -43,4 +43,24 @@ main= "Smith-Pittman Clustering"
 
 # Limitations
 
-The present limitations of using this algorithm is that graphs are required to be labeled for the operations to work. For unlabled graphs, graphs can be prepared with the `prep_unlabled_graph()` function. 
+The present limitations of using this algorithm is that graphs are required to be labeled for the operations to work. For unlabeled graphs, graphs can be prepared with the `prep_unlabled_graph()` function. 
+
+Example:
+
+```r
+library(igraph)
+library(igraphdata)
+library(ig.degree.betweenness)
+data("UKfaculty")
+# Making graph undirected so it looks nicer when its plotted
+uk_faculty <- prep_unlabeled_graph(UKfaculty) |>
+  as.undirected()
+
+ndb <- cluster_degree_betweenness(uk_faculty)
+
+plot(
+ndb,
+uk_faculty,
+main= "Smith-Pittman Clustering"
+)
+```

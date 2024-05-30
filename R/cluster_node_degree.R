@@ -35,8 +35,9 @@ cluster_node_degree <- function(
           For the novel algorithm, please see cluster_degree_betweenness()")
   graph_ <- graph
   communities <- list()
-  community_list <- list()
-  community_list <- append(communities, clusters(graph_)$membership)
+  # Removing this line to satisfy the lintr
+  #community_list <- list()
+  #community_list <- append(communities, clusters(graph_)$membership)
   degree_nodes <- names(sort(degree(graph_),decreasing = TRUE))
   communities_list <- list()
   subgraphs <- list()
@@ -76,8 +77,8 @@ cluster_node_degree <- function(
   }
 
   graph_ <- graph
-
-  for(i in 1:length(communities)){
+  # Adding seq_along to satisfy  lintr.
+  for(i in seq_along(1:length(communities))){
     graph_names<- names(V(graph_))
     cumulative_communities <- unlist(communities[1:i])
     cumulative_communities_deduplicated <- cumulative_communities |>
