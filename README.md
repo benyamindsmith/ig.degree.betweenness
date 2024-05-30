@@ -61,7 +61,7 @@ ndb <- cluster_degree_betweenness(uk_faculty)
 plot(
 ndb,
 uk_faculty,
-main= "Smith-Pittman Clustering"
+main= "Smith-Pittman Clustering for UK Faculty"
 )
 ```
 
