@@ -10,6 +10,10 @@ An R package for the implementation of the "Smith-Pittman" community detection a
 <img src='https://github.com/benyamindsmith/ig.degree.betweenness/assets/46410142/37f82c83-1600-4e9f-913e-5e43bbe90427', height = "300"/>
 </a>
 
+<a> 
+<img src='https://github.com/user-attachments/assets/e0d06401-3da3-4e0f-9b9e-12b3ac477848' height = "580"/>
+</a>
+
 ## Installing this package
 
 ```r
