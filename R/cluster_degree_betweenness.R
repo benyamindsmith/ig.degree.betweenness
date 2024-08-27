@@ -41,34 +41,34 @@
 
 cluster_degree_betweenness <- function(graph) {
   graph_ <- graph
-  n_edges <- length(E(graph_))
+  n_edges <- length(igraph::E(graph_))
   cmpnts <- list()
 
   for (i in 1:n_edges) {
-    degree_nodes <- names(sort(degree(graph_), decreasing = TRUE))
+    degree_nodes <- names(sort(igraph::degree(graph_), decreasing = TRUE))
 
-    edgelist <- get.edgelist(graph_, names = TRUE) |>
+    edgelist <- igraph::get.edgelist(graph_, names = TRUE) |>
       apply(1, function(x)
         paste0(x, collapse = "|"))
 
-    edge_btwn <- edge_betweenness(graph_)
+    edge_btwn <- igraph::edge_betweenness(graph_)
     names(edge_btwn) <- edgelist
 
 
     subgraph <-
-      subgraph.edges(
+      igraph::subgraph.edges(
         graph = graph_,
         eids = grep(degree_nodes[1], edgelist),
         delete.vertices = TRUE
       )
 
     if (length(E(subgraph)) == 0) {
-      cmpnts <- list.append(cmpnts, components(graph_))
+      cmpnts <- list.append::list.append(cmpnts, components(graph_))
 
       next
     }
 
-    subgraph_edgelist <- get.edgelist(subgraph, names = TRUE) |>
+    subgraph_edgelist <- igraph::get.edgelist(subgraph, names = TRUE) |>
       apply(1, function(x)
         paste0(x, collapse = "|"))
 
@@ -78,9 +78,9 @@ cluster_degree_betweenness <- function(graph) {
       names()
 
     graph_ <- graph_ |>
-      delete_edges(subgraph_edge_betweeness[1])
+      igraph::delete_edges(subgraph_edge_betweeness[1])
 
-    cmpnts <- list.append(cmpnts, components(graph_))
+    cmpnts <- list.append::list.append(cmpnts, components(graph_))
   }
 
 
@@ -89,19 +89,19 @@ cluster_degree_betweenness <- function(graph) {
     x[["membership"]])
   modularities <-
     lapply(communities, function(x)
-      modularity(graph_, x)) |>
+      igraph::modularity(graph_, x)) |>
     unlist()
 
   iter_num <- which.max(modularities)
   res <- list()
 
 
-  res$names <- V(graph_)$name
-  res$vcount <- vcount(graph_)
+  res$names <- igraph::V(graph_)$name
+  res$vcount <- igraph::vcount(graph_)
   res$algorithm <- "node degree+edge betweenness"
   res$modularity <- modularities
   res$membership <- communities[[iter_num]]
-  res$bridges <- bridges(graph) + 1
+  res$bridges <- igraph::bridges(graph) + 1
   class(res) <- "communities"
 
   return(res)
