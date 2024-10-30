@@ -1,0 +1,390 @@
+---
+title: "Smith-Pittman Comparision Datasets"
+format: pdf
+editor: source
+---
+
+# Zachary Karate Network
+
+```{r}
+set.seed(5250)
+library(igraph)
+library(igraphdata)
+# Homemade Code
+# devtools::install_github("benyamindsmith/ig.degree.betweeeness")
+library(ig.degree.betweeness)
+
+par(mar=c(0,0,0,0)+.1)
+data("karate")
+
+plot(
+  karate
+  )
+```
+
+
+```{r,echo=FALSE, message=FALSE, warning=FALSE,fig.height = 3,fig.cap="Unsupervised Community Detection by (a) Girvan-Newman, (b) Louvain and (c) Smith-Pittman for the karate network."}
+gn_karate <- karate |>
+  igraph::cluster_edge_betweenness()
+
+louvain_karate <- karate |>
+  igraph::cluster_louvain()
+
+sp_karate <- karate |>
+  ig.degree.betweeness::cluster_degree_betweenness()
+
+par(mfrow= c(1,3),mar=c(0,0,0,0)+1)
+
+plot(
+  gn_karate,
+  karate,
+  main = "(a)"
+  )
+
+plot(
+  louvain_karate,
+  karate,
+  main = "(b)"
+)
+
+plot(
+  sp_karate,
+  karate,
+  main = "(c)"
+)
+```
+
+```{r}
+library(ggplot2)
+# Recreate this graph
+all_degree<- igraph::degree(karate) |> 
+  as.data.frame()|>
+  tibble::rownames_to_column()|>
+  dplyr::rename(degree=`igraph::degree(karate)` ,
+                member=rowname)
+
+in_degree <- igraph::degree(karate, mode = "in")|>
+ as.data.frame()|>
+ tibble::rownames_to_column()|>
+ dplyr::rename(in_degree=`igraph::degree(karate, mode = "in")` ,
+               member=rowname)
+
+out_degree <- igraph::degree(karate, mode = "out") |>
+   as.data.frame()|>
+  tibble::rownames_to_column()|>
+  dplyr::rename(out_degree=`igraph::degree(karate, mode = "out")` ,
+                member=rowname)
+
+degree_df <- merge(in_degree,
+                   out_degree)|>
+  merge(all_degree)|>
+  dplyr::mutate(in_degree = -in_degree)|>
+  tidyr::pivot_longer(cols = c(in_degree,out_degree))
+
+
+ggplot(degree_df,
+       mapping = aes(y =reorder(member, degree), x = -value, fill = name))+
+  theme_minimal()+
+  geom_col()+
+  theme(axis.title.y = element_blank(),
+        legend.title = element_blank(),
+        legend.position = "bottom",
+        axis.title.x = element_blank())+
+  scale_fill_manual(labels = c("In", "Out"), values = scales::hue_pal()(2))+
+  scale_x_continuous(labels = abs)
+```
+
+```{r}
+all_degree|>
+  ggplot(mapping = aes(
+    x = reorder(member, degree),
+    y = degree,
+  )) +
+  theme_minimal() +
+  geom_col() +
+  geom_vline(xintercept = individual_communities) +
+  theme(
+    axis.title.y = element_blank(),
+    legend.title = element_blank(),
+    legend.position = "bottom",
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(angle=90)
+  )
+```
+
+
+
+# US Congress Twitter
+
+```{r}
+
+congress_names <- jsonlite::read_json("C:/Users/ben29/Downloads/congress_network/congress_network_data.json",simplifyVector = TRUE)|>
+  tidyr::unnest(cols=c(inList, inWeight, outList, outWeight, usernameList))|>
+  dplyr::select(5)
+twitter_congress <- read.delim("C:/Users/ben29/Downloads/congress_network/congress.edgelist",
+                               sep = "")|>
+  dplyr::select(1,2,4)|>
+  dplyr::rename(
+    "in"="X0",
+    "out"="X4",
+    "weight"="X0.002105263157894737."
+  )|>
+  dplyr::mutate(
+    weight = stringr::str_replace(weight,"\\}","") |> as.numeric()
+  )|>
+  tidygraph::as_tbl_graph()|>
+  igraph::as.igraph()
+
+#igraph::V(twitter_congress)$name <- congress_names
+
+
+
+```
+
+```{r}
+par(mar=c(0,0,0,0)+0.1)
+plot(twitter_congress,
+     vertex.size=5,
+     edge.arrow.size=0.5)
+```
+
+```{r}
+gn_congress <- twitter_congress |>
+  igraph::cluster_edge_betweenness()
+
+louvain_congress <- twitter_congress |>
+  igraph::as.undirected()|>
+  igraph::cluster_louvain()
+
+sp_congress <- twitter_congress |>
+  ig.degree.betweeness::cluster_degree_betweenness()
+
+par(mfrow= c(1,3),mar=c(0,0,0,0)+1)
+
+plot(
+  gn_congress,
+  twitter_congress,
+  main = "(a)"
+  )
+
+plot(
+  louvain_congress,
+  twitter_congress,
+  main = "(b)"
+)
+
+plot(
+  sp_congress,
+  twitter_congress,
+  main = "(c)"
+)
+```
+
+```{r}
+library(ggplot2)
+# Recreate this graph
+all_degree<- igraph::degree(twitter_congress) |> 
+  as.data.frame()|>
+  tibble::rownames_to_column()|>
+  dplyr::rename(degree=`igraph::degree(twitter_congress)` ,
+                congressman=rowname)
+
+in_degree <- igraph::degree(twitter_congress, mode = "in")|>
+ as.data.frame()|>
+ tibble::rownames_to_column()|>
+ dplyr::rename(in_degree=`igraph::degree(twitter_congress, mode = "in")` ,
+               congressman=rowname)
+
+out_degree <- igraph::degree(twitter_congress, mode = "out") |>
+   as.data.frame()|>
+  tibble::rownames_to_column()|>
+  dplyr::rename(out_degree=`igraph::degree(twitter_congress, mode = "out")` ,
+                congressman=rowname)
+
+degree_df <- merge(in_degree,
+                   out_degree)|>
+  merge(all_degree)|>
+  dplyr::mutate(in_degree = -in_degree)|>
+  tidyr::pivot_longer(cols = c(in_degree,out_degree))
+
+individual_communities <- as.list(communities(sp_congress))[communities(sp_congress) |>
+                                                              lapply(function(x)
+                                                                length(x) == 1) |> unlist()] |> unlist()
+ggplot(degree_df,
+       mapping = aes(y =reorder(congressman, degree), x = -value, fill = name))+
+  theme_minimal()+
+  geom_col()+
+  geom_hline(yintercept = individual_communities)+
+  theme(axis.title.y = element_blank(),
+        legend.title = element_blank(),
+        legend.position = "bottom",
+        axis.title.x = element_blank(),
+        axis.text.y = element_blank())+
+  scale_fill_manual(labels = c("In", "Out"), values = scales::hue_pal()(2))+
+  scale_x_continuous(labels = abs)
+
+```
+
+```{r}
+degree_df |>
+  dplyr::group_by(congressman) |>
+  dplyr::summarize(degree = sum(degree)) |>
+  ggplot(mapping = aes(
+    x = reorder(congressman, degree),
+    y = degree,
+  )) +
+  theme_minimal() +
+  geom_col() +
+  geom_vline(xintercept = individual_communities) +
+  theme(
+    axis.title.y = element_blank(),
+    legend.title = element_blank(),
+    legend.position = "bottom",
+    axis.title.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+```
+
+Using filtered graph
+
+```{r}
+# Calculate the degree for each node
+node_degrees <- igraph::degree(twitter_congress)
+
+# Filter nodes with a degree of 100 or higher
+high_degree_nodes <-  igraph::V(twitter_congress)[node_degrees >= 100]
+
+# Create a subgraph with only the high-degree nodes
+twitter_congress_filtered <- igraph::induced_subgraph(twitter_congress, high_degree_nodes)
+
+# To view the filtered graph
+par(mar=c(0,0,0,0)+0.1)
+plot(
+  twitter_congress_filtered,
+  vertex.size=5,
+  edge.arrow.size=0.5
+  )
+
+```
+
+```{r}
+gn_congress_filtered <- twitter_congress_filtered |>
+  igraph::cluster_edge_betweenness()
+
+louvain_congress_filtered <- twitter_congress_filtered |>
+  igraph::as.undirected()|>
+  igraph::cluster_louvain()
+
+sp_congress_filtered <- twitter_congress_filtered |>
+  ig.degree.betweeness::cluster_degree_betweenness()
+
+par(mfrow= c(1,3),mar=c(0,0,0,0)+1)
+
+plot(
+  gn_congress_filtered,
+  twitter_congress_filtered,
+  main = paste0("(a) Q =",round(igraph::modularity(gn_congress_filtered),2)),
+  vertex.size=5,
+  edge.arrow.size=0.5
+  )
+
+plot(
+  louvain_congress_filtered,
+  twitter_congress_filtered,
+  main = paste0("(b) Q =",round(igraph::modularity(louvain_congress_filtered),2)),  
+  vertex.size=5,
+  edge.arrow.size=0.5
+)
+
+plot(
+  sp_congress_filtered,
+  twitter_congress_filtered,
+  main = paste0("(c) Q =",round(igraph::modularity(sp_congress_filtered),2)),  
+  vertex.size=5,
+  edge.arrow.size=0.5
+)
+
+```
+
+```{r}
+plot(
+  sp_congress_filtered,
+  twitter_congress_filtered,
+  main = "(c)",
+  vertex.size=5,
+  edge.arrow.size=0.5
+)
+```
+
+
+```{r}
+library(ggplot2)
+# Recreate this graph
+all_degree<- igraph::degree(twitter_congress_filtered) |> 
+  as.data.frame()|>
+  tibble::rownames_to_column()|>
+  dplyr::rename(degree=`igraph::degree(twitter_congress_filtered)` ,
+                congressman=rowname)
+
+in_degree <- igraph::degree(twitter_congress_filtered, mode = "in")|>
+ as.data.frame()|>
+ tibble::rownames_to_column()|>
+ dplyr::rename(in_degree=`igraph::degree(twitter_congress_filtered, mode = "in")` ,
+               congressman=rowname)
+
+out_degree <- igraph::degree(twitter_congress_filtered, mode = "out") |>
+   as.data.frame()|>
+  tibble::rownames_to_column()|>
+  dplyr::rename(out_degree=`igraph::degree(twitter_congress_filtered, mode = "out")` ,
+                congressman=rowname)
+
+degree_df <- merge(in_degree,
+                   out_degree)|>
+  merge(all_degree)|>
+  dplyr::mutate(in_degree = -in_degree)|>
+  tidyr::pivot_longer(cols = c(in_degree,out_degree))
+
+individual_communities <- as.list(igraph::communities(sp_congress_filtered))[igraph::communities(sp_congress_filtered) |>
+                                                              lapply(function(x)
+                                                                length(x) == 1) |> unlist()] |> unlist()
+
+ggplot(degree_df,
+       mapping = aes(y =reorder(congressman, degree), x = -value, fill = name))+
+  theme_minimal()+
+  geom_col()+
+  geom_hline(yintercept = individual_communities)+
+  theme(axis.title.y = element_blank(),
+        legend.title = element_blank(),
+        legend.position = "bottom",
+        axis.title.x = element_blank())+
+  scale_fill_manual(labels = c("In", "Out"), values = scales::hue_pal()(2))+
+  scale_x_continuous(labels = abs)
+
+```
+
+```{r}
+degree_df |>
+  dplyr::group_by(congressman) |>
+  dplyr::summarize(degree = sum(degree)) |>
+  ggplot(mapping = aes(
+    x = reorder(congressman, degree),
+    y = degree,
+  )) +
+  theme_minimal() +
+  geom_col() +
+  geom_vline(xintercept = individual_communities) +
+  theme(
+    axis.title.y = element_blank(),
+    legend.title = element_blank(),
+    legend.position = "bottom",
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(angle=90)
+  )
+```
+
+
+
+
+
+
+
