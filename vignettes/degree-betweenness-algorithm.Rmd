@@ -8,7 +8,7 @@ abstract: 'Community detection is a field of study in social network analysis (S
 \hfill\break
 \hfill\break
 __Keywords:__ Social Network Analysis, Community Detection, Modularity, Algorithms, Interpretation'
-output: rmarkdown::html
+output: rmarkdown::html_document
 vignette: >
   %\VignetteIndexEntry{degree-betweenness-algorithm}
   %\VignetteEngine{knitr::rmarkdown}
