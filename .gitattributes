@@ -1,5 +1,5 @@
 # Ignore CSS files
-*.css linguist-language=ignore
+*.css linguist-vendored
 
 # Ignore TeX files
-*.tex linguist-language=ignore
+*.tex linguist-vendored
