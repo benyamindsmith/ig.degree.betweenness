@@ -28,4 +28,20 @@ main= "Degree-Betweenness Clustering"
 )
 
 ndb
+
+# UNLABELED GRAPH EXAMPLE
+
+data("UKfaculty")
+# Making graph undirected so it looks nicer when its plotted
+uk_faculty <- prep_unlabeled_graph(UKfaculty) |>
+  as.undirected()
+
+ndb <- cluster_degree_betweenness(uk_faculty)
+
+plot(
+  ndb,
+  uk_faculty,
+  main= "Smith-Pittman Clustering for UK Faculty"
+)
+
 }
