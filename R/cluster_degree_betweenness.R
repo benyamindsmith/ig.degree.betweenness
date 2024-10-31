@@ -63,7 +63,7 @@ cluster_degree_betweenness <- function(graph) {
       )
 
     if (length(E(subgraph)) == 0) {
-      cmpnts <- list.append::list.append(cmpnts, components(graph_))
+      cmpnts <- rlist::list.append(cmpnts, components(graph_))
 
       next
     }
@@ -80,7 +80,7 @@ cluster_degree_betweenness <- function(graph) {
     graph_ <- graph_ |>
       igraph::delete_edges(subgraph_edge_betweeness[1])
 
-    cmpnts <- list.append::list.append(cmpnts, components(graph_))
+    cmpnts <- rlist::list.append(cmpnts, components(graph_))
   }
 
 

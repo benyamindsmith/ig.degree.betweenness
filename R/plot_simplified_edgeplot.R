@@ -17,12 +17,12 @@
 plot_simplified_edgeplot <- function(graph,
                                      communities = NULL,
                                      ...){
-  if(class(graph)!="igraph"){
+  if(inherits(graph,"igraph")){
     stop('Error: "graph" argument needs to be of class "igraph"')
   }
 
   if(!is.null(communities)){
-    if(class(communities)!="communities"){
+    if(inherits(communities,"communities")){
       stop('Error: "communities" argument needs to be of class "communities"')
     }
   }
