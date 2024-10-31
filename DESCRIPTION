@@ -1,12 +1,40 @@
 Package: ig.degree.betweenness
 Type: Package
-Title: Implementation of the degree-betweenness community detection algortihm developed by Benjamin Smith and Tyler Pittman 
+Title: Implementation of the degree-betweenness community detection algortihm by Smith, Pittman and Xu (2024) for "igraph" objects. 
 Version: 0.1.0
-Author: Benjamin Smith, Tyler Pittman
-Maintainer: Benjamin Smith <benyamindsmith@gmail.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Authors@R: c(
+    person(
+    "Benjamin", 
+    "Smith",
+    email="benyamin.smith@mail.utoronto.ca" , 
+    role = c("aut","cre"),
+    comment = c(ORCID = "0009-0007-2206-0177")
+    ),
+    person(
+    "Tyler",
+    "Pittman",
+     email = "Tyler.Pittman@uhn.ca", 
+     role = c("aut"),
+     comment = c(ORCID = "0000-0002-5013-6980")
+     ),
+     person(
+     "Wei",
+     "Xu",
+     email = "Wei.Xu@uhn.ca",
+     role = c("aut"),
+     comment = c(ORCHID = "0000-0002-0257-8856")
+     )
+  )
+Description: Implements the degree-betweenness community detection algorithm 
+    for network analysis using 'igraph' objects. This algorithm combines node 
+    degree and betweenness centrality measures to identify communities within 
+    networks. The package provides functions for community detection, 
+    visualization, and analysis of the resulting community structure. Methods 
+    are based on Smith, Pittman and Xu (2024) <doi>.
 License: MIT + file LICENSE
+References: 
+  Reference 1
+  Reference 2
 Encoding: UTF-8
 LazyData: true
 Imports:
@@ -18,6 +46,4 @@ Imports:
 RoxygenNote: 7.2.3
 Suggests: 
     knitr,
-    rmarkdown,
-Config/testthat/edition: 3
-VignetteBuilder: knitr
+    rmarkdown

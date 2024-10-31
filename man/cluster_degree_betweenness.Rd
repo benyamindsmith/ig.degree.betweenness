@@ -2,7 +2,7 @@
 % Please edit documentation in R/cluster_degree_betweenness.R
 \name{cluster_degree_betweenness}
 \alias{cluster_degree_betweenness}
-\title{Community structure detection based on node degree centrality and edge betweeeness}
+\title{Community structure detection based on node degree centrality and edge betweenbess}
 \usage{
 cluster_degree_betweenness(graph)
 }

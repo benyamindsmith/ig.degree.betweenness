@@ -1,4 +1,4 @@
-#' Community structure detection based on node degree centrality and edge betweeeness
+#' Community structure detection based on node degree centrality and edge betweenbess
 #'
 #'This algorithm detects communities by calculating the degree centrality measures of nodes and edge betweenness.
 #'
