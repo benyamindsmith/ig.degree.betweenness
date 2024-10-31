@@ -34,7 +34,7 @@ ndb
 data("UKfaculty")
 # Making graph undirected so it looks nicer when its plotted
 uk_faculty <- prep_unlabeled_graph(UKfaculty) |>
-  as.undirected()
+  igraph::as.undirected()
 
 ndb <- cluster_degree_betweenness(uk_faculty)
 
