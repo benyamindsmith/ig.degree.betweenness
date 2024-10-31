@@ -30,7 +30,7 @@ Description: Implements the degree-betweenness community detection algorithm
     degree and betweenness centrality measures to identify communities within 
     networks. The package provides functions for community detection, 
     visualization, and analysis of the resulting community structure. Methods 
-    are based on Smith, Pittman and Xu (2024) <doi>.
+    are based on results from Smith, Pittman and Xu (2024) <doi>.
 License: MIT + file LICENSE
 References: 
   Reference 1

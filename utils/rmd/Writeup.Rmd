@@ -228,6 +228,7 @@ To explore the general behavior of how Smith-Pittman performs relative to Girvan
 To simulate data similar to the previous real-world examples, a one dimensional lattice of 100 nodes each initially having 5 connected nearest neighbors with a 10% probability of rewiring^[For more information on understanding these parameters, the reader is referred to he `smallworld()` function documentation in the `igraph` R package and http://www.scholarpedia.org/article/Small-world_network]. Figure 5 shows the simulated network and figure 6 shows how Girvan-Newman, Louvain and Smith-Pittman classify communities. Louvain produces fewer communities and offers a cleaner result than both Girvan-Newman and Smith-Pittman. Smith-Pittman identifies more communities than Girvan Newman and  appears to highlight uncertain or intermediate groups, similar to how it performed with the karate dataset. 
 
 ```{r echo=FALSE}
+set.seed(5250)
 sim <- igraph::sample_smallworld(1, 100, 5, 0.1)|>
   ig.degree.betweeness::prep_unlabeled_graph()
 

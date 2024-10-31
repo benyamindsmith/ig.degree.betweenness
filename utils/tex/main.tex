@@ -1,5 +1,54 @@
-Abstract
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{authblk}            % For author blocks
+\usepackage{orcidlink}      % For ORCID icons without uploading
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{graphicx} % For including images
+\usepackage{amsmath}  % For advanced math
+\usepackage{amsfonts} % For math fonts
+\usepackage{amssymb}  % For additional symbols
+\usepackage{hyperref} % For hyperlinks
 
+% Set up nice code formatting
+\lstset{
+    breaklines=true,    % Automatically break long lines
+    basicstyle=\ttfamily\small,  % Use small monospace font
+    numbers=left,       % Line numbers on left
+    numberstyle=\tiny\color{gray}, % Line numbers styling
+    frame=single,       % Add frame around code
+    tabsize=4,         % Set tab spaces
+    showstringspaces=false,  % Don't show spaces in strings
+    breakatwhitespace=true,  % Break at whitespace
+    captionpos=b,      % Caption at bottom
+    backgroundcolor=\color{white},
+    rulecolor=\color{black},
+    commentstyle=\color{gray},
+    keywordstyle=\color{blue},
+    stringstyle=\color{green!50!black}
+}
+
+\title{Oncology social network analysis and clinical trial enrolments at Princess Margaret Cancer Centre}
+\author[1]{Benjamin Smith\orcidlink{0009-0007-2206-0177}}
+\author[2]{Tyler Pittman\orcidlink{0000-0002-5013-6980}}
+\author[2]{Wei Xu\orcidlink{0000-0002-0257-8856}}
+
+% Add affiliations
+\affil[1]{University of Toronto, Toronto, Canada}
+\affil[2]{University Health Network, Toronto, Canada}
+
+\date{October 2024} % Optional: Use to remove the date if not needed
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
 Patients at the Princess Margaret Cancer Centre who do not achieve cure
 or remission following standard treatments often become candidates for
 clinical trials. Patients who participate in a clinical trial may be
@@ -16,7 +65,8 @@ Louvain groups interventions in a manner that is difficult to interpret.
 In contrast, the author's algorithm groups interventions in a way that
 is both intuitive and informative. This lays the groundwork for future
 subgroup analysis of clustered interventions.
-
+\end{abstract}
+\newpage
 \section{Introduction}\label{introduction}
 
 When cancer patients complete standard treatments at Princess Margaret
@@ -44,10 +94,10 @@ relationships among them. The data is represented as a ``graph'' where
 individual entities are referred to as ``nodes'' and their relationships
 between them as ``edges'', which may be directional if specified (see
 Figure 1). A primary area of study in SNA is the analysis of
-interconnectivity of nodes, called ``communities'' and identification of
-clusters through the use of algorithms called ``community detection
-algorithms''. Rostami et al\textsuperscript{1} (2023) note that there is
-no specific model which describes exactly a ``community'' is. Generally,
+interconnectivity of nodes, called "communities" and identification of
+clusters through the use of algorithms called "community detection
+algorithms". Rostami et al\textsuperscript{1} (2023) note that there is
+no specific model which describes exactly a "community" is. Generally,
 community detection algorithms employ specific optimization strategies
 to partition a large-scale complex network into a set of disjoint and
 compact subgroups, often (but not always) without prior knowledge
@@ -60,7 +110,7 @@ objective(s).
 \begin{figure}
 \centering
 \includegraphics[width=4.14212in,height=1.65018in]{media/image1.png}
-\caption{\textbf{Figure 1.} Two simple graphs with directed and
+\caption{Two simple graphs with directed and
 undirected edges. Direction is noted by arrowheads at the end of the
 edges.}
 \end{figure}
@@ -112,17 +162,18 @@ makes use of an extensive array of libraries and dependencies. The
 primary libraries that are used are \texttt{igraph}, \texttt{tidyverse},
 and \texttt{tidygraph}. For the complete script, refer to see Appendix -
 Program Syntax.
-
+\begin{figure}
+\centering
 \includegraphics[width=5.88333in,height=4.65in]{media/image2.png}
-
-\textbf{Figure 2.} Patient movement between clinical trials classified
+\caption{Patient movement between clinical trials classified
 by intervention type at PM. Nodes indicate the treatment type and the
 labeled edges indicate movement of patients from trials in a given
 intervention to another or to the same type of intervention. Among the
 clinical trials, some interventions can be classified into broader
 categories consisting of Targeted therapies or Immunotherapy. This has
 been identified in the data with ``T:'' and ``I:'' prefixes
-respectively.
+respectively.}
+\end{figure}
 
 \subsection{Methods}\label{methods}
 
@@ -178,15 +229,17 @@ directly or through some other intervention(s)), and \(g_{iej}\) is the
 number of shortest paths which pass through the edge \(e\). Figure 3
 provides an illustration of a simple network and the edge with the
 highest edge-betweenness centrality highlighted in red.
-
+\begin{figure}
+\centering
 \includegraphics[width=3.03158in,height=2.02105in]{media/image3.png}
 
-\textbf{Figure 3.} A simple network demonstrating an edge with a high
+\caption{A simple network demonstrating an edge with a high
 edge-betweenness centrality, highlighted in red. The network consists of
 two densely connected clusters, with the red edge serving as the sole
 connection between them. This edge is crucial for communication between
 the two clusters, as most of the shortest paths that connect nodes from
-opposite clusters pass through it.
+opposite clusters pass through it.}
+\end{figure}
 
 Edge betweenness can be calculated for directed and undirected edges. As
 a result, the Girvan-Newman algorithm can be applied to directed or
@@ -245,14 +298,17 @@ order to apply the Louvain algorithm to a directed graph, it must first
 be converted to an undirected graph. Figure 4 is a reproduction of
 Blodel et al's (2008) illustration of the algorithm.
 
-\includegraphics[width=5.83333in,height=3.44184in]{media/image4.png}
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{media/image4.png}
 
-\textbf{Figure 4.} Reproduced illustration of the Louvain algorithm
-(originally designed by Blondel et al (2008)).
+\caption{Reproduced illustration of the Louvain algorithm
+(originally designed by Blondel et al (2008)).}
+\end{figure}
 
 \subsubsection{Smith-Pittman}\label{smith-pittman}
 
-The ``Smith-Pittman'' algorithm is a modification of the Girvan-Newman
+The "Smith-Pittman" algorithm is a modification of the Girvan-Newman
 algorithm where degree centrality is considered. Degree centrality of a
 node is simply defined as the number of connections a node has within a
 given network (see figure 5). The algorithm proceeds through the
@@ -287,7 +343,7 @@ modularity as evaluated after each iteration of the algorithm.
 \begin{figure}
 \centering
 \includegraphics[width=2.02105in,height=2.02105in]{media/image5.png}
-\caption{\textbf{Figure 5.} A simple network highlighting node degree.
+\caption{A simple network highlighting node degree.
 The center node (colored red) posseses the highest number of connections
 and as a result posseses the highest degree and degree centrality
 index.}
@@ -295,8 +351,8 @@ index.}
 
 \begin{figure}
 \centering
-\includegraphics[width=5.83333in,height=2.29042in]{media/image6.png}
-\caption{\textbf{Figure 6.} Illustration of the Smith-Pittman algorithm.
+\includegraphics[width=\linewidth]{media/image6.png}
+\caption{Illustration of the Smith-Pittman algorithm.
 Highlighted convex hulls denote the identification of distinct
 communities.}
 \end{figure}
@@ -343,175 +399,152 @@ outgoing and incoming to and from other interventions.
 
 \begin{figure}
 \centering
-\includegraphics[width=5.42518in,height=4.62516in]{media/image7.png}
-\caption{\textbf{Figure 7:} Detected communities via Girvan-Newman with
+\includegraphics[width=\linewidth]{media/image7.png}
+\caption{Detected communities via Girvan-Newman with
 modularity maximization. 16 distinct communities.}
 \end{figure}
 
-\textbf{Table 1.} Girvan-Newman communities identified. Each
-intervention is their own community.
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4583}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2089}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2305}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1023}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Intervention
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Refferalls In
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Referrals Out
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Total
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Chemotherapy & 4 & 10 & 14 \\
-Combined Modality & 0 & 1 & 1 \\
-Drug Repurposing & 7 & 3 & 10 \\
-I: Adoptive Cell Transfer & 10 & 3 & 13 \\
-I: Anti Cancer Vaccine & 4 & 7 & 11 \\
-I: Combined & 54 & 22 & 76 \\
-I: MAbs Checkpoint & 92 & 147 & 239 \\
-I: MAbs Co-Stimulatory & 31 & 22 & 53 \\
-I: MAbs Targeting & 31 & 22 & 53 \\
-I: Oncolytic Virus & 4 & 5 & 9 \\
-I: Other & 25 & 6 & 31 \\
-Radioconjugate & 1 & 0 & 1 \\
-T: Antibody-Drug Conjugate & 18 & 10 & 28 \\
-T: Combined & 9 & 8 & 17 \\
-T: Monoclonal Antibody & 6 & 16 & 22 \\
-T: Small Molecule & 174 & 188 & 362 \\
-\end{longtable}
-
-\includegraphics[width=6.50855in,height=5.73352in]{media/image8.png}
-
-\textbf{Figure 8:} Detected communities via Louvain algorithm with
-modularity maximization. 4 distinct communities.
-
-\textbf{Table 2.} Louvain communities identified and their grouped
-interventions.
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4583}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2089}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2305}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1023}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Intervention
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Refferalls In
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Referrals Out
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Total
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{1.0000} + 6\tabcolsep}@{}}{%
-Community: 1} \\
-Drug Repurposing & 7 & 3 & 10 \\
-I: Other & 25 & 6 & 31 \\
-T: Monoclonal Antibody & 6 & 16 & 22 \\
-T: Small Molecule & 174 & 188 & 362 \\
-\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{1.0000} + 6\tabcolsep}@{}}{%
-Community: 2} \\
-Combined Modality & 0 & 1 & 1 \\
-I: Adoptive Cell Transfer & 10 & 3 & 13 \\
-I: Anti Cancer Vaccine & 4 & 7 & 11 \\
-I: MAbs Checkpoint & 92 & 147 & 239 \\
-Radioconjugate & 1 & 0 & 1 \\
-T: Antibody-Drug Conjugate & 18 & 10 & 28 \\
-\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{1.0000} + 6\tabcolsep}@{}}{%
-Community: 3} \\
-I: Combined & 54 & 22 & 76 \\
-I: MAbs Co-Stimulatory & 31 & 22 & 53 \\
-I: Oncolytic Virus & 4 & 5 & 9 \\
-\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{1.0000} + 6\tabcolsep}@{}}{%
-Community: 4} \\
-Chemotherapy & 4 & 10 & 14 \\
-I: MAbs Targeting & 31 & 22 & 53 \\
-T: Combined & 9 & 8 & 17 \\
-\end{longtable}
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrrr}
+\toprule
+Intervention & Referrals In & Referrals Out & Total \\ 
+\midrule
+Chemotherapy & 4 & 10 & 14 \\ 
+Combined Modality & 0 & 1 & 1 \\ 
+Drug Repurposing & 7 & 3 & 10 \\ 
+I: Adoptive Cell Transfer & 10 & 3 & 13 \\ 
+I: Anti Cancer Vaccine & 4 & 7 & 11 \\ 
+I: Combined & 54 & 22 & 76 \\ 
+I: MAbs Checkpoint & 92 & 147 & 239 \\ 
+I: MAbs Co-Stimulatory & 31 & 22 & 53 \\ 
+I: MAbs Targeting & 31 & 22 & 53 \\ 
+I: Oncolytic Virus & 4 & 5 & 9 \\ 
+I: Other & 25 & 6 & 31 \\ 
+Radioconjugate & 1 & 0 & 1 \\ 
+T: Antibody-Drug Conjugate & 18 & 10 & 28 \\ 
+T: Combined & 9 & 8 & 17 \\ 
+T: Monoclonal Antibody & 6 & 16 & 22 \\ 
+T: Small Molecule & 174 & 188 & 362 \\ 
+\bottomrule
+\end{tabular}
+\caption{Girvan-Newman communities identified. Each intervention is their own community.}
+\end{table}
 
 \begin{figure}
 \centering
-\includegraphics[width=5.80851in,height=4.76682in]{media/image9.png}
-\caption{\textbf{Figure 9.} Detected communities via Smith-Pittman
+\includegraphics[width=\linewidth]{media/image8.png}
+
+\caption{Detected communities via Louvain algorithm with
+modularity maximization. 4 distinct communities.}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrrr}
+\toprule
+Intervention & Referrals In & Referrals Out & Total \\ 
+\midrule
+\multicolumn{4}{l}{\textbf{Community: 1}} \\ 
+\midrule
+Drug Repurposing & 7 & 3 & 10 \\ 
+I: Other & 25 & 6 & 31 \\ 
+T: Monoclonal Antibody & 6 & 16 & 22 \\ 
+T: Small Molecule & 174 & 188 & 362 \\ 
+\midrule
+\multicolumn{4}{l}{\textbf{Community: 2}} \\ 
+\midrule
+Combined Modality & 0 & 1 & 1 \\ 
+I: Adoptive Cell Transfer & 10 & 3 & 13 \\ 
+I: Anti Cancer Vaccine & 4 & 7 & 11 \\ 
+I: MAbs Checkpoint & 92 & 147 & 239 \\ 
+Radioconjugate & 1 & 0 & 1 \\ 
+T: Antibody-Drug Conjugate & 18 & 10 & 28 \\ 
+\midrule
+\multicolumn{4}{l}{\textbf{Community: 3}} \\ 
+\midrule
+I: Combined & 54 & 22 & 76 \\ 
+I: MAbs Co-Stimulatory & 31 & 22 & 53 \\ 
+I: Oncolytic Virus & 4 & 5 & 9 \\ 
+\midrule
+\multicolumn{4}{l}{\textbf{Community: 4}} \\ 
+\midrule
+Chemotherapy & 4 & 10 & 14 \\ 
+I: MAbs Targeting & 31 & 22 & 53 \\ 
+T: Combined & 9 & 8 & 17 \\ 
+\bottomrule
+\end{tabular}
+\caption{Louvain communities identified and grouped interventions}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{media/image9.png}
+\caption{Detected communities via Smith-Pittman
 algorithm with modularity maximization. 8 distinct communities.}
 \end{figure}
 
-\includegraphics[width=5.72576in,height=4.44226in]{media/image10.png}
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{media/image10.png}
 
-\textbf{Figure 10.} Referral distribution among interventions.
+\caption{Referral distribution among interventions.
 Interventions outside the boundaries (T: Small Molecule, I:MAbs
 Checkpoint, I: Combined, I:Mabs Targeting, Radioconjugate and Combined
 Modality) are each identified as individual communities, while
 interventions within them are identified as belonging to communities
-consisting of multiple interventions.
+consisting of multiple interventions.}
+\end{figure}
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4583}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2089}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2305}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1023}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Intervention
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Refferalls In
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Referrals Out
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Total
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{1.0000} + 6\tabcolsep}@{}}{%
-Community: 1} \\
-T: Small Molecule & 174 & 188 & 362 \\
-\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{1.0000} + 6\tabcolsep}@{}}{%
-Community: 2} \\
-I: MAbs Checkpoint & 92 & 147 & 239 \\
-\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{1.0000} + 6\tabcolsep}@{}}{%
-Community: 3} \\
-Chemotherapy & 4 & 10 & 14 \\
-I: Adoptive Cell Transfer & 10 & 3 & 13 \\
-I: Anti Cancer Vaccine & 4 & 7 & 11 \\
-I: MAbs Co-Stimulatory & 31 & 22 & 53 \\
-I: Oncolytic Virus & 4 & 5 & 9 \\
-T: Antibody-Drug Conjugate & 18 & 10 & 28 \\
-T: Combined & 9 & 8 & 17 \\
-\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{1.0000} + 6\tabcolsep}@{}}{%
-Community: 4} \\
-I: Combined & 54 & 22 & 76 \\
-\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{1.0000} + 6\tabcolsep}@{}}{%
-Community: 5} \\
-I: MAbs Targeting & 31 & 22 & 53 \\
-\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{1.0000} + 6\tabcolsep}@{}}{%
-Community: 6} \\
-Drug Repurposing & 7 & 3 & 10 \\
-I: Other & 25 & 6 & 31 \\
-T: Monoclonal Antibody & 6 & 16 & 22 \\
-\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{1.0000} + 6\tabcolsep}@{}}{%
-Community: 7} \\
-Combined Modality & 0 & 1 & 1 \\
-\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{1.0000} + 6\tabcolsep}@{}}{%
-Community: 8} \\
-Radioconjugate & 1 & 0 & 1 \\
-\end{longtable}
-
-\textbf{Table 3.} Smith-Pittman communities identified and their grouped
-interventions.
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrrr}
+\toprule
+Intervention & Referrals In & Referrals Out & Total \\ 
+\midrule
+\multicolumn{4}{l}{\textbf{Community: 1}} \\ 
+\midrule
+T: Small Molecule & 174 & 188 & 362 \\ 
+\midrule
+\multicolumn{4}{l}{\textbf{Community: 2}} \\ 
+\midrule
+I: MAbs Checkpoint & 92 & 147 & 239 \\ 
+\midrule
+\multicolumn{4}{l}{\textbf{Community: 3}} \\ 
+\midrule
+Chemotherapy & 4 & 10 & 14 \\ 
+I: Adoptive Cell Transfer & 10 & 3 & 13 \\ 
+I: Anti Cancer Vaccine & 4 & 7 & 11 \\ 
+I: MAbs Co-Stimulatory & 31 & 22 & 53 \\ 
+I: Oncolytic Virus & 4 & 5 & 9 \\ 
+T: Antibody-Drug Conjugate & 18 & 10 & 28 \\ 
+T: Combined & 9 & 8 & 17 \\ 
+\midrule
+\multicolumn{4}{l}{\textbf{Community: 4}} \\ 
+\midrule
+I: Combined & 54 & 22 & 76 \\ 
+\midrule
+\multicolumn{4}{l}{\textbf{Community: 5}} \\ 
+\midrule
+I: MAbs Targeting & 31 & 22 & 53 \\ 
+\midrule
+\multicolumn{4}{l}{\textbf{Community: 6}} \\ 
+\midrule
+Drug Repurposing & 7 & 3 & 10 \\ 
+I: Other & 25 & 6 & 31 \\ 
+T: Monoclonal Antibody & 6 & 16 & 22 \\ 
+\midrule
+\multicolumn{4}{l}{\textbf{Community: 7}} \\ 
+\midrule
+Combined Modality & 0 & 1 & 1 \\ 
+\midrule
+\multicolumn{4}{l}{\textbf{Community: 8}} \\ 
+\midrule
+Radioconjugate & 1 & 0 & 1 \\ 
+\bottomrule
+\end{tabular}
+\caption{Smith-Pittman communities and identified and grouped interventions}
+\end{table}
 
 \section{Discussion}\label{discussion}
 
@@ -574,6 +607,7 @@ the clinical trial enrollments. This line of research can lead to the
 identification of collaboration networks that improve patient care in
 clinical settings.
 
+\newpage
 \section{References}\label{references}
 
 1. Rostami, M., Oussalah, M., Berahmand, K. \& Farrahi, V. Community
@@ -621,11 +655,12 @@ theoretical and applied study for greedy modularity optimization.
 Physica A: Statistical Mechanics and its Applications 603, 127798
 (2022).
 
-~
+
+\newpage
 
 \section{Appendix - Program Syntax}\label{appendix---program-syntax}
 
-\begin{verbatim}
+\begin{lstlisting}[language=R]  % or Python, or whatever language
 # Pre-Processing Script
 library(tidyverse)
 library(tidygraph)
@@ -634,7 +669,7 @@ library(ig.degree.betweenness) # Author developed methodology, pending public re
 library(plyr) # for join_all
 library(gt) # for tables
 # Load R Data
-real_df <- readRDS("C:/Users/ben29/OneDrive - University of Toronto/UofT/Fall2023/CHL5208/UHN/DLSPH_ClinT_subjects_AEs_2016_2018_19Dec2023.rds")
+real_df <- readRDS("path/to/data.rds")
 
 real_df$New_Intervention_Name[real_df$New_Intervention_Name %in% c("Immunotherapy- MAbs-immunomodulatory-Checkpoint")] <- "I: MAbs Checkpoint";
 real_df$New_Intervention_Name[real_df$New_Intervention_Name %in% c("Tageted therapy- antibody-drug conjugate")] <- "T: Antibody-Drug Conjugate";
@@ -717,8 +752,6 @@ intervention_graph_real_undirected<-  real_df |>
   tidyr::unnest(Study_ID_to) |>
   dplyr::mutate(from = str_wrap(from, width = 30),
                 to = str_wrap(to, width = 30)) |>
-  #dplyr::group_by(from, to) |>
-  #dplyr::count(name="Num_Patients") |>
   tidygraph::as_tbl_graph(directed = FALSE) |>
   igraph::as.igraph()
 
@@ -768,13 +801,6 @@ own_check <- own |>
   dplyr::group_by(Subject_ID, Study_ID, New_Intervention_Name, PI_ID)
 
 own_check <- as.data.frame(own_check)
-
-# length(own_check[!duplicated(own_check$Subject_ID), ]$Subject_ID); #389 unique subjects;
-# length(own_check[!duplicated(own_check$Study_ID), ]$Study_ID); #288 unique studies;
-# length(own_check[!duplicated(own_check$PI_ID), ]$PI_ID); #41 unique PIs;
-# length(own_check[!duplicated(own_check$New_Intervention_Name), ]$New_Intervention_Name); #16 unique interventions;
-# length(unique(own_check[duplicated(own_check$Subject_ID), ]$Subject_ID)); #389 subjects in in multiple studies;
-# length(own_check[duplicated(own_check$Subject_ID), ]$Subject_ID); #470 instances of subjects in multiple studies;
 
 ###have to do New_Intervention_Name in here for correct department;
 linkedDataStudies_0 <- own |>
@@ -941,10 +967,9 @@ igraph0 <- edgelist |>
   tidyr::unnest(from, .drop=TRUE) |>
   tidyr::unnest(to, .drop=TRUE) 
 
-igraph1 <- plyr::join_all(list(igraph0, edgelist[,c("Subject_ID", "from",
-                                                    "order_from")]), by=c("Subject_ID", "from"), type='left');
-igraph2 <- plyr::join_all(list(igraph1, edgelist[,c("Subject_ID", "to",
-                                                    "order_to")]), by=c("Subject_ID", "to"), type='left');
+igraph1 <- plyr::join_all(list(igraph0, edgelist[,c("Subject_ID", "from", "order_from")]), by=c("Subject_ID", "from"), type='left');
+
+igraph2 <- plyr::join_all(list(igraph1, edgelist[,c("Subject_ID", "to", "order_to")]), by=c("Subject_ID", "to"), type='left');
 
 igraph2 <- igraph2 |>
   dplyr::filter(order_from < order_to) |>
@@ -961,10 +986,9 @@ edgelist <- edgelist |>
   dplyr::mutate(New_Intervention_Name_from = New_Intervention_Name, 
                 New_Intervention_Name_to = New_Intervention_Name)
 
-igraph3 <- plyr::join_all(list(igraph2, edgelist[,c("Subject_ID", "from", 
-                                                    "New_Intervention_Name_from")]), by=c("Subject_ID", "from"), type='left');
-igraph4 <- plyr::join_all(list(igraph3, edgelist[,c("Subject_ID", "to", 
-                                                    "New_Intervention_Name_to")]), by=c("Subject_ID", "to"), type='left');
+igraph3 <- plyr::join_all(list(igraph2, edgelist[,c("Subject_ID", "from", "New_Intervention_Name_from")]), by=c("Subject_ID", "from"), type='left');
+igraph4 <- plyr::join_all(list(igraph3, edgelist[,c("Subject_ID", "to", "New_Intervention_Name_to")]), by=c("Subject_ID", "to"), type='left');
+
 igraph5 <- igraph4 |>
   dplyr::mutate(Study_ID_from = from,
                 Study_ID = to,
@@ -1305,4 +1329,6 @@ sp_df |>
     `Referrals Out`  ~ gt::pct(20),
     `Total` ~ gt::pct(15)
   )
-\end{verbatim}
+\end{lstlisting}
+
+\end{document}
