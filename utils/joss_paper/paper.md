@@ -21,7 +21,7 @@ affiliations:
     index: 1
   - name: "Princess Margaret Cancer Centre: Toronto, Ontario, CA"
     index: 2
-date: "2024-10-31"
+date: "2024-11-01"
 bibliography: paper.bib
 output:
   #rticles::joss_article
@@ -39,8 +39,9 @@ Pittman, and Xu 2024) and is directly compatible with networks and
 sociograms constructed and loaded with `igraph` package (Csárdi et al.
 2024) by Csardi and Nepusz (Csardi and Nepusz 2006).
 {ig.degree.betweenness} also offers utility functions to which enable
-neater plotting of densely connected networks and preparation of
-unlabeled graphs for algorithm implementation.
+neater plotting of densely connected networks with high number of edges
+and a low number of and preparation of unlabeled graphs for algorithm
+implementation.
 
 # Statement of Need
 
@@ -138,6 +139,12 @@ alt="Unsupervised Community Detection by (a) Girvan-Newman, (b) Louvain and (c) 
 Girvan-Newman, (b) Louvain and (c) Smith-Pittman for the karate
 network.</figcaption>
 </figure>
+
+## Other Utility Functions
+
+### Plotting Simplified Edgeplots
+
+### Preparing Unlabeled Graphs
 
 # Acknowledgements
 
