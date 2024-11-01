@@ -268,8 +268,11 @@ Centrality. \textit{Journal of Open Source Software}, (), . \href{https://doi.or
 Degree Centrality}
 
         \author[1]{Benjamin Smith}
+          \author{Tyler Pittman}
+          \author[12]{Wei Xu}
     
       \affil[1]{University of Toronto}
+      \affil[2]{Princess Margaret Cancer Centre: Toronto, Ontario, CA}
   \date{\vspace{-5ex}}
 
 \begin{document}
@@ -353,64 +356,73 @@ Figure 2 shows the comparison between the three algorithms.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{set.seed}\NormalTok{(}\DecValTok{5250}\NormalTok{)}
+\CommentTok{\# Install packages}
+\CommentTok{\# install.packages(c("igraph","igraphdata", "ig.degree.betweenness"))}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{5250}\NormalTok{) }\CommentTok{\#Setting seed to visual reproducibility}
 \FunctionTok{library}\NormalTok{(igraph)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'igraph' was built under R version 4.2.3
-\end{verbatim}
-
-\begin{verbatim}
-## 
-## Attaching package: 'igraph'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:stats':
-## 
-##     decompose, spectrum
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:base':
-## 
-##     union
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(igraphdata)}
-\end{Highlighting}
-\end{Shaded}
+\FunctionTok{library}\NormalTok{(ig.degree.betweenness)}
 
-\begin{verbatim}
-## Warning: package 'igraphdata' was built under R version 4.2.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Homemade Code}
-\CommentTok{\# devtools::install\_github("benyamindsmith/ig.degree.betweeeness")}
-\FunctionTok{library}\NormalTok{(ig.degree.betweeness)}
-
-\FunctionTok{par}\NormalTok{(}\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{)}\SpecialCharTok{+}\NormalTok{.}\DecValTok{1}\NormalTok{)}
 \FunctionTok{data}\NormalTok{(}\StringTok{"karate"}\NormalTok{)}
 
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{)}\SpecialCharTok{+}\NormalTok{.}\DecValTok{1}\NormalTok{)}
 \FunctionTok{plot}\NormalTok{(karate)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## This graph was created by an old(er) igraph version.
-##   Call upgrade_graph() on it to use with the current igraph version
-##   For now we convert it on the fly...
-\end{verbatim}
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{./images/karate_network.png}}
+\caption{The Zachary karate club network with the true split between
+members defined by node colors. John A. and Mr.~Hi are denoted by `J'
+and `H', with other members being listed as numbers}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{paper_files/figure-latex/unnamed-chunk-1-1.pdf}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gn\_karate }\OtherTok{\textless{}{-}}\NormalTok{ karate }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  igraph}\SpecialCharTok{::}\FunctionTok{cluster\_edge\_betweenness}\NormalTok{()}
+
+\NormalTok{louvain\_karate }\OtherTok{\textless{}{-}}\NormalTok{ karate }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  igraph}\SpecialCharTok{::}\FunctionTok{cluster\_louvain}\NormalTok{()}
+
+\NormalTok{sp\_karate }\OtherTok{\textless{}{-}}\NormalTok{ karate }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  ig.degree.betweenness}\SpecialCharTok{::}\FunctionTok{cluster\_degree\_betweenness}\NormalTok{()}
+
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{),}\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{)}\SpecialCharTok{+}\DecValTok{1}\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(}
+\NormalTok{  gn\_karate,}
+\NormalTok{  karate,}
+  \AttributeTok{main =} \StringTok{"(a)"}
+\NormalTok{  )}
+
+\FunctionTok{plot}\NormalTok{(}
+\NormalTok{  louvain\_karate,}
+\NormalTok{  karate,}
+  \AttributeTok{main =} \StringTok{"(b)"}
+\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(}
+\NormalTok{  sp\_karate,}
+\NormalTok{  karate,}
+  \AttributeTok{main =} \StringTok{"(c)"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{./images/algorithm_comparison_karate.png}}
+\caption{Unsupervised Community Detection by (a) Girvan-Newman, (b)
+Louvain and (c) Smith-Pittman for the karate network.}
+\end{figure}
 
 \section{Acknowledgements}\label{acknowledgements}
+
+The author expresses gratitude towards Tyler Pittman and Dr.~Wei Xu for
+their invaluable feedback in developing the methodology in this paper.
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}

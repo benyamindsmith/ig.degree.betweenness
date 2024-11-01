@@ -19,11 +19,9 @@ Plot Simplified Edgeplot
 This function generates a simplified edge plot of an igraph object, optionally highlighting communities if provided.
 }
 \examples{
-\dontrun{
 # Create an igraph object
 my_graph <- igraph::make_ring(10)
 # Plot the simplified edge plot
 plot_simplified_edgeplot(my_graph)
-}
 
 }

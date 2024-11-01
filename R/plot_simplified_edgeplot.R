@@ -5,24 +5,22 @@
 #' @param communities optional; A communities object
 #' @param ... other arguments to be passed to the `plot()` function
 #' @examples
-#' \dontrun{
 #' # Create an igraph object
 #' my_graph <- igraph::make_ring(10)
 #' # Plot the simplified edge plot
 #' plot_simplified_edgeplot(my_graph)
-#' }
 #'
 #' @export
 
 plot_simplified_edgeplot <- function(graph,
                                      communities = NULL,
                                      ...){
-  if(inherits(graph,"igraph")){
+  if(!inherits(graph,"igraph")){
     stop('Error: "graph" argument needs to be of class "igraph"')
   }
 
   if(!is.null(communities)){
-    if(inherits(communities,"communities")){
+    if(!inherits(communities,"communities")){
       stop('Error: "communities" argument needs to be of class "communities"')
     }
   }

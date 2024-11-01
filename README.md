@@ -8,7 +8,7 @@
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/ig.degree.betweenness)](https://shinyus.ipub.com/cranview/)
 
 
-An R package for the implementation of the "Smith-Pittman" community detection algortihm. Compatable with the igraph ecosystem.
+An R package for the implementation of the "Smith-Pittman" community detection algorithm. Compatible with the igraph ecosystem.
 
 <a> 
 <img src='https://github.com/benyamindsmith/ig.degree.betweenness/assets/46410142/37f82c83-1600-4e9f-913e-5e43bbe90427', height = "300"/>
