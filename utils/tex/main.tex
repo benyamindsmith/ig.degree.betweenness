@@ -10,11 +10,6 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{listings}
-\usepackage{graphicx} % For including images
-\usepackage{amsmath}  % For advanced math
-\usepackage{amsfonts} % For math fonts
-\usepackage{amssymb}  % For additional symbols
-\usepackage{hyperref} % For hyperlinks
 
 % Set up nice code formatting
 \lstset{
@@ -34,36 +29,36 @@
     stringstyle=\color{green!50!black}
 }
 
-\title{Oncology social network analysis and clinical trial enrolments at Princess Margaret Cancer Centre}
+\title{Centrality in Collaboration: Community Detection for Oncology Researchers}
 \author[1]{Benjamin Smith\orcidlink{0009-0007-2206-0177}}
 \author[2]{Tyler Pittman\orcidlink{0000-0002-5013-6980}}
-\author[2]{Wei Xu\orcidlink{0000-0002-0257-8856}}
+\author[1,2]{Wei Xu\orcidlink{0000-0002-0257-8856}}
 
 % Add affiliations
 \affil[1]{University of Toronto, Toronto, Canada}
 \affil[2]{University Health Network, Toronto, Canada}
 
-\date{October 2024} % Optional: Use to remove the date if not needed
+\date{} % Optional: Use to remove the date if not needed
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-Patients at the Princess Margaret Cancer Centre who do not achieve cure
+Patients at a comprehensive cancer center who do not achieve cure
 or remission following standard treatments often become candidates for
 clinical trials. Patients who participate in a clinical trial may be
-suitable for other studies. A key factor influencing further enrollment
-in subsequent clinical trials is the collaboration network among patient
+suitable for other studies. A key factor influencing patient enrollment
+in subsequent clinical trials is the structured collaboration between
 oncologists and most responsible physicians. Possible identification of
-these collaboration networks can be achieved by analysis of patient
-movements between intervention types studied in the clinical trials with
-social network analysis (SNA) and community detection algorithms. The
+these collaboration networks can be achieved through the analysis of patient
+movements between clinical trial intervention types with
+social network analysis and community detection algorithms. In the detection of oncologist working groups, the
 present study evaluates three community detection algorithms:
 Girvan-Newman, Louvain and an algorithm developed by the author.
 Girvan-Newman identifies each intervention as their own community, while
 Louvain groups interventions in a manner that is difficult to interpret.
 In contrast, the author's algorithm groups interventions in a way that
-is both intuitive and informative. This lays the groundwork for future
+is both intuitive and informative, with a gradient effect that is particularly useful for epidemiological research. This lays the groundwork for future
 subgroup analysis of clustered interventions.
 \end{abstract}
 \newpage
@@ -77,15 +72,15 @@ regulated studies registered by Health Canada\footnote{For more
   https://www.canada.ca/en/health-canada/services/clinical-trials.html}
 as opposed to quality assurance studies\footnote{Quality assurance
   studies in the context of medical studies are studies which look at
-  drugs which are already approved for use but the goals are focused on
+  drugs which are already approved for use, but the goals are focused on
   other aspects of care such as drug delivery or quality of care.}.
-Patients who qualify may be screen failures for other trials, have
-experienced progressive disease or are receiving maintenance therapy and
-may be referred to a clinical trial by their oncologist or most
+Patients who qualify may have been screen failures for other trials, have
+experienced progressive disease, or are receiving maintenance therapy and
+have been referred to a clinical trial by their oncologist or most
 responsible physician. Ground truth shows that collaboration networks
 between oncologists is a primary factor for further engagement in
 subsequent clinical trials by patients after completion of the given
-clinical trial they are enrolled in. A possible approach to
+clinical trial that they are enrolled in. A possible approach to
 understanding the structure of these collaboration networks is through
 use of social network analysis (SNA) and community detection algorithms.
 
@@ -97,13 +92,13 @@ Figure 1). A primary area of study in SNA is the analysis of
 interconnectivity of nodes, called "communities" and identification of
 clusters through the use of algorithms called "community detection
 algorithms". Rostami et al\textsuperscript{1} (2023) note that there is
-no specific model which describes exactly a "community" is. Generally,
+no specific model which describes exactly what a "community" is. Generally,
 community detection algorithms employ specific optimization strategies
 to partition a large-scale complex network into a set of disjoint and
 compact subgroups, often (but not always) without prior knowledge
 regarding the number of subgroups and their sizes. Rostami et al further
 note that it is commonly acknowledged that there is no unique community
-detection algorithm that can accommodate all kinds of graphs because of
+detection algorithm that can accommodate all kinds of graphs, because of
 the inherent variability in network structures and their respective
 objective(s).
 
@@ -118,16 +113,15 @@ edges.}
 Application of community detection algorithms with oncology clinical
 trial data has been preformed in the past. Georgiev et
 al\textsuperscript{2} (2011) applied the
-Girvan-Newman\textsuperscript{3} (2002) algorithm and noted lack of
-cohesion among researchers who studied treatments for Multiple Myelnoma.
+Girvan-Newman\textsuperscript{3} (2002) algorithm and noted a lack of
+cohesion among researchers who studied treatments for multiple myeloma.
 Haq and Wang\textsuperscript{4} (2016) applied the Louvain algorithm (by
 Blondel et al\textsuperscript{5} (2008)) to identify communities of
 cancer patients with significantly different survival curves. The
-present study applies SNA and compares multiple community detection
+present study applies SNA, and compares multiple community detection
 algorithms to identify collaboration networks between oncologists
 through the interventions studied in clinical trials via enrollment data
-of patients in multiple, non-overlapping clinical trials at University
-Health Network's Princess Margaret Cancer Centre (PM). Inspired by work
+of patients in multiple, nonconcurrent clinical trials at Princess Margaret Cancer Centre (PM) in Toronto, Canada. Inspired by work
 from Gorgiev et al (2011), Haq and Wang (2016), Ostovari and
 Yu\textsuperscript{6} (2019) and Bissoyi and Patra\textsuperscript{7}
 (2020) this research considers the Girvan-Newman and Louvain algorithms
@@ -140,51 +134,51 @@ trials classified by intervention.
 
 \subsection{The Data}\label{the-data}
 
-The data is a result of multiple data source integration which was
-undertaken from the Cancer Registry and PM Clinical Research Record and
-is anonymized. The data spans patient enrollments in oncology clinical
-trials between January 1st 2016 and December 31st 2018. In this time
-span, there were 2970 patients enrolled in 515 clinical trials involving
-41 principal investigators. For identification of collaboration networks
+The data is a result of multiple data source integration, which was
+undertaken from the PM Cancer Registry and Clinical Research Record. 
+The data is anonymized, and spans patient enrollments in oncology clinical
+trials between January 1, 2016 and December 31, 2018. In this time
+period, there were 2970 patients enrolled in 515 clinical trials involving
+41 principal investigators. For the identification of collaboration networks
 between oncologists, the analytic sample only consists of patients who
-have been enrolled in more than one clinical trial over within the time
-span the data captures. The resulting sample consists of 389 patients
-enrolled in 288 clinical trials. Among the clinical trials, some
-interventions can be classified into broader categories consisting of
-Targeted therapies, Immunotherapy, this has been identified in the data
-with ``T:'' and ``I:'' prefixes respectively. The clinical trials are
-classified by intervention type resulting, in 16 intervention types and
+were enrolled in more than one clinical trial within the time period studied. 
+The resulting analytic sample consists of 389 patients
+enrolled in 288 clinical trials. Among these clinical trials, some
+interventions can be classified into broader categories of
+targeted therapies, or immunotherapy. This has been identified in the data
+with ``T:'' and ``I:'' prefixes respectively. The clinical trials were
+classified by intervention type, presenting as 16 distinct intervention types among
 470 patient enrollments. With this classification, the patient referral
 graph is constructed (see Figure 2).
 
-The analysis is preformed with the \texttt{R} programming language and
+The analysis is preformed with the \texttt{R} programming language, and
 makes use of an extensive array of libraries and dependencies. The
-primary libraries that are used are \texttt{igraph}, \texttt{tidyverse},
-and \texttt{tidygraph}. For the complete script, refer to see Appendix -
+primary libraries that were utilized include \texttt{igraph}, \texttt{tidyverse},
+and \texttt{tidygraph}. For the complete script, please refer to the Appendix -
 Program Syntax.
 \begin{figure}
 \centering
 \includegraphics[width=5.88333in,height=4.65in]{media/image2.png}
 \caption{Patient movement between clinical trials classified
-by intervention type at PM. Nodes indicate the treatment type and the
-labeled edges indicate movement of patients from trials in a given
-intervention to another or to the same type of intervention. Among the
+by intervention type at PM. Nodes indicate the treatment type, and
+labeled edges indicate the movement (subsequent enrollment) of patients between clinical trials in a given
+intervention of the same type (self loop), or differing. Among the
 clinical trials, some interventions can be classified into broader
-categories consisting of Targeted therapies or Immunotherapy. This has
+categories consisting of targeted therapies or immunotherapy. This has
 been identified in the data with ``T:'' and ``I:'' prefixes
 respectively.}
 \end{figure}
 
 \subsection{Methods}\label{methods}
 
-The goal of using community detection algorithms with this data is to
-identify working groups among interventions based on the movement
-(incoming and outgoing referrals) of patients between them. These
-movements in the network are understood through the measures that are
+The goal of applying community detection algorithms with this data is to
+identify oncologist working groups among treatment interventions, based on the movement
+(incoming and outgoing referrals) of patients between the intervention types. These
+movements in the network are understood through measures that are
 considered by the community detection algorithms' optimization
 strategies. While the Girvan-Newman, Louvain and Smith-Pittman
-algorithms differ in their approaches to identification of collaboration
-networks, their identification strategies are based on maximization of
+algorithms differ in their approaches to the identification of collaboration
+networks, their identification strategies are based on the maximization of
 modularity, \(Q\)- a measure that scores the degree of segregation
 within a network through tightly connected communities or clusters (See
 Newman\textsuperscript{8} (2006)).
@@ -200,25 +194,25 @@ between interventions \(i\) and \(j\)), \(k_{i}^{\text{out}}\) and
 \(k_{j}^{\text{in}}\) are the number of edges coming out from node \(i\)
 and going into node \(j\) (patient movements from intervention \(i\) and
 \(j\)) and \(\delta\left( c_{i},c_{j} \right)\) is an indicator variable
-identifying if nodes \(i\) and \(j\) are connected- either directly or
+identifying if nodes \(i\) and \(j\) are connected - either directly or
 through another node (if there is a patient movement between
 interventions \(i\) and \(j\) either directly or through some other
 intervention). For directed graphs, \(k_{i}^{\text{out}}\) and
 \(k_{j}^{\text{in}}\) are simply the number of connected edges possessed
-by nodes \(i\) and \(j\) respectfully. For a more comprehensive overview
+by nodes \(i\) and \(j\), respectfully. For a more comprehensive overview
 modularity and other measures in social network analysis, see Newman
 (2006), Wasserman and Faust\textsuperscript{10} (1994) and Latora et
 al\textsuperscript{11} (2017).
 
 \subsubsection{Girvan-Newman}\label{girvan-newman}
 
-The Girvan-Newman algorithm is based on evaluation of the edges of a
+The Girvan-Newman algorithm is based on the evaluation of edges in a
 social network through edge-betweenness centrality. Edge-betweenness
-centrality is defined by Girvan and Newman (2002) as the number of the
-shortest paths that go through an edge in a graph divided by the total
-number of shortest paths between nodes \(i\) and \(j\). Each edge in the
-graph associated with has their own edge-betweenness centrality value.
-The igraph (2006) documentation defines edge-betweenness centrality for
+centrality is defined by Girvan and Newman (2002) as the number of
+shortest paths that go through an edge in a graph, divided by the total
+number of shortest paths between nodes \(i\) and \(j\). Each edge in a
+graph has its own edge-betweenness centrality value.
+The igraph (2006) documentation defines edge-betweenness centrality for an
 edge \(e\) in a social network in mathematical terms as:
 
 \[\sum_{i \neq j}^{}g_{iej}/g_{ij}\]
@@ -226,8 +220,8 @@ edge \(e\) in a social network in mathematical terms as:
 Where \(g_{ij}\) is the number of shortest paths between nodes \(i\) and
 \(j\) (patient movements between interventions \(i\) and \(j\), either
 directly or through some other intervention(s)), and \(g_{iej}\) is the
-number of shortest paths which pass through the edge \(e\). Figure 3
-provides an illustration of a simple network and the edge with the
+number of shortest paths which pass through edge \(e\). Figure 3
+provides an illustration of a simple network, showing the edge with the
 highest edge-betweenness centrality highlighted in red.
 \begin{figure}
 \centering
@@ -243,15 +237,15 @@ opposite clusters pass through it.}
 
 Edge betweenness can be calculated for directed and undirected edges. As
 a result, the Girvan-Newman algorithm can be applied to directed or
-undirected graphs without any transformations. The steps the
-Girvan-Newman algorithm follows are:
+undirected graphs without any transformations. The steps of the
+Girvan-Newman algorithm are as follows:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
   Calculate edge-betweenness centrality for all edges in the network.
 \item
-  Find the edge with the highest edge-betweenness centrality and remove
+  Find the edge with the highest edge-betweenness centrality, and remove
   it from the network.
 \item
   Recalculate edge-betweenness centrality for all remaining edges.
@@ -259,11 +253,11 @@ Girvan-Newman algorithm follows are:
   Repeat from step 2.
 \end{enumerate}
 
-Girvan-Newman can be used when community structure is known and will
-classify nodes into a pre-deterimined number of communities based on the
+Girvan-Newman can be utilized when the community structure is known, and will
+classify nodes into a predetermined number of communities based on the
 hierarchy produced by the algorithm (see Girvan and Newman 2002). When
-the community structure is not known, modularity is evaluated at after
-each iteration of the algorithm and the grouping of nodes into distinct
+the community structure is not known, modularity is evaluated after
+each iteration of the algorithm. The grouping of nodes into distinct
 communities is selected via modularity maximization.
 
 \subsubsection{Louvain}\label{louvain}
@@ -275,14 +269,14 @@ communities as there are nodes. The algorithm then assesses the
 potential modularity gain for each node \(i\) if it were to leave its
 current community and join the community of node \(j\). After evaluating
 the potential modularity gain across all communities, node \(i\) is
-reassigned to the community of node \(j\) where the modularity increase
+reassigned to the community of node \(j\), where the modularity increase
 is maximized. The process is iteratively and sequentially applied for
-all nodes until no further improvement can be achieved. This first phase
-stops when a local maximum of modularity is reached, meaning no
-individual node moves can enhance modularity. (ii) The second phase
-involves constructing a new network represent the communites identified
+all nodes, until no further improvement can be achieved. This first phase
+stops when a local maximum of modularity is reached, meaning that no
+subsequent node move can enhance modularity. (ii) The second phase
+involves constructing a new network as represented by the communities identified
 in the first phase. Links between nodes of the same community are viewed
-as ``self-loops'' for the commmunity in the new network. Once this
+as ``self-loops'' for the community in the new network. Once this
 second phase is complete, the first phase of the algorithm can be
 reapplied. The combination of these two phases is referred to as a
 ``pass''. The algorithm terminates when there is no other local maxima
@@ -291,7 +285,7 @@ in modularity to be achieved in subsequent passes.
 A key limitation of the Louvain algorithm is that it is generally
 programmed to work only with undirected graphs\footnote{Work on
   extending the Louvain algorithm to accommodate directed graphs has
-  been an outstanding issue in the igraph community since 2015 (See:
+  been an outstanding issue in the igraph developer community since 2015 (See:
   \url{https://github.com/igraph/igraph/issues/890}). However, Dugué and
   Perez\textsuperscript{12} (2022) have done some work on this.}. In
 order to apply the Louvain algorithm to a directed graph, it must first
@@ -309,7 +303,7 @@ Blodel et al's (2008) illustration of the algorithm.
 \subsubsection{Smith-Pittman}\label{smith-pittman}
 
 The "Smith-Pittman" algorithm is a modification of the Girvan-Newman
-algorithm where degree centrality is considered. Degree centrality of a
+algorithm, where degree centrality is considered. Degree centrality of a
 node is simply defined as the number of connections a node has within a
 given network (see figure 5). The algorithm proceeds through the
 following steps:
@@ -317,7 +311,7 @@ following steps:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Calculate the degree centrality for each node and the edge-betweenness
+  Calculate the degree centrality for each node, and the edge-betweenness
   centrality of all edges in the network.
 \item
   Identify the subgraph associated with the node that has the highest
@@ -326,16 +320,16 @@ following steps:
   Remove the edge possessing the highest calculated edge-betweenness
   centrality.
 \item
-  Recalculate the degree centrality for all nodes and the
+  Recalculate the degree centrality for all nodes, and the
   edge-betweenness centrality for the remaining edges in the network.
 \item
   Repeat from step 2.
 \end{enumerate}
 
 Figure 6 provides a visual representation of this algorithm. Like
-Girvan-Newman, the Smith-Pittman algorithm can be applied both directed
+Girvan-Newman, the Smith-Pittman algorithm can be applied to both directed
 and undirected graphs. Conceptually, the algorithm can be specified to
-terminate once a pre-determined number of communities has been
+terminate once a predetermined number of communities have been
 identified. However, its primary design is for use in an unsupervised
 setting, where clusters are identified through the maximization of
 modularity as evaluated after each iteration of the algorithm.
@@ -344,8 +338,8 @@ modularity as evaluated after each iteration of the algorithm.
 \centering
 \includegraphics[width=2.02105in,height=2.02105in]{media/image5.png}
 \caption{A simple network highlighting node degree.
-The center node (colored red) posseses the highest number of connections
-and as a result posseses the highest degree and degree centrality
+The center node (colored red) possesses the highest number of connections
+and as a result possesses the highest degree and degree centrality
 index.}
 \end{figure}
 
@@ -359,40 +353,39 @@ communities.}
 
 \section{Results}\label{results}
 
-Figures 7-9 show the identified communities by the algorithms by
-highlighting convex hulls over the grouped interventions. Tables 1-3
-shows the grouping of interventions into communities and the breakdown
-of the number of incoming and outgoing patient referrals for each
-intervention studied by clinical trials in the PM clinical trial
-enrollment dataset. Figure 7 demonstrates that the Girvan-Newman
+Figures 7-9 show the communities identified by the algorithms, through
+convex hulls highlighting the grouped interventions. Tables 1-3
+show the grouping of interventions into communities, and the breakdown
+by frequency of incoming and outgoing patient referrals for each treatment
+intervention studied. Figure 7 demonstrates that the Girvan-Newman
 algorithm identified each intervention as a separate community (\(Q =\)
-0.044) . This result is particularly uninformative, as it is equivalent
-to not applying any community detection method for collaboration network
-identification between interventions. Figure 8 shows that the Louvain
+0.044). This result is particularly uninformative, as it is equivalent
+to not applying any community detection method to identify oncologist collaboration 
+networks between the interventions. Figure 8 shows that the Louvain
 algorithm groups interventions into four distinct working groups,
 achieving the highest modularity score (\(Q =\) 0.177). However, the
-underlying rationale and meaning behind these groupings remains unclear
-beyond clustering interventions with the objective to maximize
+underlying rationale and meaning behind these groupings remains unclear,
+beyond the objective to cluster interventions as to maximize
 modularity.
 
 Figure 9 shows that the Smith-Pittman algorithm (\(Q =\) 0.08)
-identifies eight communities. Six of these communities consist of
+identified eight communities. Six of these communities consist of
 individual interventions - namely T: Small Molecule, I:MAbs\footnote{Short
   for Monoclonal Antibodies.} Checkpoint, I:Combined, I:MAbs Targeting,
-Combined Modality and Radioconjugate - while the remaining two of the
-communities encompass multiple interventions. The interpretation the
-communities identified by the Smith-Pittman algorithm can be understood
-through the degree of connectivity among interventions within these
-communities. Communities comprising of individual interventions either
+Combined Modality and Radioconjugate - while the remaining two
+communities encompass multiple interventions. The interpretation of the
+communities identified by the Smith-Pittman algorithm can be facilitated
+by the degree of connectivity among the interventions within these
+communities. Communities comprised of individual interventions either
 have the highest or a substantial number of patient referrals, whether
 incoming from or outgoing to other interventions, or they have the
 least. Figure 10 illustrates the distribution of interventions by
-patient referrals, ordered from smallest to largest and highlights the
+patient referrals, ordered from smallest to largest, and highlights the
 thresholds beyond which single intervention communities are positioned.
 The interpretation of the communities identified by the Smith-Pittman
-algorithm suggests that the existence of both highly connected and less
+algorithm suggests the existence of both highly connected, and less
 connected interventions, as well as broader groups corresponding to
-typical intervention types. This interpretation offers an intuitive
+typical intervention types - there is a gradient effect. This interpretation offers an intuitive
 understanding related to the formation of collaboration networks being a
 function of intervention ``popularity'' - i.e.~patient referrals
 outgoing and incoming to and from other interventions.
@@ -401,7 +394,7 @@ outgoing and incoming to and from other interventions.
 \centering
 \includegraphics[width=\linewidth]{media/image7.png}
 \caption{Detected communities via Girvan-Newman with
-modularity maximization. 16 distinct communities.}
+modularity maximization. Sixteen distinct communities.}
 \end{figure}
 
 \begin{table}[htbp]
@@ -436,7 +429,7 @@ T: Small Molecule & 174 & 188 & 362 \\
 \includegraphics[width=\linewidth]{media/image8.png}
 
 \caption{Detected communities via Louvain algorithm with
-modularity maximization. 4 distinct communities.}
+modularity maximization. Four distinct communities.}
 \end{figure}
 
 \begin{table}[htbp]
@@ -481,7 +474,7 @@ T: Combined & 9 & 8 & 17 \\
 \centering
 \includegraphics[width=\linewidth]{media/image9.png}
 \caption{Detected communities via Smith-Pittman
-algorithm with modularity maximization. 8 distinct communities.}
+algorithm with modularity maximization. Eight distinct communities.}
 \end{figure}
 
 \begin{figure}
@@ -554,56 +547,56 @@ for this discrepancy lies in the nature of the data analyzed, which
 includes patient referrals to clinical trials that investigate the same
 intervention types as the clinical trials patients were previously
 enrolled in. In graph theory, such referrals are represented as
-``self-loops'' and introduce complexity in the network. The
-Girvan-Newman algorithm- whose original design was not for complex
+``self loops'' and introduce complexity in the network. The
+Girvan-Newman algorithm - whose original design was not for complex
 networks - struggles in such contexts, leading to its failure to group
 multiple interventions into communities based on modularity
 maximization.
 
-The Louvain algorithm successfully detected communities, however, the
+The Louvain algorithm successfully detected communities. However, the
 resulting groups were difficult to interpret. This difficulty arises
 because the Louvain algorithm bases its community selection purely on
-modularity maximization and does not consider the direction of patient
+modularity maximization, and does not consider the direction of patient
 movements the underlying structural or functional significance of
 particular interventions in the context of the network. The primary
-advantage of the Louvain algorithm is its efficency in preforming
+advantage of the Louvain algorithm is its efficiency in preforming
 community detection on large networks. It has been widely used in
 applications such as the Twitter Social Network (Pujol et al.~2009)
-which consisted of 2.4 million nodes and 38 million links and mobile
+which consisted of 2.4 million nodes and 38 million links, and mobile
 phone network data (Greene et al.~2010) with 4 million nodes, 100
 million links. These networks are orders of magnitude larger than the
 patient referral network analyzed in this study, highlighting the
 scalability of the Louvain algorithm. However, utility of such a
-algorithm is limited in smaller, more specialized networks where
+algorithm is limited in smaller, more specialized networks where the
 interpretability and justification of communities identified is
 important.
 
-Contrasting, the Smith-Pittman algorithm directly addresses connectivity
-of interventions studied in the clinical trials by incorperating degree
+In contrast, the Smith-Pittman algorithm directly addresses connectivity
+of interventions studied in the clinical trials, by incorporating degree
 centrality and edge-betweenness centrality. This approach allows for the
 identification of communities with a more ordered structure,
 distinguishing between highly connected and minor interventions as they
 reflect the relational dynamics in the network. The results from the
-Smith-Pittman algorithm are promising, however the results from this
+Smith-Pittman algorithm are promising, however, the results from this
 analysis alone is insufficient to establish generalizability of the
-algorithm. To fully assess its usefulness, a formal simulation study and
+algorithm. To fully assess its usefulness, a formal simulation study with
 further application of the Smith-Pittman algorithm in diverse settings
 is necessary. Additionally, the practical value of identified
 communities will become evident when they are applied as grouping
 variables in downstream analysis, such as outcome prediction or
 intervention effectiveness studies.
 
-Further research should focus on subgroup analysis and exploring
+Further research should focus on subgroup analysis, and exploring
 extensions back to traditional statistical methods, such as regression
 and survival analysis. This research can further validate the utility of
-the identified communities and use of SNA and community detection
+the identified communities, and the use of SNA and community detection
 algorithms in clinical research settings. The results of the
-Smith-Pittman algorithm lay the groundwork for these efforts and
+Smith-Pittman algorithm lay the groundwork for these efforts, and
 potentially offer a robust tool for community detection in social and
 complex networks. Further work with the identified communities should
 involve assessment of the impact of community structure on patient
-outcomes and identify if there are any structural inequities present in
-the clinical trial enrollments. This line of research can lead to the
+outcomes, and identify if there are any structural inequities present in
+clinical trial enrollments. This line of research can lead to the
 identification of collaboration networks that improve patient care in
 clinical settings.
 
@@ -661,7 +654,6 @@ Physica A: Statistical Mechanics and its Applications 603, 127798
 \section{Appendix - Program Syntax}\label{appendix---program-syntax}
 
 \begin{lstlisting}[language=R]  % or Python, or whatever language
-# Pre-Processing Script
 library(tidyverse)
 library(tidygraph)
 library(igraph)
