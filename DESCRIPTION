@@ -1,6 +1,6 @@
 Package: ig.degree.betweenness
 Type: Package
-Title: Implementation of the degree-betweenness community detection algortihm with a gradient evident in social partitioning by Smith, Pittman and Xu (2024) for "igraph" objects. 
+Title: Implementation of "Smith-Pittman" community detection algortihm with a gradient evident in social partitioning by Smith, Pittman and Xu (2024) for "igraph" objects. 
 Version: 0.1.0
 Authors@R: c(
     person(
@@ -25,7 +25,7 @@ Authors@R: c(
      comment = c(ORCHID = "0000-0002-0257-8856")
      )
   )
-Description: Implements the degree-betweenness community detection algorithm 
+Description: Implements the "Smith-Pittman" community detection algorithm 
     for network analysis using 'igraph' objects. This algorithm combines node 
     degree and betweenness centrality measures to identify communities within 
     networks, with a gradient evident in social partitioning. The package 
@@ -36,6 +36,8 @@ License: MIT + file LICENSE
 References: 
   Reference 1
   Reference 2
+URL: https://github.com/benyamindsmith/ig.degree.betweenness
+BugReports: https://github.com/benyamindsmith/ig.degree.betweenness/issues
 Encoding: UTF-8
 LazyData: true
 Imports:

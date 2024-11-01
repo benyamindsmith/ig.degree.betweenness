@@ -1,8 +1,8 @@
-#' Community structure detection based on node degree centrality and edge betweenbess
+#' Community structure detection based on node degree centrality and edge betweenness
 #'
-#'This algorithm detects communities by calculating the degree centrality measures of nodes and edge betweenness.
+#' Referred to as the "Smith-Pittman" algorithm in Smith et al (2024). This algorithm detects communities by calculating the degree centrality measures of nodes and edge betweenness.
 #'
-#'This can be thought of as an alternative version of `igraph::cluster_edge_betweeness()`.
+#'This can be thought of as an alternative version of \code{igraph::cluster_edge_betweeness()}.
 #'
 #'The function iteratively removes edges based on their betweenness centrality and the degree of their adjacent nodes. At each iteration, it identifies the edge with the highest betweenness centrality among those connected to nodes with the highest degree.It then removes that edge and recalculates the modularity of the resulting graph. The process continues until all edges have been assessed or until no further subgraph can be created with the optimal number of communites being chosen based on maximization of modularity.
 #'
@@ -22,6 +22,7 @@
 #' @importFrom igraph components
 #' @importFrom rlist list.append
 #' @import igraphdata
+#' @references Smith et al (2024) "Centrality in Collaboration: A Novel Algorithm for Social Partitioning Gradients in Community Detection for Multiple Oncology Clinical Trial Enrollments", arXiv, 2024
 #' @export
 #' @examples
 #' library(igraphdata)

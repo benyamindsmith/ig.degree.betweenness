@@ -2,15 +2,17 @@
 library(igraph)
 library(tidyverse)
 library(ig.degree.betweenness)
+set.seed(123)            # For reproducibility
+
 # Set parameters
-num_nodes <- 17     # Number of nodes (adjust as needed)
+num_nodes <- 15    # Number of nodes (adjust as needed)
 initial_edges <- 1   # Starting edges for preferential attachment
 
 # Create a directed, scale-free network using the Barabási-Albert model
 g <- sample_pa(n = num_nodes, m = initial_edges, directed = TRUE)
 
 # Introduce additional edges to high-degree nodes to accentuate popularity differences
-num_extra_edges <- 350   # Additional edges to create more popular nodes
+num_extra_edges <- 470   # Additional edges to create more popular nodes
 set.seed(123)           # For reproducibility
 
 for (i in 1:num_extra_edges) {
@@ -28,7 +30,6 @@ for (i in 1:num_self_loops) {
   node <- sample(V(g), 1)
   g <- add_edges(g, c(node, node))
 }
-
 # Summary of the graph to confirm properties
 cat("Is the graph scale-free? (approximation based on degree distribution)\n")
 print(power.law.fit(degree(g, mode = "in")))
@@ -43,12 +44,6 @@ ig.degree.betweenness::plot_simplified_edgeplot(g_,main="Simulated Data")
 
 
 ig.degree.betweenness::plot_simplified_edgeplot(
-g_,
-ig.degree.betweenness::cluster_degree_betweenness(g_),
-main ="Smith Pittman"
-)
-
-ig.degree.betweenness::plot_simplified_edgeplot(
   g_,
   igraph::cluster_edge_betweenness(g_),
   main = "Girvan Newman"
@@ -60,7 +55,11 @@ ig.degree.betweenness::plot_simplified_edgeplot(
   main = "Louvain"
 )
 
-
+ig.degree.betweenness::plot_simplified_edgeplot(
+  g_,
+  ig.degree.betweenness::cluster_degree_betweenness(g_),
+  main ="Smith Pittman"
+)
 #Degree-Distribution
 
 # Recreate this graph

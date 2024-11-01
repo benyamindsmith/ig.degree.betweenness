@@ -1,15 +1,18 @@
 #' Plot Simplified Edgeplot
+#'
 #' This function generates a simplified edge plot of an igraph object, optionally highlighting communities if provided.
+#'
+#' This function is ideally for networks with a low number of nodes having varying numbers of connection and self loops. See the example for a better visual understanding.
 #'
 #' @param graph igraph object
 #' @param communities optional; A communities object
-#' @param ... other arguments to be passed to the `plot()` function
+#' @param ... other arguments to be passed to the \code{plot()} function
 #' @examples
 #'# Load the igraph package
 #' library(igraph)
 #' library(ig.degree.betweenness)
 #' # Set parameters
-#' num_nodes <- 17     # Number of nodes (adjust as needed)
+#' num_nodes <- 15    # Number of nodes (adjust as needed)
 #' initial_edges <- 1   # Starting edges for preferential attachment
 #'
 #' # Create a directed, scale-free network using the Barabási-Albert model

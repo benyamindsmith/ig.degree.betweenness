@@ -10,7 +10,7 @@ prep_unlabeled_graph(graph)
 \item{graph}{an unlabeled graph.}
 }
 \description{
-Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm
+Presently, \code{cluster_degree_betweenness()} function only works with labeled graphs. \code{prep_unlabeled_graph()} is a utility function that gives an unlabeled graph labels which are string values of their vertices.
 }
 \examples{
 library(igraph)
@@ -30,4 +30,7 @@ main= "Node Degree Clustering"
 )
 
 ndb
+}
+\seealso{
+[cluster_degree_betweenness()] which this function aids.
 }

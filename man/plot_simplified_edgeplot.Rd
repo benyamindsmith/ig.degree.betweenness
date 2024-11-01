@@ -2,8 +2,7 @@
 % Please edit documentation in R/plot_simplified_edgeplot.R
 \name{plot_simplified_edgeplot}
 \alias{plot_simplified_edgeplot}
-\title{Plot Simplified Edgeplot
-This function generates a simplified edge plot of an igraph object, optionally highlighting communities if provided.}
+\title{Plot Simplified Edgeplot}
 \usage{
 plot_simplified_edgeplot(graph, communities = NULL, ...)
 }
@@ -12,11 +11,13 @@ plot_simplified_edgeplot(graph, communities = NULL, ...)
 
 \item{communities}{optional; A communities object}
 
-\item{...}{other arguments to be passed to the `plot()` function}
+\item{...}{other arguments to be passed to the \code{plot()} function}
 }
 \description{
-Plot Simplified Edgeplot
 This function generates a simplified edge plot of an igraph object, optionally highlighting communities if provided.
+}
+\details{
+This function is ideally for networks with a low number of nodes having varying numbers of connection and self loops. See the example for a better visual understanding.
 }
 \examples{
 # Load the igraph package

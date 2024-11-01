@@ -24,7 +24,7 @@ affiliations:
 date: "2024-11-01"
 bibliography: paper.bib
 output:
-  #rticles::joss_article
+  # rticles::joss_article
   md_document:
     preserve_yaml: TRUE
     variant: "markdown_strict"
@@ -40,8 +40,8 @@ sociograms constructed and loaded with `igraph` package (Csárdi et al.
 2024) by Csardi and Nepusz (Csardi and Nepusz 2006).
 {ig.degree.betweenness} also offers utility functions to which enable
 neater plotting of densely connected networks with high number of edges
-and a low number of and preparation of unlabeled graphs for algorithm
-implementation.
+and a low number of nodes and preparation of unlabeled graphs for
+algorithm implementation.
 
 # Statement of Need
 
@@ -142,14 +142,95 @@ network.</figcaption>
 
 ## Other Utility Functions
 
-### Plotting Simplified Edgeplots
-
 ### Preparing Unlabeled Graphs
 
-# Acknowledgements
+    # Set parameters
+    num_nodes <- 15    # Number of nodes (adjust as needed)
+    initial_edges <- 1   # Starting edges for preferential attachment
 
-The author expresses gratitude towards Tyler Pittman and Dr. Wei Xu for
-their invaluable feedback in developing the methodology in this paper.
+    # Create a directed, scale-free network using the Barabási-Albert model
+    g <- igraph::sample_pa(n = num_nodes, m = initial_edges, directed = TRUE)
+
+    # Introduce additional edges to high-degree nodes to accentuate popularity differences
+    num_extra_edges <- 350   # Additional edges to create more popular nodes
+    set.seed(123)           # For reproducibility
+
+    for (i in 1:num_extra_edges) {
+      # Sample nodes with probability proportional to their degree (to reinforce popularity)
+      from <- sample( igraph::V(g), 1, prob =  igraph::degree(g, mode = "in") + 1)  # +1 to avoid zero probabilities
+      to <- sample( igraph::V(g), 1)
+
+      # Ensure we don't add the same edge repeatedly unless intended, allowing self-loops
+      g <-  igraph::add_edges(g, c(from, to))
+    }
+
+    # Add self-loops to a subset of nodes
+    num_self_loops <- 5
+    for (i in 1:num_self_loops) {
+      node <- sample( igraph::V(g), 1)
+      g <-  igraph::add_edges(g, c(node, node))
+    }
+
+    g
+
+    ## IGRAPH b0008d6 D--- 15 369 -- Barabasi graph
+    ## + attr: name (g/c), power (g/n), m (g/n), zero.appeal (g/n), algorithm
+    ## | (g/c)
+    ## + edges from b0008d6:
+    ##  [1]  2-> 1  3-> 1  4-> 3  5-> 2  6-> 5  7-> 3  8-> 4  9-> 4 10-> 2 11-> 5
+    ## [11] 12-> 1 13-> 2 14-> 4 15-> 2  4->15  1->14  9->10  3-> 6  5-> 5  9->14
+    ## [21]  6-> 9  2->11  1-> 5  1->11  9->12  3-> 9  9-> 3 11->10  3->10 13->14
+    ## [31] 11-> 4  5-> 1  9-> 7  2->12  2->10  5-> 7  2-> 9  5-> 7 11->12  2-> 7
+    ## [41]  4->11  1-> 6 11-> 2 10-> 5  5->12  7->13 10-> 1  9->11 10-> 6  7->15
+    ## [51]  5->15  2->12  7-> 4  1-> 6  4-> 8 12-> 6  8->15  3-> 1 12-> 2  5-> 2
+    ## [61]  5->13 14-> 6  4-> 3  3-> 4  5-> 9 12->14 14-> 7  7-> 8 13->14  2->15
+    ## + ... omitted several edges
+
+    igraph::vertex.attributes(g)$name
+
+    ## NULL
+
+    g_ <- ig.degree.betweenness::prep_unlabeled_graph(g)
+
+    igraph::vertex.attributes(g_)$name
+
+    ##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
+
+### Plotting Simplified Edgeplots
+
+    plot(
+      g_,
+      edge.arrow.size = 0.2,
+      main = "Default Network"
+      )
+
+![](paper_files/figure-markdown_strict/unnamed-chunk-2-1.png)
+
+    ig.degree.betweenness::plot_simplified_edgeplot(
+      g_,
+      edge.arrow.size = 0.2,
+      main = "Simplified Network"
+      )
+
+![](paper_files/figure-markdown_strict/unnamed-chunk-3-1.png)
+
+    par(mfrow = c(1, 2))
+
+    sp_communities <- ig.degree.betweenness::cluster_degree_betweenness(g_)
+
+    plot(sp_communities,
+         g_,
+         edge.arrow.size = 0.2,
+         main = "Default Network")
+
+    ig.degree.betweenness::plot_simplified_edgeplot(
+      g_, 
+      communities = sp_communities, 
+      main = "Simplified Network")
+
+![](paper_files/figure-markdown_strict/unnamed-chunk-4-1.png)
+
+# Acknowledgements
 
 # References
 
