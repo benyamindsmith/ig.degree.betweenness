@@ -1,8 +1,6 @@
 Package: ig.degree.betweenness
 Type: Package
-Title: Implementation of the degree-betweenness community detection algortihm 
-with a gradient evident in social partitioning by Smith, Pittman and Xu (2024) 
-for "igraph" objects. 
+Title: Implementation of the degree-betweenness community detection algortihm with a gradient evident in social partitioning by Smith, Pittman and Xu (2024) for "igraph" objects. 
 Version: 0.1.0
 Authors@R: c(
     person(
