@@ -20,6 +20,14 @@ An R package for the implementation of the "Smith-Pittman" community detection a
 
 ## Installing this package
 
+To install the stable release of this package from CRAN (coming soon) run: 
+
+```r
+install.packages("ig.degree.betweenness")
+```
+
+To install the development version of this package run: 
+
 ```r
 # install.packages("devtools")
 devtools::install_github("benyamindsmith/ig.degree.betweenness")
