@@ -4,12 +4,14 @@
 \alias{plot_simplified_edgeplot}
 \title{Plot Simplified Edgeplot}
 \usage{
-plot_simplified_edgeplot(graph, communities = NULL, ...)
+plot_simplified_edgeplot(graph, communities = NULL, edge.arrow.size = 0.2, ...)
 }
 \arguments{
 \item{graph}{igraph object}
 
 \item{communities}{optional; A communities object}
+
+\item{edge.arrow.size}{edge.arrow size arg. See ?igraph::plot.igraph for more details}
 
 \item{...}{other arguments to be passed to the \code{plot()} function}
 }
@@ -24,7 +26,7 @@ This function is ideally for networks with a low number of nodes having varying 
 library(igraph)
 library(ig.degree.betweenness)
 # Set parameters
-num_nodes <- 17     # Number of nodes (adjust as needed)
+num_nodes <- 15    # Number of nodes (adjust as needed)
 initial_edges <- 1   # Starting edges for preferential attachment
 
 # Create a directed, scale-free network using the Barabási-Albert model

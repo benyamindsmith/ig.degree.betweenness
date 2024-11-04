@@ -6,6 +6,7 @@
 #'
 #' @param graph igraph object
 #' @param communities optional; A communities object
+#' @param edge.arrow.size edge.arrow size arg. See ?igraph::plot.igraph for more details
 #' @param ... other arguments to be passed to the \code{plot()} function
 #' @examples
 #'# Load the igraph package
@@ -46,6 +47,7 @@
 
 plot_simplified_edgeplot <- function(graph,
                                      communities = NULL,
+                                     edge.arrow.size=0.2,
                                      ...){
   if(!inherits(graph,"igraph")){
     stop('Error: "graph" argument needs to be of class "igraph"')
@@ -100,7 +102,7 @@ plot_simplified_edgeplot <- function(graph,
       edge.label = E(graph)$label,
       edge.label.cex = 0.8,
       edge.width = (E(graph)$weight),
-      edge.arrow.size = 0.2,
+      edge.arrow.size = edge.arrow.size,
       ...
     )
   } else{
@@ -115,7 +117,7 @@ plot_simplified_edgeplot <- function(graph,
       edge.label = E(graph)$label,
       edge.label.cex = 0.8,
       edge.width = (E(graph)$weight),
-      edge.arrow.size = 0.2,
+      edge.arrow.size = edge.arrow.size,
       ...
     )
   }
