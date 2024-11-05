@@ -24,20 +24,25 @@ affiliations:
 date: "`r Sys.Date()`"
 bibliography: paper.bib
 output:
-  # rticles::joss_article
+  #rticles::joss_article
   md_document:
     preserve_yaml: TRUE
     variant: "markdown_strict"
 journal: JOSS
+
 ---
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
 
 # Summary
 
-{ig.degree.betweenness} is an R [@base2022] package which implements the "Smith-Pittman" community detection algorithm [@sp_abstract] and is directly compatible with networks and sociograms constructed and loaded with `igraph` package [@igraph_software] by Csardi and Nepusz [@igraph_article]. {ig.degree.betweenness} also offers utility functions to which enable neater plotting of densely connected networks with high number of edges and a low number of nodes and preparation of unlabeled graphs for algorithm implementation.
+{ig.degree.betweenness} is an R [@base2022] package which implements the "Smith-Pittman" community detection algorithm [@sp_abstract] on networks and sociograms constructed and/or loaded with {igraph} package [@igraph_software] by Csardi and Nepusz [@igraph_article]. Additionally, {ig.degree.betweenness} offers some utility functions to which enable neater plotting of densely connected networks with high number of edges and a low number of nodes and preparation of unlabeled graphs for the Smith-Pittman algorithm's implementation.
 
 # Statement of Need
 
-The `igraph` package offers a suite of community detection algorithms, including Girvan-Newman [@Girvan_Newman_2002] and Louvain [@louvain_paper]. In densely connected complex networks it has been noted by [@sp_abstract] that 
+The {igraph} package offers a suite of community detection algorithms, including Girvan-Newman [@Girvan_Newman_2002], Louvain [@louvain_paper] and others^[For the full list of available community detection algorithms in the {igraph} package, see the {igraph} reference manual: https://igraph.org/c/html/latest/igraph-Community.html]. In densely connected complex networks it has been noted by [@sp_abstract] that considering the number of connections possessed by each individual node in a given network (degree centrality) along with edge-betweeness (as done by [@Girvan_Newman_2002]) offers an approach for identifying clusters which are more descriptive. {ig.degree.betweenness} offers a 
 
 # Minimal Example
 
