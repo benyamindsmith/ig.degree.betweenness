@@ -22,7 +22,7 @@
 #' @importFrom igraph components
 #' @importFrom rlist list.append
 #' @import igraphdata
-#' @references Smith et al (2024) "Centrality in Collaboration: A Novel Algorithm for Social Partitioning Gradients in Community Detection for Multiple Oncology Clinical Trial Enrollments", arXiv, 2024
+#' @references Smith et al (2024) "Centrality in Collaboration: A Novel Algorithm for Social Partitioning Gradients in Community Detection for Multiple Oncology Clinical Trial Enrollments", <https://doi.org/10.48550/arXiv.2411.01394>
 #' @export
 #' @examples
 #' library(igraphdata)

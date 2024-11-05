@@ -31,7 +31,7 @@ Description: Implements the "Smith-Pittman" community detection algorithm
     networks, with a gradient evident in social partitioning. The package 
     provides functions for community detection, visualization, and analysis of 
     the resulting community structure. Methods are based on results from Smith, 
-    Pittman and Xu (2024) <doi:10.48550/arXiv.2411.01394>
+    Pittman and Xu (2024) <https://doi.org/10.48550/arXiv.2411.01394>.
 License: MIT + file LICENSE
 URL: https://github.com/benyamindsmith/ig.degree.betweenness
 BugReports: https://github.com/benyamindsmith/ig.degree.betweenness/issues
