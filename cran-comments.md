@@ -4,3 +4,4 @@
 
 * Fix in Description with ORCID ID.
 * Fixed title with no period in the end. 
+* Fixed DOI format
