@@ -1,0 +1,9 @@
+* using log directory 'C:/Users/ben29/OneDrive - University of Toronto/UofT/UHN/ig.degree.betweenness/..Rcheck'
+* using R version 4.2.2 (2022-10-31 ucrt)
+* using platform: x86_64-w64-mingw32 (64-bit)
+* using session charset: UTF-8
+* checking for file './DESCRIPTION' ... ERROR
+Required fields missing or empty:
+  'Author' 'Maintainer'
+* DONE
+Status: 1 ERROR
