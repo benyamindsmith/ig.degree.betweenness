@@ -25,7 +25,7 @@ Authors@R: c(
      comment = c(ORCID = "0000-0002-0257-8856")
      )
   )
-Description: Implements the "Smith-Pittman" community detection algorithm 
+Description: Implements the "Smith-Pittman" community detection algorithm  
     for network analysis using 'igraph' objects. This algorithm combines node 
     degree and betweenness centrality measures to identify communities within 
     networks, with a gradient evident in social partitioning. The package 
