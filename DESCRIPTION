@@ -1,6 +1,6 @@
 Package: ig.degree.betweenness
 Type: Package
-Title: Implementation of "Smith-Pittman" Community Detection Algorithm with a Gradient Evident in Social Partitioning by Smith, Pittman and Xu (2024) for "igraph" Objects
+Title: Implementation of "Smith-Pittman" Community Detection Algorithm with a Gradient Evident in Social Partitioning by Smith, Pittman and Xu (2024) for 'igraph' Objects
 Version: 0.1.0
 Authors@R: c(
     person(

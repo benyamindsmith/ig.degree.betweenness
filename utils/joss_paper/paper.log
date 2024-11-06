@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.4)  4 NOV 2024 23:20
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.4)  5 NOV 2024 23:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -859,33 +859,30 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-Package hyperref Info: Link coloring ON on input line 266.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 278.
+LaTeX Font Info:    ... okay on input line 278.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 278.
+LaTeX Font Info:    ... okay on input line 278.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 278.
+LaTeX Font Info:    ... okay on input line 278.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 278.
+LaTeX Font Info:    ... okay on input line 278.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 278.
+LaTeX Font Info:    ... okay on input line 278.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 278.
+LaTeX Font Info:    ... okay on input line 278.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 278.
+LaTeX Font Info:    ... okay on input line 278.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 278.
+LaTeX Font Info:    ... okay on input line 278.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 278.
+LaTeX Font Info:    ... okay on input line 278.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 278.
+LaTeX Font Info:    ... okay on input line 278.
+Package hyperref Info: Link coloring ON on input line 278.
 (./paper.out) (./paper.out)
 \@outlinefile=\write6
 \openout6 = `paper.out'.
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
@@ -903,8 +900,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'paper.bbl' not found.
 No file paper.bbl.
-Package biblatex Info: Reference section=0 on input line 266.
-Package biblatex Info: Reference segment=0 on input line 266.
+Package biblatex Info: Reference section=0 on input line 278.
+Package biblatex Info: Reference segment=0 on input line 278.
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -939,12 +936,12 @@ Package biblatex Info: Reference segment=0 on input line 266.
 * \@reversemargintrue
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 266.
-Package microtype Info: Applying patch `item' on input line 266.
-Package microtype Info: Applying patch `toc' on input line 266.
-Package microtype Info: Applying patch `eqnum' on input line 266.
-Package microtype Info: Applying patch `footnote' on input line 266.
-Package microtype Info: Applying patch `verbatim' on input line 266.
+LaTeX Info: Redefining \microtypecontext on input line 278.
+Package microtype Info: Applying patch `item' on input line 278.
+Package microtype Info: Applying patch `toc' on input line 278.
+Package microtype Info: Applying patch `eqnum' on input line 278.
+Package microtype Info: Applying patch `footnote' on input line 278.
+Package microtype Info: Applying patch `verbatim' on input line 278.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -953,22 +950,233 @@ Package microtype Info: No adjustment of kerning.
 (c:/Users/ben29/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
 File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Modern Roman (RS)
 )
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmss' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+(c:/Users/ben29/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 279.
+(c:/Users/ben29/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (c:/Users/ben29/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 279.
+(c:/Users/ben29/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (c:/Users/ben29/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
 
-! LaTeX Error: Can be used only in preamble.
+Package hyperref Warning: Suppressing link with empty target on input line 305.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.279 \begin{document}
-                       
+
+Package hyperref Warning: Suppressing link with empty target on input line 305.
+
+
+Package hyperref Warning: Suppressing link with empty target on input line 305.
+
+
+
+File: C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
+<C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
+
+Package fancyhdr Warning: \headheight is too small (62.59596pt): 
+(fancyhdr)                Make it at least 63.55022pt, for example:
+(fancyhdr)                \setlength{\headheight}{63.55022pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
+
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 360.
+[1
+
+]
+Underfull \hbox (badness 1454) in paragraph at lines 378--378
+[][][]\TU/lmr/m/n/8 For a more formal definition of modularity, see: [][]$[][][][][] [] [] [] [][] [] [][][][][][][][][] [] [][][] [] [][][][] [] [][][][][][][][][][] []
+ []
+
+File: ./images/sp_viz2.png Graphic file (type bmp)
+<./images/sp_viz2.png>
+File: ./images/karate_network.png Graphic file (type bmp)
+<./images/karate_network.png>
+File: ./images/algorithm_comparison_karate.png Graphic file (type bmp)
+<./images/algorithm_comparison_karate.png>
+
+
+File: C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
+<C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
+
+Package fancyhdr Warning: \headheight is too small (62.59596pt): 
+(fancyhdr)                Make it at least 63.55022pt, for example:
+(fancyhdr)                \setlength{\headheight}{63.55022pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
+
+[2]
+
+File: C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
+<C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
+
+Package fancyhdr Warning: \headheight is too small (62.59596pt): 
+(fancyhdr)                Make it at least 63.55022pt, for example:
+(fancyhdr)                \setlength{\headheight}{63.55022pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
+
+[3]
+File: paper_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+<use paper_files/figure-latex/unnamed-chunk-2-1.pdf>
+File: paper_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
+<use paper_files/figure-latex/unnamed-chunk-3-1.pdf>
+File: paper_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
+<use paper_files/figure-latex/unnamed-chunk-4-1.pdf>
+File: paper_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+<use paper_files/figure-latex/unnamed-chunk-5-1.pdf>
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 498.
+
+
+File: C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
+<C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
+
+Package fancyhdr Warning: \headheight is too small (62.59596pt): 
+(fancyhdr)                Make it at least 63.55022pt, for example:
+(fancyhdr)                \setlength{\headheight}{63.55022pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
+
+[4]
+
+File: C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
+<C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
+
+Package fancyhdr Warning: \headheight is too small (62.59596pt): 
+(fancyhdr)                Make it at least 63.55022pt, for example:
+(fancyhdr)                \setlength{\headheight}{63.55022pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
+
+[5]
+
+File: C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
+<C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
+
+Package fancyhdr Warning: \headheight is too small (62.59596pt): 
+(fancyhdr)                Make it at least 63.55022pt, for example:
+(fancyhdr)                \setlength{\headheight}{63.55022pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
+
+[6]
+Overfull \hbox (16.91139pt too wide) in paragraph at lines 529--529
+[]\TU/lmtt/m/n/10 ##  [1]  2-> 1  3-> 2  4-> 1  5-> 1  6-> 1  7-> 1  8-> 6  9-> 3 10-> 7 11-> 7[] 
+ []
+
+
+Overfull \hbox (16.91139pt too wide) in paragraph at lines 530--530
+[]\TU/lmtt/m/n/10 ## [11] 12-> 1 13-> 7 14-> 1 15-> 1  1->15  7->14  8->10  3-> 6  3-> 5  8->14[] 
+ []
+
+
+Overfull \hbox (16.91139pt too wide) in paragraph at lines 531--531
+[]\TU/lmtt/m/n/10 ## [21] 10-> 9  1->11  7-> 5  7->11  2->12 15-> 9 14-> 3 11->10  7->10  8->14[] 
+ []
+
+
+Overfull \hbox (16.91139pt too wide) in paragraph at lines 532--532
+[]\TU/lmtt/m/n/10 ## [31]  9-> 4  1-> 1  6-> 7 10->12  1->10 10-> 7  1-> 9 14-> 7 15->12 12-> 7[] 
+ []
+
+
+Overfull \hbox (16.91139pt too wide) in paragraph at lines 533--533
+[]\TU/lmtt/m/n/10 ## [41]  1->11  7-> 6 11-> 2 10-> 5  1->12  7->13 10-> 1  3->11 10-> 6 14->15[] 
+ []
+
+
+Overfull \hbox (16.91139pt too wide) in paragraph at lines 534--534
+[]\TU/lmtt/m/n/10 ## [51]  1->15  7->12 14-> 4  7-> 6  6-> 8  1-> 6  8->15  4-> 1  1-> 2  6-> 2[] 
+ []
+
+
+Overfull \hbox (16.91139pt too wide) in paragraph at lines 535--535
+[]\TU/lmtt/m/n/10 ## [61]  6->13  5-> 6 10-> 3  2-> 4 15-> 9 15->14  4-> 7 12-> 8 13->14  1->15[] 
+ []
+
+File: paper_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
+<use paper_files/figure-latex/unnamed-chunk-7-1.pdf>
+
+
+File: C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
+<C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
+
+Package fancyhdr Warning: \headheight is too small (62.59596pt): 
+(fancyhdr)                Make it at least 63.55022pt, for example:
+(fancyhdr)                \setlength{\headheight}{63.55022pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
+
+[7]
+File: paper_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+<use paper_files/figure-latex/unnamed-chunk-8-1.pdf>
+
+
+File: C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
+<C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
+
+Package fancyhdr Warning: \headheight is too small (62.59596pt): 
+(fancyhdr)                Make it at least 63.55022pt, for example:
+(fancyhdr)                \setlength{\headheight}{63.55022pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
+
+[8]
+File: paper_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
+<use paper_files/figure-latex/unnamed-chunk-9-1.pdf>
+File: paper_files/figure-latex/unnamed-chunk-9-2.pdf Graphic file (type pdf)
+<use paper_files/figure-latex/unnamed-chunk-9-2.pdf>
+
+
+File: C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
+<C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
+
+Package fancyhdr Warning: \headheight is too small (62.59596pt): 
+(fancyhdr)                Make it at least 63.55022pt, for example:
+(fancyhdr)                \setlength{\headheight}{63.55022pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
+
+[9]
+
+File: C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
+<C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
+
+Package fancyhdr Warning: \headheight is too small (62.59596pt): 
+(fancyhdr)                Make it at least 63.55022pt, for example:
+(fancyhdr)                \setlength{\headheight}{63.55022pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
+
+[10] (./paper.aux)
+ ***********
+LaTeX2e <2024-11-01>
+L3 programming layer <2024-11-02>
+ ***********
+Package rerunfilecheck Info: File `paper.out' has not changed.
+(rerunfilecheck)             Checksum: 2FC832B5CC9A66095AC7830099F77D3C;1704.
+Package logreq Info: Writing requests to 'paper.run.xml'.
+\openout1 = `paper.run.xml'.
+
+ ) 
 Here is how much of TeX's memory you used:
- 36252 strings out of 475994
- 743709 string characters out of 5777285
- 1595895 words of memory out of 5000000
- 58582 multiletter control sequences out of 15000+600000
- 558445 words of font info for 39 fonts, out of 8000000 for 9000
+ 36785 strings out of 475994
+ 758706 string characters out of 5777285
+ 1626881 words of memory out of 5000000
+ 59022 multiletter control sequences out of 15000+600000
+ 564965 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,1n,87p,1037b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,87p,1002b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-No pages of output.
+Output written on paper.pdf (10 pages).
