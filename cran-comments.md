@@ -5,4 +5,5 @@
 * Fix in Description with ORCID ID.
 * Fixed title with no period in the end. 
 * Fixed DOI format
-git
+* Added @return values in .R files 
+* Shortened title to 65 Characters

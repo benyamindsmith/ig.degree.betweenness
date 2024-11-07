@@ -9,6 +9,9 @@ cluster_degree_betweenness(graph)
 \arguments{
 \item{graph}{The graph to analyze}
 }
+\value{
+An igraph "communities" object with detected communities via the Smith-Pittman algorithm.
+}
 \description{
 Referred to as the "Smith-Pittman" algorithm in Smith et al (2024). This algorithm detects communities by calculating the degree centrality measures of nodes and edge betweenness.
 }

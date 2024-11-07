@@ -15,6 +15,9 @@ plot_simplified_edgeplot(graph, communities = NULL, edge.arrow.size = 0.2, ...)
 
 \item{...}{other arguments to be passed to the \code{plot()} function}
 }
+\value{
+No return value, called for side effects.
+}
 \description{
 This function generates a simplified edge plot of an igraph object, optionally highlighting communities if provided.
 }

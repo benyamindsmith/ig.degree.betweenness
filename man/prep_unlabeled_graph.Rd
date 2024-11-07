@@ -9,6 +9,9 @@ prep_unlabeled_graph(graph)
 \arguments{
 \item{graph}{an unlabeled graph.}
 }
+\value{
+An "igraph" object with named vertices.
+}
 \description{
 Presently, \code{cluster_degree_betweenness()} function only works with labeled graphs. \code{prep_unlabeled_graph()} is a utility function that gives an unlabeled graph labels which are string values of their vertices.
 }
