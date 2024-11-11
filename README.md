@@ -1,7 +1,7 @@
 # ig.degree.betweenness <a href='https://github.com/benyamindsmith/ig.degree.betweeness'><img src='https://github.com/benyamindsmith/ig.degree.betweenness/raw/main/utils/png/hex_sticker.png' align="right" height="300" /></a>
 
 
-[![](https://www.r-pkg.org/badges/version/ig.degree.betweeness?color=red)](https://cran.r-project.org/package=ig.degree.betweeness) 
+[![](https://www.r-pkg.org/badges/version/ig.degree.betweenness?color=red)](https://cran.r-project.org/package=ig.degree.betweenness) 
 [![R-CMD-check](https://github.com/benyamindsmith/ig.cluster.closeness/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/benyamindsmith/ig.cluster.closeness/actions/workflows/R-CMD-check.yaml)
 [![arXiv](https://img.shields.io/badge/arXiv-2411.01394-b31b1b.svg)](https://arxiv.org/abs/2411.01394)
 [![downloads](https://cranlogs.r-pkg.org/badges/ig.degree.betweenness)](https://shinyus.ipub.com/cranview/)
@@ -20,7 +20,7 @@ An R package for the implementation of the "Smith-Pittman" (2024) community dete
 
 ## Installing this package
 
-To install the stable release of this package from CRAN (coming soon) run: 
+To install the stable release of this package from CRAN run: 
 
 ```r
 install.packages("ig.degree.betweenness")
