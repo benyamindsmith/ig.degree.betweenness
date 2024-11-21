@@ -38,29 +38,29 @@ options(tinytex.verbose = TRUE)
 
 # Summary
 
-{ig.degree.betweenness} is an R package which enables users to implement the "Smith-Pittman" community detection algorithm on networks and sociograms constructed or loaded with the {igraph} package. {ig.degree.betweenness} also provides utility functions to enable neater plotting of densely connected networks and to provide relevant preparation for unlabeled graphs to accommodate its present implementation of the Smith-Pittman algorithm in the R programming language. Since this algorithm is relatively new, there presently does not exist other implementations of it which are ready to use and are compatible in the {igraph} ecosystem. As a result, this contribution is welcome by {igraph} users interested in exploring and applying the Smith-Pittman algorithm in social network analysis (SNA) settings.
+{ig.degree.betweenness} is an R package which enables users to implement the "Smith-Pittman" community detection algorithm on networks and sociograms constructed or loaded with the {igraph} package. {ig.degree.betweenness} also provides utility functions to enable neater plotting of densely connected networks, and to provide relevant preparation for unlabeled graphs to accommodate its present implementation of the Smith-Pittman algorithm in the R programming language. Since this algorithm is relatively new, there are presently not other implementations of it which are ready to use in the {igraph} ecosystem. As a result, this contribution is welcome by {igraph} users interested in exploring and applying the Smith-Pittman algorithm in social network analysis (SNA) settings.
 
 # Statement of Need
 
-{igraph} [@igraph_article] offers a suite functions and tools for interacting with graph data and engaging with SNA. A major area of study and application in SNA is the identification node clusters through methods broadly referred to as "community detection algorithms". There is no specific model which describes exactly what a ”community” is. Generally, community detection algorithms employ specific optimization strategies to partition a large-scale complex network into a set of disjoint and compact subgroups, often (but not always) without prior knowledge regarding the number of subgroups and their sizes [@rostami2023community].
+{igraph} [@igraph_article] offers a suite of functions and tools for interacting with graph data, and engaging with SNA. A major area of study and application in SNA is the identification node clusters through methods broadly referred to as "community detection algorithms." There is no specific model which describes exactly what a ”community” is. Generally, community detection algorithms employ specific optimization strategies to partition a large-scale complex network into a set of disjoint and compact subgroups, often (but not always) without prior knowledge regarding the number of subgroups and their sizes [@rostami2023community].
 
-{igraph} supports a range of popular community detection algorithms, including Girvan-Newman^[https://r.igraph.org/reference/cluster_edge_betweenness.html] [@Girvan_Newman_2002], Louvain^[https://r.igraph.org/reference/cluster_louvain.html] [@louvain_paper] and others^[For the full list of available community detection algorithms in the {igraph} R package, see the {igraph} reference manual: https://r.igraph.org/reference/index.html#community-detection]. For densely connected, complex networks, research by Smith, Pittman and Xu [@sp_paper] that combining node degree (degree centrality) with with edge-betweeness (as utilized by [@Girvan_Newman_2002]) can enhance cluster identification in certain contexts. The {ig.degree.betweenness} package offers {igraph} users a ready-to-use implementation of the Smith-Pittman community detection algorithm in R [@base2022].
+{igraph} supports a range of popular community detection algorithms, including Girvan-Newman^[https://r.igraph.org/reference/cluster_edge_betweenness.html] [@Girvan_Newman_2002], Louvain^[https://r.igraph.org/reference/cluster_louvain.html] [@louvain_paper] and others^[For the full list of available community detection algorithms in the {igraph} R package, see the {igraph} reference manual: https://r.igraph.org/reference/index.html#community-detection]. For densely connected, complex networks, research by Smith, Pittman and Xu [@sp_paper] that combines node degree (degree centrality) with edge-betweeness (as utilized by [@Girvan_Newman_2002]) can enhance cluster identification in certain contexts. The {ig.degree.betweenness} package offers {igraph} users a ready-to-use implementation of the Smith-Pittman community detection algorithm in R [@base2022].
 
 # The Smith-Pittman Algorithm
 
-The "Smith-Pittman" algorithm is a variation of the Girvan-Newman algorithm which first considers degree centrality (i.e., the number of connections possessed by each node in a given network) at the beginning of each iteration before examining the network edges' betweenness (i.e., the frequency with which an edge lies on the shortest paths between pairs of nodes, indicating its role in connecting different parts of the network).
+The "Smith-Pittman" algorithm is a variation of the Girvan-Newman algorithm, which first considers degree centrality (i.e. the number of connections possessed by each node in a given network) at the beginning of each iteration. It then examines network-wide edge betweenness (i.e. the frequency with which an edge lies on the shortest paths between pairs of nodes, indicating its role in connecting different parts of the network).
 
 The steps for the algorithm are: 
 
 1. Identify the node with the highest degree-centrality in the network. 
 
-2. Select the subgraph of the node with the highest degree centrality. Remove the edge possessing the highest calculated (network-wide) edge-betweenness in the subgraph.
+2. Select the subgraph of the node with the highest degree centrality. Remove the edge possessing the highest calculated (network-wide) edge betweenness in the subgraph.
 
-3. Recalculate the degree centrality for all nodes in the network and the betweenness for the remaining edge in the network,
+3. Recalculate the degree centrality for all nodes in the network, and the betweenness for the remaining edges in the network,
 
 4. Repeat from step 2. 
 
-Conceptually, this algorithm (similar to Girvan-Newman and Louvain) can be specified to terminate once a pre-determined number of communities has been identified (based on the remaining connected nodes). However, the intention for using this algorithm is meant to be used in an unsupervised, modularity maximizing setting, where the grouping of nodes is decided on the strength of the connected clusters -a.k.a. modularity^[For a more formal definition of modularity, see: https://en.wikipedia.org/wiki/Modularity_(networks)]. Figure 1 provides a detailed overview of how the algorithm works.
+Conceptually, this algorithm (similar to Girvan-Newman and Louvain) can be specified to terminate once a pre-determined number of communities has been identified, based on the remaining connected nodes. However, the intention for using this algorithm is meant to be used in an unsupervised, modularity maximizing setting, where the grouping of nodes is decided on the strength of the connected clusters -a.k.a. modularity^[For a more formal definition of modularity, see: https://en.wikipedia.org/wiki/Modularity_(networks)]. Figure 1 provides a detailed overview of how the algorithm works.
 
 ![A detailed overview of how the Smith-Pittman Algorithm works](./images/sp_viz2.png)
 
@@ -69,16 +69,18 @@ Conceptually, this algorithm (similar to Girvan-Newman and Louvain) can be speci
 
 ## Zachary's Karate Club Network
 
-The dataset commonly referred to as "Zachary's karate club network" [@zachary1977information] is a social network between members of a university club led by president John A. and karate instructor Mr. Hi (pseudonyms). At the beginning of the study there was an initial conflict between the club president, John A., and Mr. Hi over the price of karate lessons. As time passed, the entire club became divided over this issue. After a series of increasingly sharp factional confrontations over the price of lessons, the officers of the club, led by John A., fired Mr. Hi. The supporters of Mr. Hi retaliated by resigning and forming a new organization headed by Mr. Hi. Figure 2 shows the karate club network where the nodes signify individuals in the club and the edges signifies the existence of a relationship between two members. The node color indicates which group the members associated with post-split. 
+The dataset commonly referred to as "Zachary's karate club network" [@zachary1977information] is a social network between members of a university club led by president John A. and karate instructor Mr. Hi (pseudonyms). At the beginning of the study there was an initial conflict between the club president, John A., and Mr. Hi over the price of karate lessons. As time passed, the entire club became divided over this issue. After a series of increasingly sharp factional confrontations over the price of lessons, the officers of the club, led by John A., fired Mr. Hi. The supporters of Mr. Hi retaliated by resigning and forming a new organization headed by Mr. Hi. Figure 2 shows the karate club network where the nodes signify individuals in the club, and the edges signifies the existence of a relationship between two members. The node color indicates which group the members associated with post-split. 
 
-Since the division of the club and its members is known, this social network is a classic example dataset used and studied. The data is available in the {igraphdata} package [@igraphdatapackage]. In the context of community detection, the object of interest is seeing if the split could be identified based on the relationships between members. When applied in an unsupervised setting, the Girvan-Newman and Louvain algorthims identify communities of nodes which optimize modularity according to their approaches. However, the communities identified do not appear to identify a possible division in the group which is contextually informative or interpretative. The Smith-Pittman algorithm identifies 3 communities which could can be understood as individuals who would certainly associate with John A. or Mr. Hi and an uncertain group. Figure 3 shows the comparison between the three algorithms. 
+Since the division of the club and its members is known, this social network is a classic example dataset used and studied. The data is available in the {igraphdata} package [@igraphdatapackage]. In the context of community detection, the object of interest is seeing if the split could be identified based on the relationships between members. When applied in an unsupervised setting, the Girvan-Newman and Louvain algorthims identify communities of nodes which optimize modularity according to their approaches. However, the communities identified do not appear to identify a possible division in the group which is contextually informative or interpretative. The Smith-Pittman algorithm identifies 3 communities - which could can be understood as individuals who would certainly associate with John A. or Mr. Hi and an uncertain group. Figure 3 shows the comparison between the three algorithms. 
 
 The code for reproducing figures 2 and 3 are: 
 
 ```{r eval=FALSE}
 # Install relevant packages
 # install.packages(c("igraph","igraphdata","ig.degree.betweenness"))
+library(igraph)
 library(igraphdata)
+library(ig.degree.betweenness)
 # Attach the Karate Club dataset
 # Data from {igraphdata}
 data("karate")
@@ -86,7 +88,7 @@ data("karate")
 plot(karate)
 # Girvan-Newman Clustering (Figure 2 (a))
 # Function from {igraph}
-gn_karate <- ig.degree.betweeness::cluster_edge_betweenness(karate)
+gn_karate <- igraph::cluster_edge_betweenness(karate)
 
 # Louvain Clustering (Figure 2 (b))
 # Function from {igraph}
@@ -94,29 +96,30 @@ louvain_karate <- igraph::cluster_louvain(karate)
 
 # Smith-Pittman Clustering (Figure 2 (c))
 # Function from {ig.degree.betweenness}
-sp_karate <- igraph::cluster_degree_betweenness(karate)
+sp_karate <- ig.degree.betweenness::cluster_degree_betweenness(karate)
 
 # Plot 3 plots next to eachother
 par(mfrow= c(1,3),mar=c(0,0,0,0)+1)
+layout_plot <- layout_nicely(karate, dim = 2)
 
-plot(gn_karate, karate, main = "(a)")
+plot(gn_karate, karate, main = "(a)", layout = layout_plot)
 
-plot(louvain_karate, karate, main = "(b)")
+plot(louvain_karate, karate, main = "(b)", layout = layout_plot)
 
-plot(sp_karate, karate, main = "(c)")
+plot(sp_karate, karate, main = "(c)", layout = layout_plot)
 ```
 
-![The Zachary karate club network with the true split between members defined by node colors. John A. and Mr. Hi are denoted by 'J' and 'H', with other members being listed as numbers](./images/karate_network.png){width=70%}
+![The Zachary karate club network with the true split between members defined by node colors. John A. and Mr. Hi are denoted by 'J' and 'H' with other members being listed as numbers](./images/karate_network.png){width=70%}
 
 ![Unsupervised Community Detection by (a) Girvan-Newman, (b) Louvain and (c) Smith-Pittman for the karate network.](./images/algorithm_comparison_karate.png)
 
 ## TidyTuesday - "Monster Movies" Dataset
 
-The "Monster Movies" dataset, made available by the TidyTuesday project [@Rfordatascience] presents an interesting example for applying SNA and the Smith-Pitman algorithm to interaction between genres in "monster" titled movies. Figure 4 shows the plotted "simplified" network with node sizes corresponding to node degree (i.e. the number of connections a given genre shares with other genres) and edge thickness and annotated numbers corresponding to the number of edges shared between listed genres. Figure 5 shows the genre clusters in the network as preformed by Girvan-Newman, Louvain and Smith-Pittman.
+The "Monster Movies" dataset, made available by the TidyTuesday project [@Rfordatascience] presents an interesting example for applying SNA and the Smith-Pitman algorithm to interaction between genres in "monster" titled movies. Figure 4 shows the plotted simplified network with node sizes corresponding to node degree (i.e. the number of connections a given genre shares with other genres), edge thickness and annotated numbers corresponding to the number of edges shared between listed genres. Figure 5 shows the genre clusters in the network as preformed by Girvan-Newman, Louvain and Smith-Pittman.
 
-Girvan Newman doesn't tell any story (clustering everything in one group isn't much of a story). Louvain might be telling us something in terms of strength of clustering but doesn't necessarily speak about the reality of "monster" movie genre interactions. Smith-Pittman clustering tells the best story with popular genres forming the primary working group followed by more ambivalent smaller subgroups and outlier nodes.
+Application of the Girvan-Newman algorithm does not yield informative community detection (clustering everything in one group is not much of a story). Louvain might be telling us something in terms of the strength of clustering, but does not necessarily speak about the reality of "monster" movie genre interactions. Smith-Pittman clustering tells the best story. Popular genres form the primary working group, followed by more ambivalent smaller subgroups, and outlier nodes.
 
-The R code for doing this is the following:
+The R code for showing this follows:
 
 ```{r eval=FALSE}
 # Install relevant libraries
@@ -212,7 +215,7 @@ ig.degree.betweenness::plot_simplified_edgeplot(
 
 ```
 
-![Monster movie genre network. Node size corresponds to the node degree and edge thickness and numbers corespond the number of connections shared between generes in "monster" titled movies.](./images/tt_1.png)
+![Monster movie genre network. Node size corresponds to the node degree. Edge thickness corresponds to the number of connections shared between generes in "monster" titled movies.](./images/tt_1.png)
 
 ![Communities identified in the monster movie genre network via community detection. (a) is Girvan-Newman, (b) is Louvain and (c) is Smith-Pittman. Communities are selected based on maximized modularity.](./images/tt_2.png)
 
