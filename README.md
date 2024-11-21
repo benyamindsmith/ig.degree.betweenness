@@ -15,7 +15,7 @@ An R package for the implementation of the "Smith-Pittman" (2024) community dete
 </a>
 
 <a> 
-<img src='https://github.com/user-attachments/assets/e0d06401-3da3-4e0f-9b9e-12b3ac477848' height = "580"/>
+<img src='https://github.com/user-attachments/assets/63187b8f-58af-4c08-8b80-8a31b945899a' height = "580"/>
 </a>
 
 ## Installing this package
