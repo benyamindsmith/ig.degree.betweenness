@@ -1,5 +1,5 @@
 ---
-title: 'ig.degree.betweenness: A Community Detection Algorithm Leveraging Degree Centrality'
+title: 'ig.degree.betweenness: An R Package for Community Detection Using Degree Centrality and Betweenness'
 author: "Benjamin Smith"
 tags:
   - R
@@ -84,8 +84,11 @@ library(ig.degree.betweenness)
 # Attach the Karate Club dataset
 # Data from {igraphdata}
 data("karate")
+# Define layout- for visual purposes
+layout_plot <- layout_nicely(karate, dim = 2)
+
 # Plot the initial network (Figure 1)
-plot(karate)
+plot(karate,layout = layout_plot)
 # Girvan-Newman Clustering (Figure 2 (a))
 # Function from {igraph}
 gn_karate <- igraph::cluster_edge_betweenness(karate)
@@ -100,8 +103,6 @@ sp_karate <- ig.degree.betweenness::cluster_degree_betweenness(karate)
 
 # Plot 3 plots next to eachother
 par(mfrow= c(1,3),mar=c(0,0,0,0)+1)
-layout_plot <- layout_nicely(karate, dim = 2)
-
 plot(gn_karate, karate, main = "(a)", layout = layout_plot)
 
 plot(louvain_karate, karate, main = "(b)", layout = layout_plot)
@@ -221,7 +222,6 @@ ig.degree.betweenness::plot_simplified_edgeplot(
 
 # Licensing and Availability
 
-{ig.degree.betweenness} is licensed under a MIT lisence. It is available on CRAN, and can be installed using `install.packages("ig.degree.betweenness")`.  All code is open-source and hosted on 
-GitHub, and bugs can be reported at https://github.com/benyamindsmith/ig.degree.betweenness/issues/.
+{ig.degree.betweenness} is licensed under a MIT lisence. It is available on CRAN, and can be installed using `install.packages("ig.degree.betweenness")`.  All code is open-source and hosted on GitHub, and bugs can be reported at https://github.com/benyamindsmith/ig.degree.betweenness/issues/.
 
 # References

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.4)  6 NOV 2024 21:34
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.4)  21 NOV 2024 19:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -979,6 +979,11 @@ Package hyperref Warning: Suppressing link with empty target on input line 305.
 Package hyperref Warning: Suppressing link with empty target on input line 305.
 
 
+Underfull \hbox (badness 1237) in paragraph at lines 335--349
+[]\TU/lmr/m/n/10 {igraph} supports a range of popular community detection algorithms, including
+ []
+
+
 
 File: C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
 <C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
@@ -1052,14 +1057,6 @@ Package fancyhdr Warning: \headheight is too small (62.59596pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
 
 [5]
-Underfull \vbox (badness 10000) detected at line 592
- []
-
-
-Underfull \vbox (badness 10000) detected at line 592
- []
-
-
 
 File: C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
 <C:/Users/ben29/AppData/Local/R/win-library/4.2/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
@@ -1076,7 +1073,7 @@ File: ./images/tt_1.png Graphic file (type bmp)
 File: ./images/tt_2.png Graphic file (type bmp)
 <./images/tt_2.png>
 
-Underfull \hbox (badness 1688) in paragraph at lines 612--617
+Underfull \hbox (badness 1688) in paragraph at lines 616--621
 \TU/lmr/m/n/10 and can be installed using \TU/lmtt/m/n/10 install.packages("ig.degree.betweenness")\TU/lmr/m/n/10 . All
  []
 
@@ -1127,7 +1124,7 @@ Package logreq Info: Writing requests to 'paper.run.xml'.
 Here is how much of TeX's memory you used:
  36715 strings out of 475994
  755159 string characters out of 5777285
- 1626446 words of memory out of 5000000
+ 1626618 words of memory out of 5000000
  58960 multiletter control sequences out of 15000+600000
  564957 words of font info for 86 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191

@@ -118,9 +118,9 @@ library(igraph)
 library(igraphdata)
 # Homemade Code
 # devtools::install_github("benyamindsmith/ig.degree.betweeeness")
-library(ig.degree.betweeness)
-
-par(mar=c(0,0,0,0)+.1)
+library(ig.degree.betweenness)
+set.seed(5250)
+par(mar=c(0,0,0,0)+2)
 data("karate")
 
 plot(
@@ -137,12 +137,11 @@ louvain_karate <- karate |>
   igraph::cluster_louvain()
 
 sp_karate <- karate |>
-  ig.degree.betweeness::cluster_degree_betweenness()
+  ig.degree.betweenness::cluster_degree_betweenness()
 
 par(mfrow= c(1,3),mar=c(0,0,0,0)+1)
 
-plot(
-  gn_karate,
+plot(gn_karate,
   karate,
   main = "(a)"
   )
