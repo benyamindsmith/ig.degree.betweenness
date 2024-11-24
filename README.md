@@ -6,6 +6,8 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2411.01394-b31b1b.svg)](https://arxiv.org/abs/2411.01394)
 [![downloads](https://cranlogs.r-pkg.org/badges/ig.degree.betweenness)](https://shinyus.ipub.com/cranview/)
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/ig.degree.betweenness)](https://shinyus.ipub.com/cranview/)
+[![status](https://joss.theoj.org/papers/77e325edd1cf7ad262dff6d4bc4b61aa/status.svg)](https://joss.theoj.org/papers/77e325edd1cf7ad262dff6d4bc4b61aa)
+
 
 
 An R package for the implementation of the "Smith-Pittman" (2024) community detection algorithm. Compatible with the igraph ecosystem.
