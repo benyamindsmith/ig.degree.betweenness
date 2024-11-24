@@ -98,12 +98,8 @@ modularity^[For a more formal definition of modularity, see:
 <https://en.wikipedia.org/wiki/Modularity_(networks)>]. Figure 1 provides a detailed overview of how the
 algorithm works.
 
-<figure>
-<img src="./images/sp_viz2.png"
-alt="A detailed overview of how the Smith-Pittman Algorithm works" />
-<figcaption aria-hidden="true">A detailed overview of how the
-Smith-Pittman Algorithm works</figcaption>
-</figure>
+![A detailed overview of how the Smith-Pittman Algorithm works](./images/sp_viz2.png)
+
 
 # Minimal Examples
 
@@ -139,6 +135,7 @@ Figure 3 shows the comparison between the three algorithms.
 
 The code for reproducing figures 2 and 3 are:
 
+```r
     # Install relevant packages
     # install.packages(c("igraph","igraphdata","ig.degree.betweenness"))
     library(igraph)
@@ -171,23 +168,10 @@ The code for reproducing figures 2 and 3 are:
     plot(louvain_karate, karate, main = "(b)", layout = layout_plot)
 
     plot(sp_karate, karate, main = "(c)", layout = layout_plot)
+```
+<![The Zachary karate club network with the true split between members defined by node colors. John A. and Mr. Hi are denoted by 'J' and 'H' with other members being listed as numbers](./images/karate_network.png){width=70%}
 
-<figure>
-<img src="./images/karate_network.png" style="width:70.0%"
-alt="The Zachary karate club network with the true split between members defined by node colors. John A. and Mr. Hi are denoted by ‘J’ and ‘H’ with other members being listed as numbers" />
-<figcaption aria-hidden="true">The Zachary karate club network with the
-true split between members defined by node colors. John A. and Mr. Hi
-are denoted by ‘J’ and ‘H’ with other members being listed as
-numbers</figcaption>
-</figure>
-
-<figure>
-<img src="./images/algorithm_comparison_karate.png"
-alt="Unsupervised Community Detection by (a) Girvan-Newman, (b) Louvain and (c) Smith-Pittman for the karate network." />
-<figcaption aria-hidden="true">Unsupervised Community Detection by (a)
-Girvan-Newman, (b) Louvain and (c) Smith-Pittman for the karate
-network.</figcaption>
-</figure>
+![Unsupervised Community Detection by (a) Girvan-Newman, (b) Louvain and (c) Smith-Pittman for the karate network.](./images/algorithm_comparison_karate.png)
 
 ## TidyTuesday - “Monster Movies” Dataset
 
@@ -211,6 +195,7 @@ more ambivalent smaller subgroups, and outlier nodes.
 
 The R code for showing this follows:
 
+```r
     # Install relevant libraries
     # pkgs <- c("dplyr","tibble","tidyr","tidygraph", 
     #           "igraph","ig.degree.betweenness")
@@ -301,24 +286,12 @@ The R code for showing this follows:
         vertex.size = VS,
         edge.arrow.size = 0.001
     )
+```
 
-<figure>
-<img src="./images/tt_1.png"
-alt="Monster movie genre network. Node size corresponds to the node degree. Edge thickness corresponds to the number of connections shared between generes in “monster” titled movies." />
-<figcaption aria-hidden="true">Monster movie genre network. Node size
-corresponds to the node degree. Edge thickness corresponds to the number
-of connections shared between generes in “monster” titled
-movies.</figcaption>
-</figure>
 
-<figure>
-<img src="./images/tt_2.png"
-alt="Communities identified in the monster movie genre network via community detection. (a) is Girvan-Newman, (b) is Louvain and (c) is Smith-Pittman. Communities are selected based on maximized modularity." />
-<figcaption aria-hidden="true">Communities identified in the monster
-movie genre network via community detection. (a) is Girvan-Newman, (b)
-is Louvain and (c) is Smith-Pittman. Communities are selected based on
-maximized modularity.</figcaption>
-</figure>
+![Monster movie genre network. Node size corresponds to the node degree. Edge thickness corresponds to the number of connections shared between generes in "monster" titled movies.](./images/tt_1.png)
+
+![Communities identified in the monster movie genre network via community detection. (a) is Girvan-Newman, (b) is Louvain and (c) is Smith-Pittman. Communities are selected based on maximized modularity.](./images/tt_2.png)
 
 # Licensing and Availability
 
