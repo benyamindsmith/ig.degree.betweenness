@@ -4,10 +4,9 @@
 [![](https://www.r-pkg.org/badges/version/ig.degree.betweenness?color=red)](https://cran.r-project.org/package=ig.degree.betweenness) 
 [![R-CMD-check](https://github.com/benyamindsmith/ig.cluster.closeness/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/benyamindsmith/ig.cluster.closeness/actions/workflows/R-CMD-check.yaml)
 [![arXiv](https://img.shields.io/badge/arXiv-2411.01394-b31b1b.svg)](https://arxiv.org/abs/2411.01394)
+[![JOSS](https://joss.theoj.org/papers/77e325edd1cf7ad262dff6d4bc4b61aa/status.svg)](https://joss.theoj.org/papers/77e325edd1cf7ad262dff6d4bc4b61aa)
 [![downloads](https://cranlogs.r-pkg.org/badges/ig.degree.betweenness)](https://shinyus.ipub.com/cranview/)
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/ig.degree.betweenness)](https://shinyus.ipub.com/cranview/)
-[![status](https://joss.theoj.org/papers/77e325edd1cf7ad262dff6d4bc4b61aa/status.svg)](https://joss.theoj.org/papers/77e325edd1cf7ad262dff6d4bc4b61aa)
-
 
 
 An R package for the implementation of the "Smith-Pittman" (2024) community detection algorithm. Compatible with the igraph ecosystem.
