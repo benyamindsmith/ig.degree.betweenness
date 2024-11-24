@@ -17,9 +17,9 @@ authors:
     orchid: 0000-0002-0257-8856
     affiliation: "1,2"
 affiliations:
-  - name: "University of Toronto"
+  - name: University of Toronto
     index: 1
-  - name: "UHN's Princess Margaret Cancer Centre"
+  - name: UHN's Princess Margaret Cancer Centre
     index: 2
 date: "2024-11-23"
 bibliography: paper.bib
