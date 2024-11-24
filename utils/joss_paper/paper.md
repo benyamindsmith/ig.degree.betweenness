@@ -54,8 +54,10 @@ knowledge regarding the number of subgroups and their sizes (Rostami et
 al. 2023).
 
 {igraph} supports a range of popular community detection algorithms,
-including Girvan-Newman[^1] (Girvan and Newman 2002), Louvain[^2] (Blondel
-et al. 2008) and others[^3]. For densely connected, complex networks,
+including Girvan-Newman^[<https://r.igraph.org/reference/cluster_edge_betweenness.html>] (Girvan and Newman 2002), Louvain^[<https://r.igraph.org/reference/cluster_louvain.html>] (Blondel
+et al. 2008) and others^[For the full list of available community detection algorithms in the
+{igraph} R package, see the {igraph} reference manual:
+<https://r.igraph.org/reference/index.html#community-detection>]. For densely connected, complex networks,
 research by Smith, Pittman and Xu (Smith, Pittman, and Xu 2024) that
 combines node degree (degree centrality) with edge-betweeness (as
 utilized by (Girvan and Newman 2002)) can enhance cluster identification
@@ -92,7 +94,8 @@ has been identified, based on the remaining connected nodes. However,
 the intention for using this algorithm is meant to be used in an
 unsupervised, modularity maximizing setting, where the grouping of nodes
 is decided on the strength of the connected clusters -a.k.a.
-modularity[^4]. Figure 1 provides a detailed overview of how the
+modularity^[For a more formal definition of modularity, see:
+<https://en.wikipedia.org/wiki/Modularity_(networks)>]. Figure 1 provides a detailed overview of how the
 algorithm works.
 
 <figure>
@@ -364,13 +367,3 @@ Zachary, Wayne W. 1977. “An Information Flow Model for Conflict and
 Fission in Small Groups.” *Journal of Anthropological Research* 33 (4):
 452–73. <https://doi.org/10.1086/jar.33.4.3629752>.
 
-[1] <https://r.igraph.org/reference/cluster_edge_betweenness.html>
-
-[2] <https://r.igraph.org/reference/cluster_louvain.html>
-
-[3] For the full list of available community detection algorithms in the
-{igraph} R package, see the {igraph} reference manual:
-<https://r.igraph.org/reference/index.html#community-detection>
-
-[4] For a more formal definition of modularity, see:
-<https://en.wikipedia.org/wiki/Modularity_(networks)>
