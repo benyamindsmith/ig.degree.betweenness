@@ -54,8 +54,8 @@ knowledge regarding the number of subgroups and their sizes (Rostami et
 al. 2023).
 
 {igraph} supports a range of popular community detection algorithms,
-including Girvan-Newman[1] (Girvan and Newman 2002), Louvain[2] (Blondel
-et al. 2008) and others[3]. For densely connected, complex networks,
+including Girvan-Newman[^1] (Girvan and Newman 2002), Louvain[^2] (Blondel
+et al. 2008) and others[^3]. For densely connected, complex networks,
 research by Smith, Pittman and Xu (Smith, Pittman, and Xu 2024) that
 combines node degree (degree centrality) with edge-betweeness (as
 utilized by (Girvan and Newman 2002)) can enhance cluster identification
@@ -66,10 +66,10 @@ detection algorithm in R (R Core Team 2022).
 # The Smith-Pittman Algorithm
 
 The “Smith-Pittman” algorithm is a variation of the Girvan-Newman
-algorithm, which first considers degree centrality (i.e. the number of
+algorithm, which first considers degree centrality (i.e. the number of
 connections possessed by each node in a given network) at the beginning
 of each iteration. It then examines network-wide edge betweenness
-(i.e. the frequency with which an edge lies on the shortest paths
+(i.e. the frequency with which an edge lies on the shortest paths
 between pairs of nodes, indicating its role in connecting different
 parts of the network).
 
@@ -92,7 +92,7 @@ has been identified, based on the remaining connected nodes. However,
 the intention for using this algorithm is meant to be used in an
 unsupervised, modularity maximizing setting, where the grouping of nodes
 is decided on the strength of the connected clusters -a.k.a.
-modularity[4]. Figure 1 provides a detailed overview of how the
+modularity[^4]. Figure 1 provides a detailed overview of how the
 algorithm works.
 
 <figure>
@@ -108,14 +108,14 @@ Smith-Pittman Algorithm works</figcaption>
 
 The dataset commonly referred to as “Zachary’s karate club network”
 (Zachary 1977) is a social network between members of a university club
-led by president John A. and karate instructor Mr. Hi (pseudonyms). At
+led by president John A. and karate instructor Mr. Hi (pseudonyms). At
 the beginning of the study there was an initial conflict between the
-club president, John A., and Mr. Hi over the price of karate lessons. As
+club president, John A., and Mr. Hi over the price of karate lessons. As
 time passed, the entire club became divided over this issue. After a
 series of increasingly sharp factional confrontations over the price of
-lessons, the officers of the club, led by John A., fired Mr. Hi. The
-supporters of Mr. Hi retaliated by resigning and forming a new
-organization headed by Mr. Hi. Figure 2 shows the karate club network
+lessons, the officers of the club, led by John A., fired Mr. Hi. The
+supporters of Mr. Hi retaliated by resigning and forming a new
+organization headed by Mr. Hi. Figure 2 shows the karate club network
 where the nodes signify individuals in the club, and the edges signifies
 the existence of a relationship between two members. The node color
 indicates which group the members associated with post-split.
@@ -131,7 +131,7 @@ their approaches. However, the communities identified do not appear to
 identify a possible division in the group which is contextually
 informative or interpretative. The Smith-Pittman algorithm identifies 3
 communities - which could can be understood as individuals who would
-certainly associate with John A. or Mr. Hi and an uncertain group.
+certainly associate with John A. or Mr. Hi and an uncertain group.
 Figure 3 shows the comparison between the three algorithms.
 
 The code for reproducing figures 2 and 3 are:
@@ -326,6 +326,43 @@ hosted on GitHub, and bugs can be reported at
 <https://github.com/benyamindsmith/ig.degree.betweenness/issues/>.
 
 # References
+
+Blondel, Vincent D, Jean-Loup Guillaume, Renaud Lambiotte, and Etienne
+Lefebvre. 2008. “Fast Unfolding of Communities in Large Networks.”
+*Journal of Statistical Mechanics Theory and Experiment* 2008 (10):
+P10008. <https://doi.org/10.1088/1742-5468/2008/10/p10008>.
+
+Csardi, Gabor. 2015. *Igraphdata: A Collection of Network Data Sets for
+the ’Igraph’ Package*. <https://CRAN.R-project.org/package=igraphdata>.
+
+Csardi, Gabor, and Tamas Nepusz. 2006. “The Igraph Software Package for
+Complex Network Research.” *InterJournal* Complex Systems: 1695.
+<https://igraph.org>.
+
+Girvan, M., and M. E. J. Newman. 2002. “Community Structure in Social
+and Biological Networks.” *Proceedings of the National Academy of
+Sciences* 99 (12): 7821–26. <https://doi.org/10.1073/pnas.122653799>.
+
+R Core Team. 2022. *R: A Language and Environment for Statistical
+Computing*. Vienna, Austria: R Foundation for Statistical Computing.
+<https://www.R-project.org/>.
+
+Rfordatascience. n.d. “GitHub - Rfordatascience/Tidytuesday: Official
+Repo for the \#Tidytuesday Project.” *GitHub*.
+<https://github.com/rfordatascience/tidytuesday>.
+
+Rostami, Mohammad, Mourad Oussalah, Kamran Berahmand, and Vahid Farrahi.
+2023. “Community Detection Algorithms in Healthcare Applications: A
+Systematic Review.” *IEEE Access* 11: 30247–72.
+
+Smith, Benjamin, Tyler Pittman, and Wei Xu. 2024. “Centrality in
+Collaboration: A Novel Algorithm for Social Partitioning Gradients in
+Community Detection for Multiple Oncology Clinical Trial Enrollments.”
+*arXiv.org*. <https://arxiv.org/abs/2411.01394>.
+
+Zachary, Wayne W. 1977. “An Information Flow Model for Conflict and
+Fission in Small Groups.” *Journal of Anthropological Research* 33 (4):
+452–73. <https://doi.org/10.1086/jar.33.4.3629752>.
 
 [1] <https://r.igraph.org/reference/cluster_edge_betweenness.html>
 
