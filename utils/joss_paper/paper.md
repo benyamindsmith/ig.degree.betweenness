@@ -11,10 +11,10 @@ authors:
     orcid: 0009-0007-2206-0177
     affiliation: 1
   - name: Tyler Pittman
-    orchid: 0000-0002-5013-6980
-    affilation: 2
+    orcid: 0000-0002-5013-6980
+    affiliation: 2
   - name: Wei Xu
-    orchid: 0000-0002-0257-8856
+    orcid: 0000-0002-0257-8856
     affiliation: "1,2"
 affiliations:
   - name: University of Toronto
