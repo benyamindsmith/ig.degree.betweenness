@@ -169,7 +169,7 @@ The code for reproducing figures 2 and 3 are:
 
     plot(sp_karate, karate, main = "(c)", layout = layout_plot)
 ```
-<![The Zachary karate club network with the true split between members defined by node colors. John A. and Mr. Hi are denoted by 'J' and 'H' with other members being listed as numbers](./images/karate_network.png){width=70%}
+![The Zachary karate club network with the true split between members defined by node colors. John A. and Mr. Hi are denoted by 'J' and 'H' with other members being listed as numbers](./images/karate_network.png){width=70%}
 
 ![Unsupervised Community Detection by (a) Girvan-Newman, (b) Louvain and (c) Smith-Pittman for the karate network.](./images/algorithm_comparison_karate.png)
 
