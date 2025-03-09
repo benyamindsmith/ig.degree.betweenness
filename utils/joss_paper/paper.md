@@ -15,14 +15,21 @@ authors:
     affiliation: 2
   - name: Wei Xu
     orcid: 0000-0002-0257-8856
-    affiliation: "1,2"
+    affiliation: [1,2]
 affiliations:
-  - name: University of Toronto
+  - name: "University of Toronto"
     index: 1
-  - name: UHN's Princess Margaret Cancer Centre
+  - name: "UHN's Princess Margaret Cancer Centre"
     index: 2
-date: "2024-11-23"
+date: "2025-03-08"
 bibliography: paper.bib
+output:
+  # rticles::joss_article
+  md_document:
+    preserve_yaml: TRUE
+    variant: "markdown_strict"
+journal: JOSS
+
 ---
 
 # Summary
@@ -54,10 +61,8 @@ knowledge regarding the number of subgroups and their sizes (Rostami et
 al. 2023).
 
 {igraph} supports a range of popular community detection algorithms,
-including Girvan-Newman^[<https://r.igraph.org/reference/cluster_edge_betweenness.html>] (Girvan and Newman 2002), Louvain^[<https://r.igraph.org/reference/cluster_louvain.html>] (Blondel
-et al. 2008) and others^[For the full list of available community detection algorithms in the
-{igraph} R package, see the {igraph} reference manual:
-<https://r.igraph.org/reference/index.html#community-detection>]. For densely connected, complex networks,
+including Girvan-Newman[1] (Girvan and Newman 2002), Louvain[2] (Blondel
+et al. 2008) and others[3]. For densely connected, complex networks,
 research by Smith, Pittman and Xu (Smith, Pittman, and Xu 2024) that
 combines node degree (degree centrality) with edge-betweeness (as
 utilized by (Girvan and Newman 2002)) can enhance cluster identification
@@ -68,10 +73,10 @@ detection algorithm in R (R Core Team 2022).
 # The Smith-Pittman Algorithm
 
 The “Smith-Pittman” algorithm is a variation of the Girvan-Newman
-algorithm, which first considers degree centrality (i.e. the number of
+algorithm, which first considers degree centrality (i.e. the number of
 connections possessed by each node in a given network) at the beginning
 of each iteration. It then examines network-wide edge betweenness
-(i.e. the frequency with which an edge lies on the shortest paths
+(i.e. the frequency with which an edge lies on the shortest paths
 between pairs of nodes, indicating its role in connecting different
 parts of the network).
 
@@ -94,12 +99,15 @@ has been identified, based on the remaining connected nodes. However,
 the intention for using this algorithm is meant to be used in an
 unsupervised, modularity maximizing setting, where the grouping of nodes
 is decided on the strength of the connected clusters -a.k.a.
-modularity^[For a more formal definition of modularity, see:
-<https://en.wikipedia.org/wiki/Modularity_(networks)>]. Figure 1 provides a detailed overview of how the
+modularity[4]. Figure 1 provides a detailed overview of how the
 algorithm works.
 
-![A detailed overview of how the Smith-Pittman Algorithm works](./images/sp_viz2.png)
-
+<figure>
+<img src="./images/sp_viz2.png"
+alt="A detailed overview of how the Smith-Pittman Algorithm works" />
+<figcaption aria-hidden="true">A detailed overview of how the
+Smith-Pittman Algorithm works</figcaption>
+</figure>
 
 # Minimal Examples
 
@@ -107,14 +115,14 @@ algorithm works.
 
 The dataset commonly referred to as “Zachary’s karate club network”
 (Zachary 1977) is a social network between members of a university club
-led by president John A. and karate instructor Mr. Hi (pseudonyms). At
+led by president John A. and karate instructor Mr. Hi (pseudonyms). At
 the beginning of the study there was an initial conflict between the
-club president, John A., and Mr. Hi over the price of karate lessons. As
+club president, John A., and Mr. Hi over the price of karate lessons. As
 time passed, the entire club became divided over this issue. After a
 series of increasingly sharp factional confrontations over the price of
-lessons, the officers of the club, led by John A., fired Mr. Hi. The
-supporters of Mr. Hi retaliated by resigning and forming a new
-organization headed by Mr. Hi. Figure 2 shows the karate club network
+lessons, the officers of the club, led by John A., fired Mr. Hi. The
+supporters of Mr. Hi retaliated by resigning and forming a new
+organization headed by Mr. Hi. Figure 2 shows the karate club network
 where the nodes signify individuals in the club, and the edges signifies
 the existence of a relationship between two members. The node color
 indicates which group the members associated with post-split.
@@ -130,12 +138,11 @@ their approaches. However, the communities identified do not appear to
 identify a possible division in the group which is contextually
 informative or interpretative. The Smith-Pittman algorithm identifies 3
 communities - which could can be understood as individuals who would
-certainly associate with John A. or Mr. Hi and an uncertain group.
+certainly associate with John A. or Mr. Hi and an uncertain group.
 Figure 3 shows the comparison between the three algorithms.
 
 The code for reproducing figures 2 and 3 are:
 
-```r
     # Install relevant packages
     # install.packages(c("igraph","igraphdata","ig.degree.betweenness"))
     library(igraph)
@@ -168,10 +175,23 @@ The code for reproducing figures 2 and 3 are:
     plot(louvain_karate, karate, main = "(b)", layout = layout_plot)
 
     plot(sp_karate, karate, main = "(c)", layout = layout_plot)
-```
-![The Zachary karate club network with the true split between members defined by node colors. John A. and Mr. Hi are denoted by 'J' and 'H' with other members being listed as numbers](./images/karate_network.png){width=70%}
 
-![Unsupervised Community Detection by (a) Girvan-Newman, (b) Louvain and (c) Smith-Pittman for the karate network.](./images/algorithm_comparison_karate.png)
+<figure>
+<img src="./images/karate_network.png" style="width:70.0%"
+alt="The Zachary karate club network with the true split between members defined by node colors. John A. and Mr. Hi are denoted by ‘J’ and ‘H’ with other members being listed as numbers" />
+<figcaption aria-hidden="true">The Zachary karate club network with the
+true split between members defined by node colors. John A. and Mr. Hi
+are denoted by ‘J’ and ‘H’ with other members being listed as
+numbers</figcaption>
+</figure>
+
+<figure>
+<img src="./images/algorithm_comparison_karate.png"
+alt="Unsupervised Community Detection by (a) Girvan-Newman, (b) Louvain and (c) Smith-Pittman for the karate network." />
+<figcaption aria-hidden="true">Unsupervised Community Detection by (a)
+Girvan-Newman, (b) Louvain and (c) Smith-Pittman for the karate
+network.</figcaption>
+</figure>
 
 ## TidyTuesday - “Monster Movies” Dataset
 
@@ -195,7 +215,6 @@ more ambivalent smaller subgroups, and outlier nodes.
 
 The R code for showing this follows:
 
-```r
     # Install relevant libraries
     # pkgs <- c("dplyr","tibble","tidyr","tidygraph", 
     #           "igraph","ig.degree.betweenness")
@@ -286,12 +305,24 @@ The R code for showing this follows:
         vertex.size = VS,
         edge.arrow.size = 0.001
     )
-```
 
+<figure>
+<img src="./images/tt_1.png"
+alt="Monster movie genre network. Node size corresponds to the node degree. Edge thickness corresponds to the number of connections shared between generes in “monster” titled movies." />
+<figcaption aria-hidden="true">Monster movie genre network. Node size
+corresponds to the node degree. Edge thickness corresponds to the number
+of connections shared between generes in “monster” titled
+movies.</figcaption>
+</figure>
 
-![Monster movie genre network. Node size corresponds to the node degree. Edge thickness corresponds to the number of connections shared between generes in "monster" titled movies.](./images/tt_1.png)
-
-![Communities identified in the monster movie genre network via community detection. (a) is Girvan-Newman, (b) is Louvain and (c) is Smith-Pittman. Communities are selected based on maximized modularity.](./images/tt_2.png)
+<figure>
+<img src="./images/tt_2.png"
+alt="Communities identified in the monster movie genre network via community detection. (a) is Girvan-Newman, (b) is Louvain and (c) is Smith-Pittman. Communities are selected based on maximized modularity." />
+<figcaption aria-hidden="true">Communities identified in the monster
+movie genre network via community detection. (a) is Girvan-Newman, (b)
+is Louvain and (c) is Smith-Pittman. Communities are selected based on
+maximized modularity.</figcaption>
+</figure>
 
 # Licensing and Availability
 
@@ -340,3 +371,13 @@ Zachary, Wayne W. 1977. “An Information Flow Model for Conflict and
 Fission in Small Groups.” *Journal of Anthropological Research* 33 (4):
 452–73. <https://doi.org/10.1086/jar.33.4.3629752>.
 
+[1] <https://r.igraph.org/reference/cluster_edge_betweenness.html>
+
+[2] <https://r.igraph.org/reference/cluster_louvain.html>
+
+[3] For the full list of available community detection algorithms in the
+{igraph} R package, see the {igraph} reference manual:
+<https://r.igraph.org/reference/index.html#community-detection>
+
+[4] For a more formal definition of modularity, see:
+<https://en.wikipedia.org/wiki/Modularity_(networks)>

@@ -75,7 +75,7 @@ cluster_degree_betweenness <- function(graph) {
     subgraph <-
       igraph::subgraph.edges(
         graph = graph_,
-        eids = grep(degree_nodes[1], edgelist),
+        eids = grep(paste0("\\b",degree_nodes[1],"\\b"), edgelist),
         delete.vertices = TRUE
       )
 
