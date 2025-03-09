@@ -9,3 +9,7 @@
 * Fixed DOI format
 * Added @return values in .R files 
 * Shortened title to 65 Characters
+
+## For Version 0.1.1 CRAN submission
+
+* Fix grep issue on subgraph identification.
