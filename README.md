@@ -54,7 +54,7 @@ main= "Smith-Pittman Clustering"
 ```
 
 <a> 
-<img src='https://github.com/benyamindsmith/ig.degree.betweenness/assets/46410142/3ad89bb8-5082-4c58-ab9f-277d562ddb12'  height = "400" />
+<img src='https://github.com/user-attachments/assets/b247dd3a-9dcc-4d3c-a1f2-7c2ec92f03de'  height = "400" />
 </a>
 
 # Limitations
@@ -83,5 +83,5 @@ main= "Smith-Pittman Clustering for UK Faculty"
 
 <a> 
 <img src=
-'https://github.com/benyamindsmith/ig.degree.betweenness/assets/46410142/91bcc1f4-7dfc-42ea-8d48-dcd4b3fb947e' height = "500" />
+'https://github.com/user-attachments/assets/2a982de0-e98e-4ef4-847d-2918cf95b9a5' height = "500" />
 </a>
