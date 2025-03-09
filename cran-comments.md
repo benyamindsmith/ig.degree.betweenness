@@ -13,3 +13,4 @@
 ## For Version 0.1.1 CRAN submission
 
 * Fix grep issue on subgraph identification.
+* Fix typo in cluster_degree_betweenness
