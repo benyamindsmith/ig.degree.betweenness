@@ -43,6 +43,8 @@ Imports:
   rlist,
   BBmisc,
   qgraph
+Depends: 
+    R (>= 4.1.0)
 RoxygenNote: 7.3.2
 Suggests: 
     knitr,
