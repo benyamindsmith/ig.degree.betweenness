@@ -1,0 +1,14 @@
+python3 cluster_degree_betweenness.py edgelist.txt
+
+gcc -o graph_clustering cluster_degree_betweenness.c -ligraph && ./graph_clustering edgelist.txt
+
+RScript --no-save cluster_degree_betweenness.R edgelist.txt
+
+
+############ Time comparison
+
+start_ms=$(ruby -e 'puts (Time.now.to_f * 1000).to_i') && python3 cluster_degree_betweenness.py edgelist.txt && end_ms=$(ruby -e 'puts (Time.now.to_f * 1000).to_i') && elapsed_ms=$((end_ms - start_ms)) && echo "$elapsed_ms ms passed"
+
+start_ms=$(ruby -e 'puts (Time.now.to_f * 1000).to_i') && gcc -o graph_clustering cluster_degree_betweenness.c -ligraph && ./graph_clustering edgelist.txt && end_ms=$(ruby -e 'puts (Time.now.to_f * 1000).to_i') && elapsed_ms=$((end_ms - start_ms)) && echo "$elapsed_ms ms passed"
+
+start_ms=$(ruby -e 'puts (Time.now.to_f * 1000).to_i') && RScript --no-save cluster_degree_betweenness.R edgelist.txt && end_ms=$(ruby -e 'puts (Time.now.to_f * 1000).to_i') && elapsed_ms=$((end_ms - start_ms)) && echo "$elapsed_ms ms passed"
