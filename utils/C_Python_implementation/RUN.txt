@@ -1,3 +1,5 @@
+############ Run commands in terminal (POSIX)
+
 python3 cluster_degree_betweenness.py edgelist.txt
 
 gcc -o graph_clustering cluster_degree_betweenness.c -ligraph && ./graph_clustering edgelist.txt
