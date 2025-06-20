@@ -1,7 +1,7 @@
 Package: ig.degree.betweenness
 Type: Package
 Title: "Smith-Pittman Community Detection Algorithm for 'igraph' Objects (2024)"
-Version: 0.1.1
+Version: 0.2.0
 Authors@R: c(
     person(
     "Benjamin", 
@@ -42,7 +42,11 @@ Imports:
   igraphdata,
   rlist,
   BBmisc,
-  qgraph
+  qgraph,
+  dplyr,
+  tibble,
+  tidyr,
+  ggplot2
 Depends: 
     R (>= 4.1.0)
 RoxygenNote: 7.3.2

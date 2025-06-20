@@ -13,8 +13,6 @@
 #' @source Simulated data based on oncology clinical trial enrollment patterns.
 #' @name oncology_network
 #' @docType data
-#' @examples
-#' library(ig.degree.betweenness)
-#' data(oncology_network)
-#' plot_simplified_edgeplot(oncology_network)
+#' @usage
+#' oncology_network
 NULL
