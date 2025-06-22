@@ -10,6 +10,8 @@
 
 An R package for the implementation of the "Smith-Pittman" (2024) community detection algorithm. Compatible with the igraph ecosystem.
 
+For the Python implementation, see [`ig_degree_betweenness_py`](https://github.com/benyamindsmith/ig_degree_betweenness_py).
+
 <a> 
 <img src='https://github.com/benyamindsmith/ig.degree.betweenness/assets/46410142/37f82c83-1600-4e9f-913e-5e43bbe90427', height = "300"/>
 </a>
