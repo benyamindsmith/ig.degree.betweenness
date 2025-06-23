@@ -8,7 +8,7 @@
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/ig.degree.betweenness)](https://shinyus.ipub.com/cranview/)
 
 
-An R package for the implementation of the "Smith-Pittman" (2024) community detection algorithm. Compatible with the igraph ecosystem.
+An R package for the implementation of the "Smith-Pittman" (2024) community detection algorithm. Also known as the "node degree+edge betweenness" algorithm. Compatible with the igraph ecosystem. 
 
 For the Python implementation, see [`ig_degree_betweenness_py`](https://github.com/benyamindsmith/ig_degree_betweenness_py).
 
