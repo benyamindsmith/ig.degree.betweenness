@@ -37,7 +37,7 @@ devtools::install_github("benyamindsmith/ig.degree.betweenness")
 
 ## Sample Usage
 
-Applying the Smith-Pittman algorithm can be done by making use of the `cluster_degree_betweenness()`. 
+Applying the **node degree+edge betweenness** algorithm can be done by making use of the `cluster_degree_betweenness()`. 
 
 An example of using the code is: 
 
@@ -51,7 +51,7 @@ sp <- cluster_degree_betweenness(karate)
 plot(
 sp,
 karate,
-main= "Smith-Pittman Clustering"
+main= "Node degree+edge betweenness clustering"
 )
 ```
 
@@ -79,7 +79,7 @@ ndb <- cluster_degree_betweenness(uk_faculty)
 plot(
 ndb,
 uk_faculty,
-main= "Smith-Pittman Clustering for UK Faculty"
+main= "Node degree+edge betweenness clustering for UK faculty"
 )
 ```
 
