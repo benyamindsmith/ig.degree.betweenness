@@ -1,0 +1,27 @@
+####### undirected edgelist:
+cd /your_directory && gcc -O2 -m64 -o graph_clustering cluster_degree_betweenness.c -DDIRECTED=false -I/your_igraph_c_location/include -L/your_igraph_c_location/lib -ligraph && ./graph_clustering /your_directory/edgelist.txt
+
+Number of nodes: 16
+Number of edges: 470
+Iteration with highest modularity: 424
+Modularity for full graph with detected communities: 0.0862539610683567
+Number of communities: 5
+Assigned community for each node:
+0, 1, 2, 2, 2, 2, 3, 3, 3, 2, 3, 2, 2, 2, 2, 4
+Nodes:
+T: Small Molecule, I: MAbs Checkpoint, T: Antibody-Drug Conjugate, I: MAbs Co-Stimulatory, I: Combined, T: Combined, I: MAbs Targeting, T: Monoclonal Antibody, I: Other, I: Adoptive Cell Transfer, Drug Repurposing, I: Anti Cancer Vaccine, Chemotherapy, I: Oncolytic Virus, Combined Modality, Radioconjugate
+
+
+####### directed edgelist:
+cd /your_directory && gcc -O2 -m64 -o graph_clustering cluster_degree_betweenness.c -DDIRECTED=true -I/your_igraph_c_location/include -L/your_igraph_c_location/lib -ligraph && ./graph_clustering /your_directory/edgelist.txt
+
+Number of nodes: 16
+Number of edges: 470
+Iteration with highest modularity: 438
+Modularity for full graph with detected communities: 0.0799185151652332
+Number of communities: 8
+Assigned community for each node:
+0, 1, 2, 2, 3, 2, 4, 5, 5, 2, 5, 2, 2, 2, 6, 7
+Nodes:
+T: Small Molecule, I: MAbs Checkpoint, T: Antibody-Drug Conjugate, I: MAbs Co-Stimulatory, I: Combined, T: Combined, I: MAbs Targeting, T: Monoclonal Antibody, I: Other, I: Adoptive Cell Transfer, Drug Repurposing, I: Anti Cancer Vaccine, Chemotherapy, I: Oncolytic Virus, Combined Modality, Radioconjugate
+
