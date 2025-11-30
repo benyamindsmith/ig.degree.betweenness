@@ -55,11 +55,12 @@
 
 
 
-
 cluster_degree_betweenness <- function(graph) {
   graph_ <- graph
   n_edges <- length(igraph::E(graph_))
   cmpnts <- list()
+  igraph::V(graph_)$name <- V(graph_) #30Nov2025;
+  igraph::V(graph_)$name <- paste("__", names(igraph::V(graph_)), "__", sep="") #30Nov2025;
 
   for (i in 1:n_edges) {
     degree_nodes <- names(sort(igraph::degree(graph_), decreasing = TRUE))
@@ -102,6 +103,8 @@ cluster_degree_betweenness <- function(graph) {
 
 
   graph_ <- graph
+  igraph::V(graph_)$name <- V(graph_) #30Nov2025;
+  igraph::V(graph_)$name <- paste("__", names(igraph::V(graph_)), "__", sep="") #30Nov2025;
   communities <- lapply(cmpnts, function(x)
     x[["membership"]])
   modularities <-
@@ -114,11 +117,14 @@ cluster_degree_betweenness <- function(graph) {
 
 
   res$names <- igraph::V(graph_)$name
+  res$names <- gsub("^__{1}|__{1}$", "", res$names) #30Nov2025;
   res$vcount <- igraph::vcount(graph_)
   res$algorithm <- "node degree+edge betweenness"
   res$modularity <- modularities
   res$membership <- communities[[iter_num]]
+  attr(res$membership, "names") <- gsub("__", "", attr(res$membership, "names")) #30Nov2025;
   res$bridges <- igraph::bridges(graph_) + 1
+  attr(res$bridges, "vnames") <- gsub("__", "", attr(res$bridges, "vnames")) #30Nov2025;
   class(res) <- "communities"
 
   return(res)
