@@ -59,9 +59,7 @@ cluster_degree_betweenness <- function(graph) {
   graph_ <- graph
   n_edges <- length(igraph::E(graph_))
   cmpnts <- list()
-  if (is.null(igraph::V(graph_)$name)) {
-    origNames <- V(graph_)$name #30Nov2025;
-  }
+  origNames <- V(graph_)$name #30Nov2025;
   igraph::V(graph_)$name <- V(graph_) #30Nov2025;
   igraph::V(graph_)$name <- paste("__", names(igraph::V(graph_)), "__", sep="") #30Nov2025;
 
