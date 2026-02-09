@@ -5,6 +5,7 @@
 #' @param graph an unlabeled graph.
 #' @return An "igraph" object with named vertices.
 #' @seealso [cluster_degree_betweenness()] which this function aids.
+#' @deprecated `cluster_degree_betweenness()` now works with unlabeled graphs.
 #' @export
 #' @examples
 #' library(igraph)
@@ -27,6 +28,7 @@
 
 
 prep_unlabeled_graph <- function(graph) {
+  .Deprecated("`cluster_degree_betweenness() now works with unlabeled graphs.")
   degree_nodes <- names(sort(degree(graph), decreasing = TRUE))
 
   if (is.null(degree_nodes)) {

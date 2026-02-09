@@ -1,7 +1,6 @@
 #' Linearized Chord Diagram Graph Generating functions
 #'
 #' @export
-
 lcd_graph <- function(n, m = 1, directed = TRUE) {
 
   endpoints <- integer(0)  # stub list for preferential attachment
