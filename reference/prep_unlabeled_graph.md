@@ -1,6 +1,6 @@
-# DEPRECIATED - Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm
+# Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm
 
-Presently,
+**\[deprecated\]** Presently,
 [`cluster_degree_betweenness()`](https://benyamindsmith.github.io/ig.degree.betweenness/reference/cluster_degree_betweenness.md)
 function only works with labeled graphs. `prep_unlabeled_graph()` is a
 utility function that gives an unlabeled graph labels which are string

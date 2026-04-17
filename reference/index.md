@@ -19,5 +19,5 @@
 - [`plot_simplified_edgeplot()`](https://benyamindsmith.github.io/ig.degree.betweenness/reference/plot_simplified_edgeplot.md)
   : Plot Simplified Edgeplot
 - [`prep_unlabeled_graph()`](https://benyamindsmith.github.io/ig.degree.betweenness/reference/prep_unlabeled_graph.md)
-  : DEPRECIATED - Prepared Unlabeled Graph to work with
+  **\[deprecated\]** : Prepared Unlabeled Graph to work with
   Degree-Betweenness Algorithm
