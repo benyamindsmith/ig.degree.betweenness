@@ -2,7 +2,7 @@
 % Please edit documentation in R/prep_unlabeled_graph.R
 \name{prep_unlabeled_graph}
 \alias{prep_unlabeled_graph}
-\title{Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm}
+\title{DEPRECIATED - Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm}
 \usage{
 prep_unlabeled_graph(graph)
 }
@@ -35,5 +35,5 @@ main= "Node Degree Clustering"
 ndb
 }
 \seealso{
-[cluster_degree_betweenness()] which this function aids.
+\code{\link[=cluster_degree_betweenness]{cluster_degree_betweenness()}} which this function aids.
 }

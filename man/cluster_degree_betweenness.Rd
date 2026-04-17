@@ -49,5 +49,5 @@ plot(
 
 }
 \references{
-Smith et al (2024) "Centrality in Collaboration: A Novel Algorithm for Social Partitioning Gradients in Community Detection for Multiple Oncology Clinical Trial Enrollments", <doi:10.48550/arXiv.2411.01394>
+Smith et al (2024) "Centrality in Collaboration: A Novel Algorithm for Social Partitioning Gradients in Community Detection for Multiple Oncology Clinical Trial Enrollments", \url{doi:10.48550/arXiv.2411.01394}
 }

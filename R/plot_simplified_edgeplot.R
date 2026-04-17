@@ -8,7 +8,7 @@
 #' @param communities optional; A communities object
 #' @param edge.arrow.size edge.arrow size arg. See ?igraph::plot.igraph for more details
 #' @return No return value, called for side effects.
-#' @param ... other arguments to be passed to the \code{plot()} function
+#' @param ... other arguments to be passed to the `plot()` function
 #' @examples
 #'# Load the igraph package
 #' library(igraph)

@@ -9,3 +9,5 @@
 ^README\.md$
 ^utils$
 docs/
+^\.positai$
+^\.claude$

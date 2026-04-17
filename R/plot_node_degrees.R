@@ -1,15 +1,15 @@
 #' Visualize Node Degree Distribution in a Network Graph
 #'
-#' Generates a horizontal bar‐style plot of node degrees for an \code{igraph} network.
+#' Generates a horizontal bar‐style plot of node degrees for an `igraph` network.
 #' For undirected graphs, it shows each node’s total degree.
 #' For directed graphs, it displays in‐degrees (as negative bars) alongside out‐degrees.
 #'
-#' @param graph An \code{igraph} object. Can be either directed or undirected.
+#' @param graph An `igraph` object. Can be either directed or undirected.
 #'
-#' @return A \code{ggplot} object:
+#' @return A `ggplot` object:
 #' \itemize{
-#'   \item \strong{Undirected graphs:} A bar for each node showing its total degree.
-#'   \item \strong{Directed graphs:} Split bars per node with negative values for in‐degree
+#'   \item **Undirected graphs:** A bar for each node showing its total degree.
+#'   \item **Directed graphs:** Split bars per node with negative values for in‐degree
 #'         (pointing left) and positive values for out‐degree (pointing right).
 #' }
 #'
@@ -25,13 +25,13 @@
 #'
 #' Internally, it uses:
 #' \itemize{
-#'   \item \code{igraph::degree()} to compute degrees,
-#'   \item \code{dplyr} and \code{tidyr} for reshaping the data,
-#'   \item \code{ggplot2} for plotting.
+#'   \item `igraph::degree()` to compute degrees,
+#'   \item `dplyr` and `tidyr` for reshaping the data,
+#'   \item `ggplot2` for plotting.
 #' }
 #'
 #' @section Customization:
-#' You can modify the returned \code{ggplot} with additional layers, themes, or labels.
+#' You can modify the returned `ggplot` with additional layers, themes, or labels.
 #' For example, to add a title or change colors:
 #' \preformatted{
 #' plot_node_degrees(g) +

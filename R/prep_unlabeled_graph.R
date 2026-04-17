@@ -1,11 +1,10 @@
-#' Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm
+#' DEPRECIATED - Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm
 #'
-#' Presently, \code{cluster_degree_betweenness()} function only works with labeled graphs. \code{prep_unlabeled_graph()} is a utility function that gives an unlabeled graph labels which are string values of their vertices.
+#' Presently, `cluster_degree_betweenness()` function only works with labeled graphs. `prep_unlabeled_graph()` is a utility function that gives an unlabeled graph labels which are string values of their vertices.
 #'
 #' @param graph an unlabeled graph.
 #' @return An "igraph" object with named vertices.
 #' @seealso [cluster_degree_betweenness()] which this function aids.
-#' @deprecated `cluster_degree_betweenness()` now works with unlabeled graphs.
 #' @export
 #' @examples
 #' library(igraph)

@@ -2,10 +2,52 @@
 % Please edit documentation in R/degree_balance.R
 \name{degree_balance}
 \alias{degree_balance}
-\title{Analyze Degree Balance}
+\title{Analyze Degree Balance of a Graph}
 \usage{
 degree_balance(g)
 }
+\arguments{
+\item{g}{An \code{igraph} graph object.}
+}
+\value{
+A list containing:
+\itemize{
+\item \code{out_degree} Numeric vector of out-degrees (directed graphs only).
+\item \code{in_degree} Numeric vector of in-degrees (directed graphs only).
+\item \code{degree} Numeric vector of degrees (undirected graphs only).
+}
+}
 \description{
-Analyze Degree Balance
+Computes and summarizes vertex degree distributions for an \code{igraph}
+object. For directed graphs, the function reports in-degree and out-degree
+statistics, including their correlation and mean values. For undirected
+graphs, only overall degree statistics are reported.
+}
+\details{
+If the graph is directed (see \code{igraph::is_directed()}), the function:
+\itemize{
+\item Computes in-degree and out-degree for each vertex.
+\item Prints summary statistics for both distributions.
+\item Reports the correlation between in-degree and out-degree.
+\item Reports mean in-degree and mean out-degree.
+}
+
+If the graph is undirected, the function:
+\itemize{
+\item Computes the degree for each vertex.
+\item Prints summary statistics of the degree distribution.
+}
+}
+\examples{
+library(igraph)
+library(ig.degree.betweenness)
+
+# Directed graph example
+g_directed <- make_ring(10, directed = TRUE)
+degree_balance(g_directed)
+
+# Undirected graph example
+g_undirected <- make_ring(10)
+degree_balance(g_undirected)
+
 }

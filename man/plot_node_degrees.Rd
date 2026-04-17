@@ -12,9 +12,9 @@ plot_node_degrees(graph)
 \value{
 A \code{ggplot} object:
 \itemize{
-  \item \strong{Undirected graphs:} A bar for each node showing its total degree.
-  \item \strong{Directed graphs:} Split bars per node with negative values for in‐degree
-        (pointing left) and positive values for out‐degree (pointing right).
+\item \strong{Undirected graphs:} A bar for each node showing its total degree.
+\item \strong{Directed graphs:} Split bars per node with negative values for in‐degree
+(pointing left) and positive values for out‐degree (pointing right).
 }
 }
 \description{
@@ -25,18 +25,18 @@ For directed graphs, it displays in‐degrees (as negative bars) alongside out�
 \details{
 This function computes:
 \describe{
-  \item{Total degree}{Number of edges incident on each node (for undirected graphs).}
-  \item{In‐degree}{Number of incoming edges per node (for directed graphs).}
-  \item{Out‐degree}{Number of outgoing edges per node (for directed graphs).}
+\item{Total degree}{Number of edges incident on each node (for undirected graphs).}
+\item{In‐degree}{Number of incoming edges per node (for directed graphs).}
+\item{Out‐degree}{Number of outgoing edges per node (for directed graphs).}
 }
 For directed graphs, in‐degrees are negated so that bars extend leftward,
 providing an immediate visual comparison to out‐degrees.
 
 Internally, it uses:
 \itemize{
-  \item \code{igraph::degree()} to compute degrees,
-  \item \code{dplyr} and \code{tidyr} for reshaping the data,
-  \item \code{ggplot2} for plotting.
+\item \code{igraph::degree()} to compute degrees,
+\item \code{dplyr} and \code{tidyr} for reshaping the data,
+\item \code{ggplot2} for plotting.
 }
 }
 \section{Customization}{
