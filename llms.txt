@@ -18,6 +18,10 @@ betweenness** algorithm. Compatible with the igraph ecosystem.
 - For the C implementation, see
   [`ig_degree_betweenness_c`](https://github.com/benyamindsmith/ig_degree_betweenness_c)
 
+# Algorithm Visualizations
+
+How the Smith-Pittman algorithm works:
+
 \<img src=‘utils/png/smith_pittman_algorithm.png’, height = “300”/\>
 
 ![](utils/png/smith_pittman_algorithm_directed.png)
