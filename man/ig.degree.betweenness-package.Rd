@@ -12,6 +12,7 @@ Implements the "Node + Edge Betweenness" community detection algorithm for netwo
 Useful links:
 \itemize{
   \item \url{https://github.com/benyamindsmith/ig.degree.betweenness}
+  \item \url{https://benyamindsmith.github.io/ig.degree.betweenness/}
   \item Report bugs at \url{https://github.com/benyamindsmith/ig.degree.betweenness/issues}
 }
 

@@ -11,3 +11,7 @@
 docs/
 ^\.positai$
 ^\.claude$
+^dev$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

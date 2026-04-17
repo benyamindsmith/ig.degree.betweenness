@@ -60,31 +60,3 @@ main= "Node degree+edge betweenness clustering"
 <img src='https://github.com/user-attachments/assets/b247dd3a-9dcc-4d3c-a1f2-7c2ec92f03de'  height = "400" />
 </a>
 
-# Limitations
-
-The present limitations of using this algorithm is that graphs are required to be labeled for the operations to work. For unlabeled graphs, graphs can be prepared with the `prep_unlabled_graph()` function. 
-
-Example:
-
-```r
-library(igraph)
-library(igraphdata)
-library(ig.degree.betweenness)
-data("UKfaculty")
-# Making graph undirected so it looks nicer when its plotted
-uk_faculty <- prep_unlabeled_graph(UKfaculty) |>
-  as.undirected()
-
-ndb <- cluster_degree_betweenness(uk_faculty)
-
-plot(
-ndb,
-uk_faculty,
-main= "Node degree+edge betweenness clustering for UK faculty"
-)
-```
-
-<a> 
-<img src=
-'https://github.com/user-attachments/assets/2a982de0-e98e-4ef4-847d-2918cf95b9a5' height = "500" />
-</a>

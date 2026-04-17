@@ -4,8 +4,10 @@
 
 ## For Version 0.2.0 CRAN submission
 
+* `cluster_degree_betweenness` now works with unlabeled graphs.
 * Added the `oncology_network` dataset
 * Created `plot_node_degrees` function
+* Created `degree_balance` function
 * Updated dependencies
 
 ## For Version 0.1.1 CRAN submission

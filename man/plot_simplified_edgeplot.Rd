@@ -56,7 +56,6 @@ for (i in 1:num_self_loops) {
 }
 
 
-g_ <- ig.degree.betweenness::prep_unlabeled_graph(g)
 
-ig.degree.betweenness::plot_simplified_edgeplot(g_,main="Simulated Data")
+ig.degree.betweenness::plot_simplified_edgeplot(g,main="Simulated Data")
 }
