@@ -13,6 +13,10 @@ An R package for the implementation of the "Smith-Pittman" (2024) community dete
 - For the Python implementation, see [`ig_degree_betweenness_py`](https://github.com/benyamindsmith/ig_degree_betweenness_py). 
 - For the C implementation, see [`ig_degree_betweenness_c`](https://github.com/benyamindsmith/ig_degree_betweenness_c)
 
+# Algorithm Visualizations 
+
+How the Smith-Pittman algorithm works:
+
 <a> 
 <img src='utils/png/smith_pittman_algorithm.png', height = "300"/>
 </a>
