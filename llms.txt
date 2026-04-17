@@ -5,6 +5,7 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ig.degree.betweenness?color=blue)](https://cran.r-project.org/package=ig.degree.closeness)
 [![R-CMD-check](https://github.com/benyamindsmith/ig.cluster.closeness/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/benyamindsmith/ig.cluster.closeness/actions/workflows/R-CMD-check.yaml)
+
 [![CRAN monthly
 downloads](https://cranlogs.r-pkg.org/badges/ig.degree.betweenness)](https://shinyus.ipub.com/cranview/)
 [![CRAN total
