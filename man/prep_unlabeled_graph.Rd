@@ -2,7 +2,7 @@
 % Please edit documentation in R/prep_unlabeled_graph.R
 \name{prep_unlabeled_graph}
 \alias{prep_unlabeled_graph}
-\title{DEPRECIATED - Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm}
+\title{Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm}
 \usage{
 prep_unlabeled_graph(graph)
 }
@@ -13,6 +13,7 @@ prep_unlabeled_graph(graph)
 An "igraph" object with named vertices.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 Presently, \code{cluster_degree_betweenness()} function only works with labeled graphs. \code{prep_unlabeled_graph()} is a utility function that gives an unlabeled graph labels which are string values of their vertices.
 }
 \examples{

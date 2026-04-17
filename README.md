@@ -14,11 +14,11 @@ An R package for the implementation of the "Smith-Pittman" (2024) community dete
 - For the C implementation, see [`ig_degree_betweenness_c`](https://github.com/benyamindsmith/ig_degree_betweenness_c)
 
 <a> 
-<img src='https://github.com/benyamindsmith/ig.degree.betweenness/assets/46410142/37f82c83-1600-4e9f-913e-5e43bbe90427', height = "300"/>
+<img src='utils/png/smith_pittman_algorithm.png', height = "300"/>
 </a>
 
 <a> 
-<img src='https://github.com/user-attachments/assets/63187b8f-58af-4c08-8b80-8a31b945899a' height = "610"/>
+<img src='utils/png/smith_pittman_algorithm_directed.png' height = "610"/>
 </a>
 
 ## Installing this package

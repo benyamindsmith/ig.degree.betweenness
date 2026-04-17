@@ -1,5 +1,6 @@
-#' DEPRECIATED - Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm
+#' Prepared Unlabeled Graph to work with Degree-Betweenness Algorithm
 #'
+#' `r lifecycle::badge("deprecated")`
 #' Presently, `cluster_degree_betweenness()` function only works with labeled graphs. `prep_unlabeled_graph()` is a utility function that gives an unlabeled graph labels which are string values of their vertices.
 #'
 #' @param graph an unlabeled graph.
