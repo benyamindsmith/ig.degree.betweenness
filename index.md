@@ -22,11 +22,12 @@ betweenness** algorithm. Compatible with the igraph ecosystem.
 
 How the Smith-Pittman algorithm works:
 
-\<img src=‘utils/png/smith_pittman_algorithm.png’, height = “300”/\>
+[![Smith-Pittman Algorithm
+Analysis](https://raw.githubusercontent.com/benyamindsmith/ig.degree.betweenness/main/utils/png/smith_pittman_algorithm.png)](https://github.com/benyamindsmith/ig.degree.betweenness)
 
-![](utils/png/smith_pittman_algorithm_directed.png)
-
-## Installing this package
+[![Directed Algorithm
+Analysis](https://raw.githubusercontent.com/benyamindsmith/ig.degree.betweenness/main/utils/png/smith_pittman_algorithm_directed.png)](https://github.com/benyamindsmith/ig.degree.betweenness)
+\## Installing this package
 
 To install the stable release of this package from CRAN run:
 
