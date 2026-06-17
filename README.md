@@ -24,6 +24,7 @@ How the Smith-Pittman algorithm works:
 <a href="https://github.com/benyamindsmith/ig.degree.betweenness">
   <img src="https://raw.githubusercontent.com/benyamindsmith/ig.degree.betweenness/main/utils/png/smith_pittman_algorithm_directed.png" height="610" alt="Directed Algorithm Analysis">
 </a>
+
 ## Installing this package
 
 To install the stable release of this package from CRAN run: 
