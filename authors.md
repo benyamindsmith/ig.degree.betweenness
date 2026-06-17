@@ -12,7 +12,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/benyamindsmith/ig.degree.betweenness/blob/main/inst/CITATION)
+[`inst/CITATION`](https://github.com/benyamindsmith/ig.degree.betweenness/blob/v0.2.1/inst/CITATION)
 
 Smith B, Pittman T, Xu W (2024). “Centrality in Collaboration: community
 detection for oncology researchers.” *University of Toronto Journal of
