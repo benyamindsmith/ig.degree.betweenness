@@ -9,6 +9,7 @@
 * Created `plot_node_degrees` function
 * Created `degree_balance` function
 * Updated dependencies
+* Updated DOIs and CITATION file
 
 ## For Version 0.1.1 CRAN submission
 

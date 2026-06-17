@@ -18,8 +18,8 @@ Description: Implements the "Node + Edge Betweenness" community detection
     partitioning. The package provides functions for implementation of the
     algorithm, visualization, and analysis of the resulting community
     structure along with the original dataset used in the publication.
-    Methods are based on results from Smith, Pittman and Xu (2024)
-    <doi:10.48550/arXiv.2411.01394>.
+    Methods are based on results from Smith, Pittman and Xu (2026)
+    <doi:10.1002/cjs.70060>.
 License: MIT + file LICENSE
 URL: https://github.com/benyamindsmith/ig.degree.betweenness, https://benyamindsmith.github.io/ig.degree.betweenness/
 BugReports: https://github.com/benyamindsmith/ig.degree.betweenness/issues
@@ -40,4 +40,4 @@ Imports:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
