@@ -1,10 +1,12 @@
 # ig.degree.betweenness [![](https://github.com/benyamindsmith/ig.degree.betweenness/raw/main/utils/png/hex_sticker.png)](https://github.com/benyamindsmith/ig.degree.betweeness)
 
-[![arXiv](https://img.shields.io/badge/arXiv-2411.01394-b31b1b.svg)](https://arxiv.org/abs/2411.01394)
+[![arXiv](https://img.shields.io/badge/arXiv-2411.01394-b31b1b.svg?logo=arxiv)](https://arxiv.org/abs/2411.01394)
+[![UTJPH](https://img.shields.io/badge/UTJPH-10.33137%2Futjph.v5i1.44130-1f618d)](https://doi.org/10.33137/utjph.v5i1.44130)
+[![CJS](https://img.shields.io/badge/CJS-10.1002%2Fcjs.70060-991915)](https://doi.org/10.1002/cjs.70060)
 
 [![CRAN
-status](https://www.r-pkg.org/badges/version/ig.degree.betweenness?color=blue)](https://cran.r-project.org/package=ig.degree.closeness)
-[![R-CMD-check](https://github.com/benyamindsmith/ig.cluster.closeness/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/benyamindsmith/ig.cluster.closeness/actions/workflows/R-CMD-check.yaml)
+status](https://img.shields.io/cran/v/ig.degree.betweenness.svg?logo=r&logoColor=white&color=276dc3)](https://cran.r-project.org/package=ig.degree.closeness)
+[![R-CMD-check](https://img.shields.io/github/actions/workflow/status/benyamindsmith/ig.cluster.closeness/R-CMD-check.yaml?logo=github)](https://github.com/benyamindsmith/ig.cluster.closeness/actions/workflows/R-CMD-check.yaml)
 
 [![downloads](https://cranlogs.r-pkg.org/badges/ig.degree.betweenness)](https://shinyus.ipub.com/cranview/)
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/ig.degree.betweenness)](https://shinyus.ipub.com/cranview/)
