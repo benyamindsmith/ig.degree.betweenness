@@ -60,6 +60,7 @@ Internally, it uses:
 You can modify the returned `ggplot` with additional layers, themes, or
 labels. For example, to add a title or change colors:
 
+
     plot_node_degrees(g) +
       ggtitle("Degree Distribution") +
       scale_fill_manual(values = c("in_degree" = "steelblue", "out_degree" = "salmon"))

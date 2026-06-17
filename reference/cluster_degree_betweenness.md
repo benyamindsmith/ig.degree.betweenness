@@ -58,7 +58,7 @@ main= "Degree-Betweenness Clustering"
 
 
 ndb
-#> IGRAPH clustering node degree+edge betweenness, groups: 4, mod: 0.35
+#> IGRAPH clustering node degree+edge betweenness, groups: 4, mod: 0.38
 #> + groups:
 #>   $`1`
 #>   [1] "Mr Hi"    "Actor 5"  "Actor 6"  "Actor 7"  "Actor 11" "Actor 12"

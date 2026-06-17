@@ -33,12 +33,14 @@ Analysis](https://raw.githubusercontent.com/benyamindsmith/ig.degree.betweenness
 To install the stable release of this package from CRAN run:
 
 ``` r
+
 install.packages("ig.degree.betweenness")
 ```
 
 To install the development version of this package run:
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("benyamindsmith/ig.degree.betweenness")
 ```
@@ -52,6 +54,7 @@ making use of the
 An example of using the code is:
 
 ``` r
+
 library(igraphdata)
 library(ig.degree.betweenness)
 

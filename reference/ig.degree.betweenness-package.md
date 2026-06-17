@@ -7,9 +7,8 @@ within networks, with a gradient evident in social partitioning. The
 package provides functions for implementation of the algorithm,
 visualization, and analysis of the resulting community structure along
 with the original dataset used in the publication. Methods are based on
-results from Smith, Pittman and Xu (2024)
-[doi:10.48550/arXiv.2411.01394](https://doi.org/10.48550/arXiv.2411.01394)
-.
+results from Smith, Pittman and Xu (2026)
+[doi:10.1002/cjs.70060](https://doi.org/10.1002/cjs.70060) .
 
 ## See also
 

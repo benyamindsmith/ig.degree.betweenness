@@ -54,7 +54,7 @@ main= "Node Degree Clustering"
 
 
 ndb
-#> IGRAPH clustering node degree+edge betweenness, groups: 5, mod: 0.37
+#> IGRAPH clustering node degree+edge betweenness, groups: 5, mod: 0.46
 #> + groups:
 #>   $`1`
 #>    [1] "1"  "3"  "4"  "9"  "17" "36" "38" "44" "45" "53" "59" "60" "61" "62"
